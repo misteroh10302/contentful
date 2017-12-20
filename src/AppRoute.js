@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Posts from "./Posts";
 import App from "./App";
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
-
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 // import Canvas from 'react-canvas-component'
 
 var contentful = require('contentful')
@@ -69,7 +66,7 @@ class AppRoute extends Component {
       <BrowserRouter>
         <nav>
             {this.state.homepage.map((nav, i) =>
-                 <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'')} tag={nav.title} children={({match}) => {
+                 <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'')} tag={nav.title} children={({match}) => {
                     if (match) return  <App theName={nav.fields.issueNumberMain} >
                     </App>
                   return null;

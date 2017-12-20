@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "contentful": "^5.0.5",
     "jquery": "^3.2.1",
     "marked": "^0.3.6",
     "react": "^15.6.1",
@@ -16,9 +17,15 @@
     "react-scrollchor": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts-with-sass start",
+    "build": "react-scripts-with-sass build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "sass --watch src/Autscss:src/Autumn.css"
+  },
+  "devDependencies": {
+    "create-react-app-sass": "^1.1.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   }
 }

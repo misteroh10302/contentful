@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Marked from 'marked';
 import Scrollchor from 'react-scrollchor';
-import {asSheet} from './Wrapped';
+import $ from 'jquery'
 
 class Posts extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Posts extends Component {
       top: '0px',
       stickyTop: 0
     }
+
   }
 
   handleResize = () => {
@@ -26,21 +27,31 @@ class Posts extends Component {
   calculateTop = () => {
     if (!this.element) return
     this.setState({
-      stickyTop: Math.min(0, window.innerHeight - this.element.offsetHeight),
+      stickyTop: Math.min(0, window.innerHeight - this.element.offsetHeight -100),
     })
   }
 
   registerRef = (element) => {
-    this.element = element
-    this.calculateTop()
+    this.element = element;
+    this.calculateTop();
   }
-
 
   componentDidMount() {
-    	window.addEventListener('resize', this.handleResize)
-      this.calculateTop()
+
+      window.addEventListener('resize', this.handleResize)
+
+       this.calculateTop()
+       const interval = setInterval(() => {
+           if (document.readyState === 'complete') {
+               clearInterval(interval)
+               setTimeout(this.calculateTop, 1000)
+           }
+       }, 500)
   }
 
+  componentDidUpdate(){
+
+  }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize)
@@ -64,14 +75,20 @@ class Posts extends Component {
     let videoB
     let ex = null;
     let animation = null
+    let sidetext = null;
 
       // If the post has an excerpt set it to a markup variable
       if (this.props.content.fields.excerpt) {
          ex = Marked(this.props.content.fields.excerpt);
       }
 
+
+      if (this.props.content.fields.sideHeaderText) {
+         sidetext = this.props.content.fields.sideHeaderText;
+      }
+
       // If the post has a background image
-      if (this.props.content.fields.backgroundImage.fields.file.url) {
+      if (this.props.content.fields.backgroundImage !== undefined ) {
         background = this.props.content.fields.backgroundImage.fields.file.url;
       }  else {
           background = null;
@@ -84,13 +101,15 @@ class Posts extends Component {
           videoB = 'videoBackground'
       }
 
+      // If text animation needs to occur
       if (this.props.content.fields.textAnimation === true) {
         animation = "animate"
       }
 
       return (
-        <div style={styles} className={` ${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={this.props.content.fields.title.replace(/ /g,'')} ref={this.registerRef}>
-            <article style={{backgroundColor: this.props.content.fields.backgroundColor ,color: this.props.content.fields.fontColor}} className={animation}>
+        <div style={styles} className={`${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={this.props.content.fields.title.replace(/ /g,'').replace(/'/g,'')}  ref={this.registerRef}>
+            <article style={{backgroundColor: this.props.content.fields.backgroundColor ,color: this.props.content.fields.fontColor, borderColor: this.props.content.fields.imageBackgroundColorOnHover}} className={animation} ref={ (divElement) => this.divElement = divElement}>
+                <small className="sideHeader"><span>{sidetext} </span> <Scrollchor className="back" to="#contents">Back to contents</Scrollchor></small>
               <header style={{backgroundImage: `url(${background})`, color:this.props.content.fields.fontColor }}>
                 <h1>{this.props.content.fields.title}</h1>
                 <h2 className="desktop" dangerouslySetInnerHTML={ { __html: ex}  }></h2>

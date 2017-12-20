@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Posts from "./Posts";
+import Newsletter from "./Newsletter";
 import Scrollchor from 'react-scrollchor';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
-
-
 // import Canvas from 'react-canvas-component'
 
 var contentful = require('contentful')
@@ -19,11 +18,12 @@ class App extends Component {
       nav: [],
       posts: [],
       homepage: [],
-      stateName: props.theName
+      stateName: props.theName,
+      height: 'auto',
+      openForm: "hidden"
     }
     this.clickImage = this.clickImage.bind(this);
   }
-
 
   componentWillMount(){
     var client = contentful.createClient({
@@ -56,40 +56,64 @@ class App extends Component {
   }
 
   componentDidMount(){
-      console.log(this.state.homepage);
+        const height = this.articleEl.clientHeight;
+        this.setState({ height });
+        console.log('finished');
   }
   componentDidUpdate(){
     var that = this;
-    var allImages = document.querySelectorAll('article img');
-
+    var allImages = document.querySelectorAll('.imageClick img');
     // Wrap each image in a div called image-inline to create a backgroundColor
     // Make an on click event for mobile
-    allImages.forEach(function(e){
-      // Check to see if the element already has a title element added
-      // If it does not add one
-      if (e.nextElementSibling == undefined) {
-        var newDiv = document.createElement('h3');
-        var theDiv = document.createElement('div');
-        var theBackgroundColor = $(e).closest('article');
-        var theB = theBackgroundColor[0].style.color
-        var theBC = theBackgroundColor[0].style.backgroundColor
-        $(theDiv).addClass('image-inline')
-        $(theDiv).css({'background-color': theB, 'color':theBC });
-        newDiv.innerHTML = e.alt;
-        $(e).wrap(theDiv);
-        $(e).after(newDiv);
-      }  else {
-        return
+    var allImagesLength = allImages.length;
+
+      if ($('.image-inline').length < allImagesLength) {
+        allImages.forEach(function(e){
+
+
+           // Check to see if the element already has a title element added
+          // If it does not add one
+
+            var newDiv = document.createElement('h3');
+            var theDiv = document.createElement('div');
+            var theBackgroundColor = $(e).closest('article');
+            var theB = theBackgroundColor[0].style.borderColor;
+            var theBC = theBackgroundColor[0].style.backgroundColor;
+            $(theDiv).addClass('image-inline');
+            $(theDiv).css({'background-color': theB, 'color':theBC });
+            newDiv.innerHTML = e.alt;
+            $(e).wrap(theDiv);
+            $(e).after(newDiv);
+
+        })
+
       }
-      e.addEventListener('click', that.clickImage);
-    })
 
     // Animate the divs onto the page if animate = true
     let animateElements = document.querySelectorAll('.animate section p > div ')
+    let addsideHeader = document.querySelectorAll('.App-intro div');
     // For reach loop to see if the element is on the screen
+    window.addEventListener('scroll', scrollEvents);
+    function scrollEvents() {
+      // As the use scrolls
+      // If the scroll top is greater than the scroll top of the element add a class activeArticle
+      // Else if the scroll top is greater than the height of the element remove class astiveArticle
+      // else if the scroll top is less than the top of the element + the height remove class activeArticle
+      addsideHeader.forEach((e) => {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
 
-    window.addEventListener('scroll', animateAll);
-    function animateAll() {
+        var elemTop = $(e).offset().top + $(window).height() - 70;
+        // var elemBottom = elemTop + $(e).height();
+
+        if ( docViewBottom > elemTop ){
+           $(e).addClass('fixSub');
+        }  else {
+          $(e).removeClass('fixSub');
+        }
+      });
+
+      // animate any meat element
       animateElements.forEach((e) => {
         var docViewTop = $(window).scrollTop();
         var docViewBottom = docViewTop + $(window).height();
@@ -103,11 +127,25 @@ class App extends Component {
       });
     }
 
-
+    var articleHeight = {
+      top: Math.min(0, window.innerHeight + this.state.height - 190)
+    }
   }
   clickImage = (e) => {
     var theEl = e.target;
     var theTitle = e.target.alt;
+  }
+
+  openNews(){
+    this.setState({
+      openForm: 'form-open'
+    });
+  }
+
+  closeNews(){
+    this.setState({
+      openForm: 'hidden'
+    });
   }
 
   render() {
@@ -135,12 +173,19 @@ class App extends Component {
     // Get all of the article titles and match them to the title of the magazineTitle
     // Once these are matched create a scrollable anchor tag
     articleItems = this.state.contents.map(function(content,i){
+        let thumbnail
+         if (content.fields.thumbnail !== undefined) {
+            thumbnail = content.fields.thumbnail.fields.file.url
+         } else {
+            thumbnail = null
+         }
+
         if (content.fields.issueName === this.state.stateName ){
           return(
-            <Scrollchor to={`#${content.fields.title.replace(/ /g,'')}`} key={content.sys.id}>
+            <Scrollchor to={`#${content.fields.title.replace(/ /g,'').replace(/'/g,'')}`} key={content.sys.id}>
               <div key={content.sys.id} className={`${content.fields.issueName}`}>
                 <h1>{content.fields.title}</h1>
-                <img src={content.fields.thumbnail.fields.file.url} alt="" />
+                <img src={thumbnail} alt="" />
               </div>
             </Scrollchor>
           )
@@ -158,20 +203,24 @@ class App extends Component {
             }
         }.bind(this));
 
-    return (
 
+    return (
       <div className={`App ${this.props.theName}`}>
         <nav>
+          <img src="http://images.contentful.com/a7w606b3ho4t/5u3fwMgCZy4UswWS0SSsiA/96b5fa5bbe21db40ad68681efb73bd79/RareMedium_BadgeLandscape_REV.png" alt="" />
               {this.state.homepage.map((item,i) =>
                   <Link onClick={this.updateStateName} key={item.sys.id} to={`/${item.fields.magazineTitle.replace(/ /g,'')}`}>{item.fields.magazineTitle}</Link>
               )}
+          <div className="newsButton" onClick={this.openNews.bind(this)}>
+            <h3>EMAG</h3>
+          </div>
         </nav>
         <div className="App-header">
           {indexItems}
         </div>
         <span  id="contents"> </span>
         <section id="lower">
-          <div className="articleIndex" >
+          <div className="articleIndex" ref={ (articleEl) => this.articleEl = articleEl} style={{'top': "-"+this.state.height}}>
             <h3>Table of content</h3>
             {articleItems}
           </div>
@@ -179,7 +228,7 @@ class App extends Component {
             {thePosts}
           </div>
         </section>
-
+        <Newsletter isOpen={this.state.openForm} closeForm={this.closeNews.bind(this)}/>
       </div>
     );
   }

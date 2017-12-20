@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAkB;EAChB,KAAK,EAAE,KAAK;EACZ,KAAK,EAAC,IAAI;EACV,aAAa,EAAE,IAAI",
+"sources": ["Aut.scss"],
+"names": [],
+"file": "Autumn.css"
+}

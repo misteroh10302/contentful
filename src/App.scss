@@ -3,6 +3,16 @@
   padding:0;
 }
 
+@font-face {
+  src: url(//assets.contentful.com/a7w606b3ho4t/43mBXrVckgYMukWc6CW0iy/300281cdd282277cea67f8be0fe1b678/Filosofia_Regular.otf);
+  font-family: "Filosofia";
+}
+
+@font-face {
+  src: url(//assets.contentful.com/a7w606b3ho4t/3uuI8PJNsASAMG2Ccwumuq/491cfdbbe5f00b51b2177ccc503cfe84/LibreBodoni-Regular.ttf);
+  font-family: "LibreBodoni";
+}
+
 a {
   color:inherit;
   text-decoration: none;
@@ -16,7 +26,7 @@ a {
   height: 80px;
 }
 .App-header {
-
+    margin-top: 100px;
 }
 .App-header header{
   height: 100vh;
@@ -30,12 +40,12 @@ a {
 
 .App-header header h1 {
   position: absolute;
-  top: 25%;
-  left:90px;
-  font-size: 4rem;
+  top: 90px;
+  left: 90px;
+  font-size: 4.5rem;
   font-weight: 100;
-    max-width: 100px;
-    text-align: left;
+  max-width: 100px;
+  text-align: left;
 }
 
 .App-header img {
@@ -65,11 +75,11 @@ width: auto;
 }
 
 .App-header header small {
-  font-family:  "Filosofia";
+  font-family: 'Filosofia';
   position: absolute;
-  top: 20%;
-  left:90px;
-  font-size: 1rem;
+  top: 60px;
+  left: 90px;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -96,6 +106,7 @@ width: auto;
 
 h1,h2,h3,h4,h5 {
     font-family:  "Filosofia";
+        font-weight: 100;
 }
 
 .sideHeader {
@@ -104,7 +115,13 @@ h1,h2,h3,h4,h5 {
   transform: rotate(90deg);
     transform-origin: left;
     left: 30px;
-    top: 70px;
+    top: 130px;
+    z-index: 1;
+    .back {
+      position: relative;
+      left: 15px;
+      top: 0;
+  }
 }
 
 .fixSub .sideHeader {
@@ -112,7 +129,7 @@ h1,h2,h3,h4,h5 {
   font-size: 1em;
   .back {
       position: absolute;
-      left: 160px;
+      left: 360px;
       bottom: 60px;
       color: inherit;
       top: 0;
@@ -243,14 +260,14 @@ article section {
   line-height: 1.15em;
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 0;
+  padding: 60px 0 190px;
   justify-content: space-between;
 }
 
 .row img {
   max-height: 500px;
   max-width: 100%;
-  padding: 30px;
+  // padding: 30px;
   width: auto;
 
   transition: .5s;
@@ -292,8 +309,8 @@ article section {
   opacity: 1;
 }
 .row h3 {
-  position: relative;
-  top: -60px;
+  // position: relative;
+  // top: -60px;
   font-weight: 100;
   font-size: .85em;
 }
@@ -405,9 +422,12 @@ blockquote {
  .App nav {
    position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 10;
     right: 0;
     padding: 30px;
+    background-color: #151515;
+    width: 100%;
+
  }
 
  .App nav a {
@@ -671,7 +691,15 @@ padding-left: 80px;
 
 #FrontofHouse .col-left , #FrontofHouse .col-right  {
   padding: 90px;
+  flex-basis: 34%;
 
+
+}
+
+#FrontofHouse {
+  .large-side-image {
+    padding-right: 0;
+  }
 }
 #FrontofHouse blockquote {
   font-size: 1.5em;
@@ -712,7 +740,481 @@ padding-left: 80px;
     text-indent: 0em;
 }
 
+// Fast Facts
+#FastFacts {
+  section {
+    padding: 0px;
+    position: relative;
+  }
+
+
+  header {
+    position: relative;
+
+    .desktop {
+      position: absolute;
+    left: 120px;
+    font-size: 4rem;
+    line-height: initial;
+    width: 100%;
+    left: 0;
+    bottom:-120px;
+    .numbers {
+      bottom:0;
+    }
+    }
+  }
+  h1 {
+    display: block;
+    color:black;
+    width: 40%;
+    position: absolute;
+    left: 120px;
+    font-size: 4rem;
+    line-height: initial;
+    text-align: left;
+    top: 120px;
+  }
+  h2 {
+    width: 40%;
+    position: absolute;
+    left: 120px;
+    font-size: 4rem;
+    line-height: initial;
+    img {
+      display: block;
+      max-width: 50px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .numbers {
+    position: absolute;
+    bottom:6rem;
+    font-size: 4rem;
+    display: flex;
+    font-family: 'LibreBodoni';
+    width: calc(100% - 90px);
+    span {
+      flex-basis: 20%;
+      vertical-align: top;
+      display: inline-block;
+    text-align: center;
+    }
+  }
+  .row section {
+    height: 100vh;
+    padding: 60px;
+    width: calc(100vw - 120px);
+  }
+  .lightgray, .darkgray {
+      background-color:lightgray;
+  }
+  .lightgreen {
+    background-color:#d5e7ce;
+  }
+
+  .lightyellow {
+    background-color:lightyellow;
+  }
+  .burntred {
+    background-color:orange;
+  }
+}
+
+/// On the Menu
+
+#“Sumimasen—kudasithelamb”{
+  .col-left{
+    padding-right: 0px;
+    padding-left: 90px;
+    width: 34%;
+  }
+   .col-right {
+     padding-left: 0px;
+     padding-right: 90px;
+    width: 34%;
+  }
+  .row {
+    text-indent: 0;
+    padding-bottom:0;
+    padding-bottom: 90px;
+  }
+   article section {
+     padding: 0;
+   }
+
+   .col-white {
+     background-color: white;
+     margin: 0;
+     padding: 90px 0;
+   }
+
+   .col-whole > img {
+     width: 100%;
+   }
+
+   .gif-left {
+     .col-left {
+       padding-right: 0px;
+      padding-left: 0px;
+      width: 40%;
+     }
+
+     .col-right {
+       width: 60%;
+     }
+   }
+
+   .mid-whole {
+     max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    /* border: 1px solid black; */
+    color: black;
+    padding-left: 60px;
+    font-size: .9em;
+   }
+
+   .lambboxsmall {
+     border: 1px solid blue;
+     padding: 30px;
+      margin: 30px;
+      h2 {
+        margin: 60px 0;
+        border-bottom: 1px solid blue;
+        display: inline-block;
+      }
+      small {
+        display: block;
+      }
+   }
+}
+
+// Two Under 10
+#TwounderTen {
+  * {
+    text-indent:0;
+  }
+
+  .number {
+    padding: 90px;
+  }
+  .ingredients {
+    li {
+      font-size: 3rem;
+      line-height: initial;
+      text-align: center;
+      small {
+        font-size: 1rem;
+      }
+    }
+    li:last-child {
+      margin-top: 60px;
+    }
+
+    .last {
+      margin-top: 60px;
+    }
+  }
+
+  .rightpad {
+   .col-six-eight {
+        width: 60%;
+        padding-left: 0px !important;
+    }
+
+    .col-two-eight {
+       padding-right: 60px;
+    }
+  }
+
+  .addpadd {
+    .arrow {
+      margin-bottom: 30px;
+      font-size: .9em;
+    }
+    .col-two-eight {
+      padding-left: 90px;
+      span {
+        transform: rotate(90deg);
+        display: inline-block;
+        transform-origin: left;
+        margin-left: .65em;
+        padding-left: .75em;
+      }
+
+      .inside {
+        margin-left: 2em;
+        border-left: 1px solid black;
+        padding-left: 20px;
+      }
+    }
+    .col-six-eight {
+      width: 60%;
+      padding-left: 85.5px;
+    }
+  }
+
+
+
+  .chef-info {
+    .arrow ~ p {
+      text-indent: 1em;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    img {
+      max-width: 300px;
+    }
+    .col-left {
+      padding-right: 0;
+      text-align: right;
+      width: 40%;
+    }
+    .col-right {
+      padding-left: 0;
+      width: 40%;
+    }
+  }
+  section {
+    padding:0;
+  }
+
+  .col-left, .col-right {
+    padding: 0 90px;
+  }
+  h2 {
+    text-indent: 0;
+    font-size: 2.5rem;
+    line-height: initial;
+  }
+  .col-two-eight {
+    vertical-align: top;
+    .number {
+      font-size: 9rem;
+    }
+  }
+
+  .col-six-eight {
+    h2 {
+      margin-bottom: 60px;
+    }
+  }
+  .col-fourth {
+    width: 25%;
+    display: inline-block;
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0px;
+    }
+  }
+}
+// Paddock Story
+
+#TheQuestforQualityEating {
+
+  .desktop {
+    font-size: 6rem;
+    color: white;
+    text-align: left;
+    text-indent: 0;
+    position: absolute;
+      top: 60px;
+      width: 40%;
+      p {
+          text-indent: 0;
+      }
+  }
+  .row {
+    text-indent: 0;
+  }
+  .box-shape {
+    border: 1px solid black;
+    padding: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+
+    h2 {
+
+          padding: 30px 60px;
+          text-align: center;
+    }
+
+    p {
+          text-indent: 0;
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+    }
+
+
+
+    .col-half-third {
+      width: 40%;
+      display: inline-block;
+
+      div {
+        height: 200px;
+        padding: 30px 0;
+        border-top: 1px solid black;
+        text-align: center;
+        h3 {
+          width: 40%;
+          display: inline-block;
+              vertical-align: top;
+                text-align: left;
+        }
+        img {
+          height: auto;
+          width: 58%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .col-one-third {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+
+        div {
+              height: 150px;
+              padding: 30px 0;
+        }
+    }
+  }
+
+
+}
+
+/// On the Menu
+#OntheMenu {
+
+    //Header
+      .desktop {
+        left: initial;
+        right: 60px;
+        width: 40%;
+        font-size: 1.5em;
+      }
+
+
+
+      // body
+      section {
+        padding: 0;
+      }
+
+      p {
+        text-indent: 0;
+        font-size: 1rem;
+      }
+
+      .col-whole {
+
+      }
+
+      .col-left {
+        padding-left: 60px;
+        padding-right: 0;
+      }
+       .col-right  {
+         padding-left: 0px;
+         padding-right: 60px;
+      }
+      .col-whole {
+        margin-top: 160px;
+      }
+
+      .top-margin, .margin-top {
+        margin-top: 90px;
+        margin-bottom: 30px;
+      }
+
+      .arrow {
+        margin-left: 1.5em;
+      }
+
+
+      .arrow ~ p {
+          margin-left: 1.5em;
+      }
+      .col-left, .col-right {
+          width: 30%;
+
+        span {
+        display:inline-block;;
+        transform: rotate(90deg);
+        transform-origin: left;
+        padding-left: 10px;
+        margin-left: .5em;
+          hr {
+            border-color: black;
+            margin-bottom: 10px;
+            border-bottom:0;
+          }
+        }
+
+        .below {
+          border-left: 1px solid black;
+          margin-left: 2em;
+
+        }
+
+        .arrow {
+          position: relative;
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          font-weight: 100;
+          font-size: 3rem;
+          line-height: initial;
+          padding-bottom: 15px;
+        }
+
+        h2 ~ hr {
+          width: 30px;
+          border-color:black;
+          margin-bottom: 15px;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+            line-height: initial;
+        }
+      }
+}
+
 /* GRID */
+
+.photo-grid {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  div {
+    flex-basis: 49%;
+    width: 48%;
+    height: 260px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+.col-whole-image {
+  width: 100%;
+  padding: 90px 0px;
+  text-align: center;
+}
+
 .whole-half-image {
   text-align: center;
   padding: 90px 0px;
@@ -721,25 +1223,47 @@ padding-left: 80px;
   width: 50%;
 }
 
-.col-one-eight {
-  width: 12.5%;
+.col-one-eight, .col-eight {
+  width: 12%;
+  display: inline-block;
 }
+
 
 
 .col-two-eight {
   width: 25%;
+  display: inline-block;
 }
 
 .col-six-eight {
-  width: 75%;
+  width: 72%;
+  display: inline-block;
 }
 
 .col-seven-eight {
   width: 87.5%;
+  display: inline-block;
+}
+.col-whole-half-image {
+    width: 100%;
+    text-align: center;
+    margin: 90px 0;
 }
 
 .col-whole {
   margin: 90px 0;
+  width: 100%;
+
+  img {
+    max-width: 100%;
+    max-height: initial;
+  }
+}
+
+.arrow:before {
+    content: "\2192 \00a0 \00a0";
+    text-indent: 0 !important;
+
 }
 /* Typography */
 
@@ -771,7 +1295,8 @@ padding-left: 80px;
 
 .App nav img{
 width: 100px;
-
+float: left;
+padding-left: 60px;
 }
 
 /*# sourceMappingURL=Autumn.css.map */
@@ -797,9 +1322,9 @@ width: 100px;
       max-width: 160px;
 
   }
-  .article section{
-    padding: 0;
-  }
+  // .article section{
+  //   padding: 0;
+  // }
 
   blockquote {
     padding: 60px;

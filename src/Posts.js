@@ -106,8 +106,11 @@ class Posts extends Component {
         animation = "animate"
       }
 
+      let cleanTitle = this.props.content.fields.title.replace(/ /g,'').replace(/'/g,'');
+
+
       return (
-        <div style={styles} className={`${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={this.props.content.fields.title.replace(/ /g,'').replace(/'/g,'')}  ref={this.registerRef}>
+        <div style={styles} className={`${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={cleanTitle}  ref={this.registerRef}>
             <article style={{backgroundColor: this.props.content.fields.backgroundColor ,color: this.props.content.fields.fontColor, borderColor: this.props.content.fields.imageBackgroundColorOnHover}} className={animation} ref={ (divElement) => this.divElement = divElement}>
                 <small className="sideHeader"><span>{sidetext} </span> <Scrollchor className="back" to="#contents">Back to contents</Scrollchor></small>
               <header style={{backgroundImage: `url(${background})`, color:this.props.content.fields.fontColor }}>

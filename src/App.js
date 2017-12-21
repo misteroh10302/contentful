@@ -157,7 +157,7 @@ class App extends Component {
     indexItems = this.state.homepage.map(function(item,i){
         if (item.fields.issueNumberMain === this.state.stateName ){
           return(
-            <header key={item.sys.id} style={{backgroundImage: `url(${item.fields.backgroundImage.fields.file.url})`}}>
+            <header key={item.sys.id} style={{backgroundImage: `url(${item.fields.backgroundImage.fields.file.url})`, color: `${item.fields.fontColor}`}}>
               <img src={item.fields.logo.fields.file.url} alt={item.fields.title} />
               <small>{item.fields.issueNumber} -</small>
               <h1 key={item.sys.id}>{item.fields.magazineTitle}</h1>

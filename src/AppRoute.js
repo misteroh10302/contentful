@@ -66,7 +66,7 @@ class AppRoute extends Component {
       <BrowserRouter>
         <nav>
             {this.state.homepage.map((nav, i) =>
-                 <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'')} tag={nav.title} children={({match}) => {
+                 <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'').replace(/$/g,'')} tag={nav.title} children={({match}) => {
                     if (match) return  <App theName={nav.fields.issueNumberMain} >
                     </App>
                   return null;

@@ -45,8 +45,9 @@ class App extends Component {
     }).then(function(res){
       var content = res.items
       var sortedContent = content.sort(function(a,b){
-        return a.fields.order > b.fields.order
+        return a.fields.order - b.fields.order
       })
+      console.log(sortedContent);
         this.setState({
            contents: sortedContent
          });
@@ -56,7 +57,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-        const height = this.articleEl.clientHeight;
+        const height = this.articleEl.clientHeight /2 - 103;
         this.setState({ height });
         console.log('finished');
   }
@@ -128,7 +129,7 @@ class App extends Component {
     }
 
     var articleHeight = {
-      top: Math.min(0, window.innerHeight + this.state.height - 190)
+      top: Math.min(0, window.innerHeight + this.state.height)
     }
   }
   clickImage = (e) => {
@@ -172,6 +173,17 @@ class App extends Component {
 
     // Get all of the article titles and match them to the title of the magazineTitle
     // Once these are matched create a scrollable anchor tag
+
+
+
+      var sortedContent = this.state.contents.sort(function(a,b){
+        return a.fields.order - b.fields.order
+      });
+
+
+
+    console.log(sortedContent);
+
     articleItems = this.state.contents.map(function(content,i){
         let thumbnail
          if (content.fields.thumbnail !== undefined) {
@@ -194,6 +206,7 @@ class App extends Component {
         }
     }.bind(this));
 
+
     // Get all of the posts and add them to an array
     thePosts = this.state.contents.map(function(content,i){
             if (content.fields.issueName === this.state.stateName ){
@@ -207,6 +220,7 @@ class App extends Component {
     return (
       <div className={`App ${this.props.theName}`}>
         <nav>
+        <iframe src="http://raremedium.monkeylabs.com.au/iframe-header/" width="100%"frameborder="0"></iframe>
           <img src="http://images.contentful.com/a7w606b3ho4t/5u3fwMgCZy4UswWS0SSsiA/96b5fa5bbe21db40ad68681efb73bd79/RareMedium_BadgeLandscape_REV.png" alt="" />
               {this.state.homepage.map((item,i) =>
                   <Link onClick={this.updateStateName} key={item.sys.id} to={`/${item.fields.magazineTitle.replace(/ /g,'')}`}>{item.fields.magazineTitle}</Link>

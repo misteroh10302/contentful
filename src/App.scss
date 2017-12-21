@@ -1,22 +1,27 @@
 * {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
-
 @font-face {
-  src: url(//assets.contentful.com/a7w606b3ho4t/43mBXrVckgYMukWc6CW0iy/300281cdd282277cea67f8be0fe1b678/Filosofia_Regular.otf);
+  src: url("//assets.contentful.com/a7w606b3ho4t/43mBXrVckgYMukWc6CW0iy/300281cdd282277cea67f8be0fe1b678/Filosofia_Regular.otf");
   font-family: "Filosofia";
 }
-
 @font-face {
-  src: url(//assets.contentful.com/a7w606b3ho4t/3uuI8PJNsASAMG2Ccwumuq/491cfdbbe5f00b51b2177ccc503cfe84/LibreBodoni-Regular.ttf);
+  src: url("//assets.contentful.com/a7w606b3ho4t/3uuI8PJNsASAMG2Ccwumuq/491cfdbbe5f00b51b2177ccc503cfe84/LibreBodoni-Regular.ttf");
   font-family: "LibreBodoni";
 }
-
+body {
+  font-size: 16px;
+}
 a {
-  color:inherit;
+  color: inherit;
   text-decoration: none;
 }
+
+.row .back {
+  display: none;
+}
+
 .App {
   text-align: center;
 }
@@ -25,17 +30,18 @@ a {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+
 .App-header {
-    margin-top: 100px;
+  margin-top: 70px;
 }
-.App-header header{
+
+.App-header header {
   height: 100vh;
   background-size: cover;
   background-position: center;
   position: fixed;
   width: 100vw;
   z-index: 0;
-
 }
 
 .App-header header h1 {
@@ -53,13 +59,13 @@ a {
   max-width: 260px;
   margin: 30px auto;
   max-width: 260px;
-margin: 30px auto;
-max-height: 200px;
-width: auto;
+  margin: 30px auto;
+  max-height: 200px;
+  width: auto;
 }
 
-.articleIndex, .App-intro > article {
-
+.App-intro > article,
+.articleIndex {
   top: 0;
   position: sticky;
 }
@@ -86,7 +92,7 @@ width: auto;
 .App-header h2 {
   position: absolute;
   bottom: 60px;
-  left:90px;
+  left: 90px;
   font-size: 1rem;
   font-weight: 100;
   max-width: 150px;
@@ -94,7 +100,7 @@ width: auto;
 }
 
 .App-intro {
-  font-family:  "Filosofia";
+  font-family: "Filosofia";
   font-size: small;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -104,42 +110,52 @@ width: auto;
   position: relative;
 }
 
-h1,h2,h3,h4,h5 {
-    font-family:  "Filosofia";
-        font-weight: 100;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Filosofia";
+  font-weight: 100;
 }
 
 .sideHeader {
   position: absolute;
-  left:0;
+  left: 0;
   transform: rotate(90deg);
-    transform-origin: left;
-    left: 30px;
-    top: 130px;
-    z-index: 1;
-    .back {
-      position: relative;
-      left: 15px;
-      top: 0;
+  transform-origin: left;
+  left: 30px;
+  top: 130px;
+  z-index: 1;
+
+  .back {
+    position: relative;
+    left: 15px;
+    top: 0;
   }
 }
 
 .fixSub .sideHeader {
   position: fixed;
   font-size: 1em;
+
   .back {
-      position: absolute;
-      left: 360px;
-      bottom: 60px;
-      color: inherit;
-      top: 0;
-      width: 150px;
+    position: absolute;
+    left: 360px;
+    bottom: 60px;
+    color: inherit;
+    top: 0;
+    width: 150px;
   }
 }
-
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 article {
@@ -147,12 +163,13 @@ article {
 }
 
 article p {
-      text-indent: 1em;
+  text-indent: 1em;
 }
 
 article h1 {
   display: none;
 }
+
 #lower {
   position: relative;
   top: 100vh;
@@ -160,7 +177,7 @@ article h1 {
   z-index: 1;
 }
 
-.editors header{
+.editors header {
   display: none !important;
 }
 
@@ -169,6 +186,7 @@ article h1 {
   max-width: 200px;
   letter-spacing: -1px;
 }
+
 .articleIndex {
   padding: 60px;
   min-height: 100vh;
@@ -181,16 +199,14 @@ article h1 {
 .articleIndex h1 {
   font-size: 5rem;
   font-weight: 100;
-  transition: .5s;
-
+  transition: 0.5s;
 }
-
 
 .articleIndex img {
   opacity: 0;
   height: 0;
   position: absolute;
-  transition: .25s ease;
+  transition: 0.25s ease;
   max-width: 200px;
   transform: translateY(-50%) translateX(100%);
 }
@@ -201,13 +217,13 @@ article h1 {
 
 .articleIndex h1:hover ~ img {
   position: absolute;
-    height: auto;
+  height: auto;
   opacity: 1;
 }
 
 .articleIndex h1:hover {
-    color: #D2262D;
-    cursor: pointer;
+  color: #D2262D;
+  cursor: pointer;
 }
 
 .posts img {
@@ -215,14 +231,16 @@ article h1 {
   display: block;
   margin: 0 auto;
 }
+
 .posts header {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .posts {
   flex-basis: 100%;
   padding: 1%;
@@ -260,7 +278,7 @@ article section {
   line-height: 1.15em;
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 0 190px;
+  padding: 0 0 190px;
   justify-content: space-between;
 }
 
@@ -269,8 +287,7 @@ article section {
   max-width: 100%;
   // padding: 30px;
   width: auto;
-
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .image-inline {
@@ -284,19 +301,20 @@ article section {
 }
 
 .image-inline h3 {
-    position: absolute !important;
-    top: 50% !important;
-    text-align: center;
-    left: 0;
-    right: 0;
-    opacity: 0;
+  position: absolute !important;
+  top: 50% !important;
+  text-align: center;
+  left: 0;
+  right: 0;
+  opacity: 0;
 }
+
 #contents {
   position: absolute;
   top: 100vh;
 }
 
-.row .image-inline:hover img{
+.row .image-inline:hover img {
   opacity: 0;
   filter: hue-rotate(0deg) saturate(100%) brightness(56%);
 }
@@ -305,14 +323,15 @@ article section {
   padding: 0;
 }
 
-.image-inline:hover  h3 {
+.image-inline:hover h3 {
   opacity: 1;
 }
+
 .row h3 {
   // position: relative;
   // top: -60px;
   font-weight: 100;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
 .back {
@@ -322,39 +341,41 @@ article section {
   font-size: 1.25em;
   color: inherit;
 }
+
 img {
   width: 100%;
 }
 
-.col-left, .col-right {
+.col-left,
+.col-right {
   width: 48%;
   flex-basis: 44%;
 }
 
 .col-left {
-  float:left;
+  float: left;
 }
 
 .col-right {
-  float:right;
+  float: right;
 }
 
 .App-intro header h2 {
   position: absolute;
-    bottom: 60px;
-    lefT: 60px;
-    width: 30%;
-    text-align: left;
-    font-weight: 100;
+  bottom: 60px;
+  lefT: 60px;
+  width: 30%;
+  text-align: left;
+  font-weight: 100;
 }
-
 
 blockquote {
   font-size: 3em;
   line-height: 1em;
   padding: 60px;
-  text-align:center;
+  text-align: center;
 }
+
 .article header {
   height: 100vh;
   background-size: cover;
@@ -370,26 +391,24 @@ blockquote {
 }
 
 .article section {
-
-    padding: 60px;
+  padding: 60px;
 }
 
-
 .editors .row {
-  padding-top: 0px;
+  padding-top: 0;
 }
 
 .editors video {
-  height: 0px;
+  height: 0;
 }
+
 .editors p {
-      text-indent: 1.25em;
+  text-indent: 1.25em;
 }
 
 .videoBackground header {
   display: none;
 }
-
 
 .col-2 img {
   width: 100%;
@@ -401,56 +420,78 @@ blockquote {
 }
 
 .col-2 img {
-  transition: .5s;
+  transition: 0.5s;
 }
+
 .col-2 img:hover {
   opacity: 0.5;
 }
+
 .col-2 img:hover ~ em {
   opacity: 1;
 }
 
-.col-2 img ~ em{
+.col-2 img ~ em {
   position: absolute;
   top: 50%;
   text-align: center;
   left: 0;
   right: 0;
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
 }
- .App nav {
-   position: fixed;
-    top: 0;
-    z-index: 10;
-    right: 0;
-    padding: 30px;
-    background-color: #151515;
-    width: 100%;
+.newsButton {
+  position: fixed;
+  top:0;
+  right:0;
+}
 
- }
+.App nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  right: 0;
+  padding: 0px;
+  background-color: #151515;
+  width: 100%;
+  height: 70px;
+  img {
+    display: none;
+  }
+  iframe {
+        height: 78px;
+        border:0;
+  }
+}
 
- .App nav a {
-   padding: 0 15px;
- }
+.newButton {
+  position: fixed;
+top: 0;
+right: 0;
+width: 90px;
+height: 90px;
 
- /*.App-intro > div {
+}
+.App nav a {
+  padding: 0 15px;
+  display: none;
+}
+/*.App-intro > div {
    position: fixed;
    top: 100vh;
  }*/
+.scrolledPast {
+  position: sticky !important;
+  z-index: 2;
+}
 
- .scrolledPast {
-   position: sticky !important;
-   z-index: 2;
- }
-
- .scroll {
+.scroll {
   position: relative;
- }
+}
 
- .mobile {
-   display: none;
- }
+.mobile {
+  display: none;
+}
 
 .videoBackground article h1 {
   display: block;
@@ -464,46 +505,48 @@ blockquote {
   left: 0;
   right: 0;
 }
-.videoBackground header{
+
+.videoBackground header {
   height: 100vh;
-}
-.videoBackground video{
-  height: 100vh;
-      object-fit: cover;
 }
 
+.videoBackground video {
+  height: 100vh;
+  object-fit: cover;
+}
 /** LAMB ARTICLE **/
 #LambLeg header {
-    height: auto;
-    padding: 90px;
-    text-align: left;
-    flex-direction: row;
+  height: auto;
+  padding: 90px;
+  text-align: left;
+  flex-direction: row;
 }
+
 #LambLeg h2 {
   position: initial;
-
 }
 
-#LambLeg video{
-display: none;
-
+#LambLeg video {
+  display: none;
 }
+
 #LambLeg .desktop {
   width: 40%;
-float: right;
-padding-left: 80px;
-}
-#LambLeg h1 {
-  display: block;
-    color: black;
-    font-size: 5rem;
-    font-weight: 100;
-    width: 50%;
-    float:left;
+  float: right;
+  padding-left: 80px;
 }
 
- #LambLeg article section {
-    padding-top: 0px;
+#LambLeg h1 {
+  display: block;
+  color: black;
+  font-size: 5rem;
+  font-weight: 100;
+  width: 50%;
+  float: left;
+}
+
+#LambLeg article section {
+  padding-top: 0;
 }
 
 #LambLeg header h3 {
@@ -514,8 +557,7 @@ padding-left: 80px;
   text-transform: capitalize;
 }
 
-
-#LambLeg header h2 p  {
+#LambLeg header h2 p {
   padding-left: 1.05em;
   text-indent: -.9em;
 }
@@ -528,23 +570,28 @@ padding-left: 80px;
   font-weight: 100;
   padding: 0 0 2rem;
   font-size: 2.5em;
-    clear:both;
+  clear: both;
 }
+
 #LambLeg .row hr {
   background-color: black;
   border: 1px solid black;
-    border-bottom: 0;
-    height: .5px;
+  border-bottom: 0;
+  height: 0.5px;
 }
+
 #LambLeg .row h3 {
   position: initial;
-  padding: 1em 0em 0em;
+  padding: 1em 0 0;
   text-transform: uppercase;
   font-size: 1em;
 }
-#LambLeg .col-left, #LambLeg .col-right {
+
+#LambLeg .col-left,
+#LambLeg .col-right {
   flex-basis: 40%;
 }
+
 #LambLeg .row ul {
   list-style-type: none;
   width: 80%;
@@ -555,17 +602,17 @@ padding-left: 80px;
 }
 
 #LambLeg .row img {
-  float:right;
+  float: right;
   max-width: 150px;
-  clear:both;
-  padding:0;
+  clear: both;
+  padding: 0;
 }
 
-#LambLeg  li {
-    list-style-type: none;
-    list-style-position: inside;
-    text-indent: -1em;
-    padding-left: 1em;
+#LambLeg li {
+  list-style-type: none;
+  list-style-position: inside;
+  text-indent: -1em;
+  padding-left: 1em;
 }
 
 #EditorsLetter img {
@@ -583,23 +630,25 @@ padding-left: 80px;
   line-height: inherit;
 }
 
-.editors .col-right{
+.editors .col-right {
   flex-basis: 50%;
   margin-bottom: 60px;
 }
 
 .editors .row h3 {
-    position: initial;
-    font-size: initial;
-    top:0;
-
+  position: initial;
+  font-size: initial;
+  top: 0;
 }
+
 .editors section {
   padding: 90px;
 }
+
 .editors h3:nth-child(1) {
-      margin-top: 30px;
+  margin-top: 30px;
 }
+
 .editors h3:last-child {
   margin-bottom: 30px;
 }
@@ -609,49 +658,62 @@ padding-left: 80px;
   background-size: contain;
 }
 
-#WhereTheresSmokeTheresFire article p{
+#WhereTheresSmokeTheresFire article p {
   text-indent: 0;
 }
+
 #WhereTheresSmokeTheresFire article section {
   padding: 90px 0;
 }
-#WhereTheresSmokeTheresFire .col-right p{
+
+#WhereTheresSmokeTheresFire .col-right p {
   padding: 0 90px 0 0;
   flex-basis: 50%;
   text-indent: 1em;
   font-size: 1.2em;
 }
-#WhereTheresSmokeTheresFire .col-left, #WhereTheresSmokeTheresFire .col-right {
+
+#WhereTheresSmokeTheresFire .col-left,
+#WhereTheresSmokeTheresFire .col-right {
   padding-top: 60px;
   width: 50%;
   flex-basis: 50%;
 }
 
-#WhereTheresSmokeTheresFire  blockquote {
+#WhereTheresSmokeTheresFire blockquote {
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
   font-size: 1.25em;
+  padding: 0 60px;
 }
 
-
-#WhereTheresSmokeTheresFire  blockquote p {
+#WhereTheresSmokeTheresFire blockquote p {
   max-width: 50%;
   margin: 0 auto;
 }
+
 #WhereTheresSmokeTheresFire .col-left p {
-  padding: 0 0px 0 90px;
+  padding: 0 0 0 90px;
   flex-basis: 50%;
 }
+
 #WhereTheresSmokeTheresFire .col-left p {
   font-size: 1.2em;
   text-indent: 1em;
 }
 
+#WhereTheresSmokeTheresFire {
+  .col-whole-image {
+    img {
+      width: 100%;
+      max-height: inherit;
+    }
+  }
+}
 /* FRONT OF HOUSE **/
-
-#FrontofHouse header h1{
+#FrontofHouse header h1 {
   display: block;
   font-size: 6rem;
   font-weight: 100;
@@ -671,16 +733,17 @@ padding-left: 80px;
 
 #FrontofHouse header .desktop {
   right: 60px;
-  top:60px;
+  top: 60px;
   text-align: left;
   width: 50%;
-  left:initial;
+  left: initial;
 }
 
-#FrontofHouse header  {
+#FrontofHouse header {
   justify-content: flex-start;
   padding-top: 60px;
 }
+
 #FrontofHouse article section {
   padding: 0;
 }
@@ -689,11 +752,10 @@ padding-left: 80px;
   text-indent: 0;
 }
 
-#FrontofHouse .col-left , #FrontofHouse .col-right  {
-  padding: 90px;
+#FrontofHouse .col-left,
+#FrontofHouse .col-right {
+  padding: 0 90px 30px;
   flex-basis: 34%;
-
-
 }
 
 #FrontofHouse {
@@ -701,86 +763,103 @@ padding-left: 80px;
     padding-right: 0;
   }
 }
+
 #FrontofHouse blockquote {
   font-size: 1.5em;
-  padding: 0px 0 90px;
+  padding: 0 0 90px;
   width: 60%;
-  margin:0px auto 90px;
+  margin: 0 auto 90px;
 }
 
 #FrontofHouse header p {
   text-indent: 0;
 }
 
-
-
 #FrontofHouse header .desktop {
   font-size: 3em;
 }
-
-
 
 #FrontofHouse header img {
   margin: 60px 0;
   width: 207px;
 }
-#FrontofHouse  .col-left , #FrontofHouse .col-right   {
-  margin-bottom: 90px;
+
+#FrontofHouse .col-left,
+#FrontofHouse .col-right {
+  margin-bottom: 30px;
 }
 
-#FrontofHouse  .col-left p:before, #FrontofHouse .col-right p:before  {
+#FrontofHouse .col-left p:before,
+#FrontofHouse .col-right p:before {
   content: "\2192 \00a0 \00a0";
   text-indent: 0 !important;
 }
 
-#FrontofHouse  .col-left p, #FrontofHouse .col-right p  {
+#FrontofHouse .col-left p,
+#FrontofHouse .col-right p {
   text-indent: 0 !important;
 }
-#WhereTheresSmokeTheresFire .col-left p:first-child {
-    text-indent: 0em;
-}
 
+#WhereTheresSmokeTheresFire .col-left p:first-child {
+  text-indent: 0;
+}
 // Fast Facts
 #FastFacts {
+  .row {
+    padding-bottom: 0;
+  }
   section {
-    padding: 0px;
+    padding: 0;
     position: relative;
   }
 
+  h3 {
+    display: none;
+  }
 
   header {
     position: relative;
 
     .desktop {
       position: absolute;
-    left: 120px;
-    font-size: 4rem;
-    line-height: initial;
-    width: 100%;
-    left: 0;
-    bottom:-120px;
-    .numbers {
-      bottom:0;
-    }
+      left: 120px;
+      font-size: 4rem;
+      line-height: initial;
+      width: 100%;
+      left: 0;
+      bottom: -120px;
+
+      .numbers {
+        bottom: 0;
+      }
+
+      img {
+        position: absolute;
+        top: -100vh;
+        left: 120px;
+      }
     }
   }
+
   h1 {
     display: block;
-    color:black;
+    color: black;
     width: 40%;
     position: absolute;
     left: 120px;
     font-size: 4rem;
     line-height: initial;
     text-align: left;
-    top: 120px;
+    top: 180px;
   }
+
   h2 {
     width: 40%;
     position: absolute;
     left: 120px;
     font-size: 4rem;
     line-height: initial;
+
     img {
       display: block;
       max-width: 50px;
@@ -790,595 +869,1518 @@ padding-left: 80px;
 
   .numbers {
     position: absolute;
-    bottom:6rem;
+    bottom: 6rem;
     font-size: 4rem;
     display: flex;
     font-family: 'LibreBodoni';
     width: calc(100% - 90px);
+
     span {
       flex-basis: 20%;
       vertical-align: top;
       display: inline-block;
-    text-align: center;
+      text-align: center;
     }
   }
+
   .row section {
     height: 100vh;
     padding: 60px;
     width: calc(100vw - 120px);
   }
-  .lightgray, .darkgray {
-      background-color:lightgray;
+
+  .darkgray,
+  .lightgray {
+    background-color: #BEC0C2;
   }
+
   .lightgreen {
-    background-color:#d5e7ce;
+    background-color: #d5e7ce;
   }
 
   .lightyellow {
-    background-color:lightyellow;
+    background-color: #F9F3DA;
   }
+
   .burntred {
-    background-color:orange;
+    background-color: #F47D5F;
   }
 }
-
 /// On the Menu
+#“Sumimasen—kudasithelamb” {
+  .blackfont {
+    color: black;
+  }
 
-#“Sumimasen—kudasithelamb”{
-  .col-left{
-    padding-right: 0px;
+  .video-container {
+    display: none;
+  }
+
+  header {
+    h1 {
+      display: block;
+      font-size: 6rem;
+      width: 60%;
+      text-align: left;
+      float: right;
+      align-self: flex-end;
+      padding-right: 90px;
+      margin-top: -3em;
+    }
+
+    .desktop {
+      position: absolute;
+      bottom: 160px;
+      lefT: initial;
+      width: 25%;
+      text-align: right;
+      font-weight: 100;
+      right: 200px;
+      font-size: 2.5rem;
+      align-items: flex-end;
+    }
+  }
+
+  .col-left {
+    padding-right: 0;
     padding-left: 90px;
+    width: 50%;
+  }
+
+  .col-right {
+    padding-left: 0;
+    padding-right: 90px;
     width: 34%;
   }
-   .col-right {
-     padding-left: 0px;
-     padding-right: 90px;
-    width: 34%;
-  }
+
   .row {
     text-indent: 0;
-    padding-bottom:0;
+    padding-bottom: 0;
     padding-bottom: 90px;
   }
-   article section {
-     padding: 0;
-   }
 
-   .col-white {
-     background-color: white;
-     margin: 0;
-     padding: 90px 0;
-   }
+  article section {
+    padding: 0;
+  }
 
-   .col-whole > img {
-     width: 100%;
-   }
+  .col-white {
+    background-color: white;
+    margin: 0;
+    padding: 90px 0;
+  }
 
-   .gif-left {
-     .col-left {
-       padding-right: 0px;
-      padding-left: 0px;
-      width: 40%;
-     }
+  .col-whole > img {
+    width: 100%;
+  }
 
-     .col-right {
-       width: 60%;
-     }
-   }
+  .gif-left,
+  .gif-right {
+    li:before {
+      content: "\2014 ";
+    }
 
-   .mid-whole {
-     max-width: 500px;
+    li {
+      list-style-type: none;
+      list-style-position: inside;
+      text-indent: -1em;
+      padding-left: 1em;
+    }
+
+    h2 {
+      margin: 30px 0;
+      border-top: 1px solid blue;
+      padding-top: 30px;
+      margin: 0 0 60px;
+      border-top: 1px solid blue;
+      padding-top: 60px;
+      font-size: 2.5rem;
+      line-height: initial;
+    }
+
+    ul {
+      color: black;
+      list-style: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .gif-right {
+    .col-right {
+      padding-right: 0;
+    }
+  }
+
+  .gif-left {
+    .col-left {
+      padding-left: 0;
+    }
+  }
+
+  .gif-left {
+    .col-left {
+      padding-right: 0;
+      padding-left: 0;
+      width: 30%;
+    }
+
+    .col-right {
+      width: 60%;
+      padding-right: 0;
+      padding-left: 60px;
+      width: 58%;
+      padding-right: 90px;
+      padding-left: 60px;
+    }
+  }
+
+  .mid-whole {
+    max-width: 500px;
     margin: 0 auto;
     padding: 30px;
     /* border: 1px solid black; */
     color: black;
     padding-left: 60px;
-    font-size: .9em;
-   }
-
-   .lambboxsmall {
-     border: 1px solid blue;
-     padding: 30px;
-      margin: 30px;
-      h2 {
-        margin: 60px 0;
-        border-bottom: 1px solid blue;
-        display: inline-block;
-      }
-      small {
-        display: block;
-      }
-   }
-}
-
-// Two Under 10
-#TwounderTen {
-  * {
-    text-indent:0;
+    font-size: 0.9em;
   }
 
-  .number {
-    padding: 90px;
-  }
-  .ingredients {
-    li {
-      font-size: 3rem;
-      line-height: initial;
-      text-align: center;
-      small {
-        font-size: 1rem;
-      }
-    }
-    li:last-child {
-      margin-top: 60px;
-    }
-
-    .last {
-      margin-top: 60px;
-    }
-  }
-
-  .rightpad {
-   .col-six-eight {
-        width: 60%;
-        padding-left: 0px !important;
-    }
-
-    .col-two-eight {
-       padding-right: 60px;
-    }
-  }
-
-  .addpadd {
-    .arrow {
-      margin-bottom: 30px;
-      font-size: .9em;
-    }
-    .col-two-eight {
-      padding-left: 90px;
-      span {
-        transform: rotate(90deg);
-        display: inline-block;
-        transform-origin: left;
-        margin-left: .65em;
-        padding-left: .75em;
-      }
-
-      .inside {
-        margin-left: 2em;
-        border-left: 1px solid black;
-        padding-left: 20px;
-      }
-    }
-    .col-six-eight {
-      width: 60%;
-      padding-left: 85.5px;
-    }
-  }
-
-
-
-  .chef-info {
-    .arrow ~ p {
-      text-indent: 1em;
-    }
-    p {
-      font-size: 1.1rem;
-    }
-    img {
-      max-width: 300px;
-    }
-    .col-left {
-      padding-right: 0;
-      text-align: right;
-      width: 40%;
-    }
-    .col-right {
-      padding-left: 0;
-      width: 40%;
-    }
-  }
-  section {
-    padding:0;
-  }
-
-  .col-left, .col-right {
-    padding: 0 90px;
-  }
-  h2 {
-    text-indent: 0;
-    font-size: 2.5rem;
+  .col-white > h2 {
+    text-align: center;
+    font-size: 4rem;
+    max-width: 400px;
     line-height: initial;
+    margin: 0 auto;
   }
-  .col-two-eight {
-    vertical-align: top;
-    .number {
-      font-size: 9rem;
+
+  .col-white > h2 ~hr {
+    width: 30px;
+    border-color: #fbe2e8;
+    margin: 0 auto;
+    border-width: 3px;
+    border-style: solid;
+  }
+
+  .biglambbox {
+    border: 1px solid blue;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 700px;
+    position: relative;
+
+    ol {
+      width: 50%;
+      float: left;
+    }
+
+    img {
+      position: absolute;
+      right: 30px;
+    }
+
+    ol {
+      font-size: 1em;
+      color: blue;
+
+      li {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      visibility: hidden;
+      height: 0;
+      clear: both;
+      font-size: 0;
+    }
+
+    h2 {
+      color: blue;
+      margin: 60px 0;
+      border-bottom: 1px solid blue;
+      display: inline-block;
+      padding-bottom: 10px;
+      font-size: 2.5rem;
     }
   }
 
-  .col-six-eight {
+  .lambboxsmall {
+    border: 1px solid blue;
+    padding: 40px;
+    margin: 30px;
+
     h2 {
-      margin-bottom: 60px;
+      margin: 60px 0;
+      border-bottom: 1px solid blue;
+      display: inline-block;
     }
-  }
-  .col-fourth {
-    width: 25%;
-    display: inline-block;
-    h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0px;
+
+    small {
+      display: block;
     }
   }
 }
-// Paddock Story
+//Chef Profile
+#ChefProfile {
 
-#TheQuestforQualityEating {
+  .col-whole {
+    margin:0;
+    padding: 90px 0;
+  }
+  header {
+    h1 {
+      display: block;
+      font-size: 7.5rem;
+      transform: rotate(90deg);
+      transform-origin: left;
+      position: absolute;
+      left: 20%;
+      top: -60px;
+      width: 20%;
+      text-align: left;
+      color: blue;
+    }
 
-  .desktop {
-    font-size: 6rem;
-    color: white;
-    text-align: left;
-    text-indent: 0;
-    position: absolute;
-      top: 60px;
-      width: 40%;
-      p {
-          text-indent: 0;
+    .desktop {
+      height: 125vh;
+      top: 0;
+      width: 100%;
+      left: 0;
+      overflow: hidden;
+
+      p:nth-child(2) {
+        position: relative;
+        top: 80%;
+        color: blue;
+        left: 140px;
+        font-size: 2.5rem;
+        text-indent: 0;
+        width: 10%;
       }
+
+      img {
+        width: 60%;
+        float: right;
+      }
+    }
   }
-  .row {
+
+  article section {
+    padding: 0;
+  }
+
+  article p {
     text-indent: 0;
   }
-  .box-shape {
-    border: 1px solid black;
-    padding: 30px;
-    max-width: 80%;
+
+  .chefbox {
+    position: relative;
+    max-width: 500px;
     margin: 0 auto;
-    display: flex;
+    border: 1px solid blue;
+    padding: 40px;
+    color:blue;
+    & > img {
+      position: absolute;
+    right: 30px;
+    }
+    small {
+      display: block;
+    }
+  h2 {
+
+    color: blue;
+    margin: 60px 0;
+    border-bottom: 1px solid blue;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-size: 2.5rem;
+    clear:both;
+  }
+    h3 {
+      display: inline-block;
+      font-size: 1em;
+      border-bottom: 1px solid blue;
+
+      &:before {
+        content: " ";
+        font-size: 0;
+        height:0;
+        display: block;
+        visibility: hidden;
+        clear:both;
+      }
+    }
+    p {
+      margin-bottom: 30px;
+      margin-top: 5px;
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  .bigtitle {
+    padding: 60px 0 0;
+    background-color: white;
+    font-size: 9rem;
+    line-height: initial;
+    color: #fbe2e8;
+    outline: blue;
+    -webkit-text-stroke-color: blue;
+    -webkit-text-stroke-width: 1px;
+    img {
+      width: 150px;
+    }
+  }
+
+  .row {
+    padding-bottom: 0;
+  }
+
+  .col-half-image, .col-whole-half {
+    text-align: center;
+    width: 100%;
+  }
+
+  .imageleft {
+    .col-left,
+    .col-right {
+      width: 40%;
+    }
+
+    .col-right {
+      h2 {
+        color: blue;
+        margin-bottom: 60px;
+        font-size: 2.5rem;
+
+        img {
+          padding-right: 1em;
+        }
+      }
+    }
+  }
+
+
+    .imageright {
+      .col-left,
+      .col-right {
+        width: 40%;
+      }
+
+      .col-right {
+        padding-right: 0;
+      }
+
+      .col-left {
+        padding-left: 90px;
+        h2 {
+          color: blue;
+          margin-bottom: 60px;
+          font-size: 2.5rem;
+          img {
+            padding-right: 1em;
+          }
+        }
+      }
+
+    }
+
+    .col-left,
+    .col-right {
+      padding: 90px 0;
+      width: 48%;
+      -ms-flex-preferred-size: 44%;
+      flex-basis: 44%;
+      text-align:left;
+    }
+
+    .col-white {
+      background-color: white;
+      text-align: center;
+    }
+
+    .col-right {
+      padding-right: 90px;
+
+      p {
+        text-indent: 1rem;
+      }
+    }
+  }
+  // Two Under 10
+  #TwounderTen {
+    * {
+      text-indent: 0;
+    }
+
+    .number {
+      padding: 90px;
+    }
+
+    .ingredients {
+      li {
+        font-size: 3rem;
+        line-height: initial;
+        text-align: center;
+
+        small {
+          font-size: 1rem;
+        }
+      }
+
+      li:last-child {
+        margin-top: 60px;
+      }
+
+      .last {
+        margin-top: 60px;
+      }
+    }
+
+    .rightpad {
+      .col-six-eight {
+        width: 60%;
+        padding-left: 0 !important;
+      }
+
+      .col-two-eight {
+        padding-right: 60px;
+      }
+    }
+
+    .addpadd {
+      .arrow {
+        margin-bottom: 30px;
+        font-size: 0.9em;
+      }
+
+      .col-two-eight {
+        padding-left: 90px;
+
+        span {
+          transform: rotate(90deg);
+          display: inline-block;
+          transform-origin: left;
+          margin-left: 0.65em;
+          padding-left: 0.75em;
+        }
+
+        .inside {
+          margin-left: 2em;
+          border-left: 1px solid black;
+          padding-left: 20px;
+        }
+      }
+
+      .col-six-eight {
+        width: 60%;
+        padding-left: 85.5px;
+      }
+    }
+
+    .chef-info {
+      .arrow ~ p {
+        text-indent: 1em;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      img {
+        max-width: 300px;
+      }
+
+      .col-left {
+        padding-right: 0;
+        text-align: right;
+        width: 40%;
+      }
+
+      .col-right {
+        padding-left: 0;
+        width: 40%;
+      }
+    }
+
+    section {
+      padding: 0;
+    }
+
+    .col-left,
+    .col-right {
+      padding: 0 90px;
+    }
 
     h2 {
-
-          padding: 30px 60px;
-          text-align: center;
+      text-indent: 0;
+      font-size: 2.5rem;
+      line-height: initial;
     }
 
-    p {
-          text-indent: 0;
+    .col-two-eight {
+      vertical-align: top;
+
+      .number {
+        font-size: 9rem;
+      }
     }
 
-    ul {
-      list-style: none;
-      text-align: left;
+    .col-six-eight {
+      h2 {
+        margin-bottom: 60px;
+      }
     }
 
-
-
-    .col-half-third {
-      width: 40%;
+    .col-fourth {
+      width: 25%;
       display: inline-block;
 
-      div {
-        height: 200px;
-        padding: 30px 0;
-        border-top: 1px solid black;
-        text-align: center;
-        h3 {
-          width: 40%;
-          display: inline-block;
-              vertical-align: top;
-                text-align: left;
-        }
-        img {
-          height: auto;
-          width: 58%;
-          margin-bottom: 10px;
-        }
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0;
       }
-    }
-
-    .col-one-third {
-        width: 20%;
-        display: inline-block;
-        text-align: center;
-
-        div {
-              height: 150px;
-              padding: 30px 0;
-        }
     }
   }
+  // Paddock Story
+  .largelamb {
+      img {
+        width: 80%;
+          max-height: initial;
+    }
 
+  }
+  #TheQuestforQualityEating {
+    .desktop {
+      font-size: 6rem;
+      color: white;
+      text-align: left;
+      text-indent: 0;
+      position: absolute;
+      top: 60px;
+      width: 40%;
 
-}
-
-/// On the Menu
-#OntheMenu {
-
-    //Header
-      .desktop {
-        left: initial;
-        right: 60px;
-        width: 40%;
-        font-size: 1.5em;
+      p {
+        text-indent: 0;
       }
+    }
 
+    .row {
+      text-indent: 0;
+    }
 
+    .box-shape {
+      border: 1px solid black;
+      padding: 30px;
+      max-width: 80%;
+      margin: 0 auto;
+      display: flex;
 
-      // body
-      section {
-        padding: 0;
+      h2 {
+        padding: 30px 60px;
+        text-align: center;
       }
 
       p {
         text-indent: 0;
-        font-size: 1rem;
       }
 
-      .col-whole {
-
-      }
-
-      .col-left {
-        padding-left: 60px;
-        padding-right: 0;
-      }
-       .col-right  {
-         padding-left: 0px;
-         padding-right: 60px;
-      }
-      .col-whole {
-        margin-top: 160px;
-      }
-
-      .top-margin, .margin-top {
-        margin-top: 90px;
-        margin-bottom: 30px;
-      }
-
-      .arrow {
-        margin-left: 1.5em;
+      ul {
+        list-style: none;
+        text-align: left;
+        width: 50%;
+        float:left;
       }
 
 
-      .arrow ~ p {
-          margin-left: 1.5em;
-      }
-      .col-left, .col-right {
-          width: 30%;
+      .col-half-third {
+        width: 40%;
+        display: inline-block;
 
-        span {
-        display:inline-block;;
+        div {
+          height: 200px;
+          padding: 30px 0;
+          border-top: 1px solid black;
+          text-align: center;
+
+          h3 {
+            width: 40%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+          }
+
+          img {
+            height: auto;
+            width: 58%;
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+
+      .col-one-third h2:first-child,   .col-half-third h2:first-child {
+        height: 60px;
+      }
+
+      .col-one-third {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        div:first-child {
+          height: 125px;
+        }
+        div {
+          height: 250px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+
+        }
+      }
+    }
+  }
+
+  //Chef Editor
+  .chef-editor {
+    display: block;
+    background-color:rgb(251, 249, 242);
+    min-height: 105vh;
+    height: initial !important;
+    h2:first-child {
+      position: absolute;
+      top:60px;
+      width: 20% !important;
+      text-indent: 0;
+      img {
+        display: none !important;
+      }
+    }
+
+    .video-hold {
+          margin-top: 190px;
+    }
+    h2:nth-child(2) {
+      position: absolute;
+      top:260px;
+      left:0;
+      text-indent: 0;
+      width: 20%;
+      width: 20% !important;
+    }
+    .side{
+      width: 50%;
+      display:inline-block;
+      margin-left: 50%;
+    }
+  }
+  /// On the Menu
+  #OntheMenu {
+    //Header
+    .desktop {
+      left: initial;
+      right: 60px;
+      width: 40%;
+      font-size: 1.5em;
+    }
+
+    .video-container {
+      display: none;
+    }
+    // body
+    section {
+      padding: 0;
+    }
+
+    p {
+      text-indent: 0;
+      font-size: 1rem;
+    }
+
+    .col-whole {}
+
+    .col-left {
+      padding-left: 60px;
+      padding-right: 0;
+    }
+
+    .col-right {
+      padding-left: 0;
+      padding-right: 60px;
+    }
+
+    .col-whole {
+      margin-top: 160px;
+    }
+
+    .margin-top,
+    .top-margin {
+      margin-top: 90px;
+      margin-bottom: 30px;
+    }
+
+    .arrow {
+      margin-left: 1.5em;
+    }
+
+    .arrow ~ p {
+      margin-left: 1.5em;
+    }
+
+    .col-left,
+    .col-right {
+      width: 30%;
+
+      span {
+        display: inline-block;
         transform: rotate(90deg);
         transform-origin: left;
         padding-left: 10px;
-        margin-left: .5em;
-          hr {
-            border-color: black;
-            margin-bottom: 10px;
-            border-bottom:0;
-          }
-        }
+        margin-left: 0.5em;
 
-        .below {
-          border-left: 1px solid black;
-          margin-left: 2em;
-
-        }
-
-        .arrow {
-          position: relative;
-          margin-bottom: 30px;
-        }
-
-        h2 {
-          font-weight: 100;
-          font-size: 3rem;
-          line-height: initial;
-          padding-bottom: 15px;
-        }
-
-        h2 ~ hr {
-          width: 30px;
-          border-color:black;
-          margin-bottom: 15px;
-        }
-
-        h3 {
-          font-size: 1.5rem;
-            line-height: initial;
+        hr {
+          border-color: black;
+          margin-bottom: 10px;
+          border-bottom: 0;
         }
       }
-}
 
-/* GRID */
+      .below {
+        border-left: 1px solid black;
+        margin-left: 2em;
+      }
 
-.photo-grid {
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  div {
-    flex-basis: 49%;
-    width: 48%;
-    height: 260px;
-    margin-bottom: 20px;
-    overflow: hidden;
+      .arrow {
+        position: relative;
+        margin-bottom: 30px;
+      }
 
-    img {
-      width: 100%;
+      h2 {
+        font-weight: 100;
+        font-size: 3rem;
+        line-height: initial;
+        padding-bottom: 15px;
+      }
+
+      h2 ~ hr {
+        width: 30px;
+        border-color: black;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        line-height: initial;
+      }
     }
   }
-}
-.col-whole-image {
-  width: 100%;
-  padding: 90px 0px;
-  text-align: center;
-}
+  /* GRID */
+  .photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-.whole-half-image {
-  text-align: center;
-  padding: 90px 0px;
-}
-.whole-half-image img {
-  width: 50%;
-}
+    div {
+      flex-basis: 49%;
+      width: 48%;
+      height: 260px;
+      margin-bottom: 20px;
+      overflow: hidden;
 
-.col-one-eight, .col-eight {
-  width: 12%;
-  display: inline-block;
-}
+      img {
+        width: 100%;
+      }
+    }
+  }
 
+  .col-whole-image {
+    width: 100%;
+    padding: 90px 0;
+    text-align: center;
+  }
 
+  .whole-half-image {
+    text-align: center;
+    padding: 90px 0;
+  }
 
-.col-two-eight {
-  width: 25%;
-  display: inline-block;
-}
+  .whole-half-image img {
+    width: 50%;
+  }
 
-.col-six-eight {
-  width: 72%;
-  display: inline-block;
-}
+  .col-eight,
+  .col-one-eight {
+    width: 12%;
+    display: inline-block;
+  }
 
-.col-seven-eight {
-  width: 87.5%;
-  display: inline-block;
-}
-.col-whole-half-image {
+  .col-two-eight {
+    width: 25%;
+    display: inline-block;
+  }
+
+  .col-six-eight {
+    width: 72%;
+    display: inline-block;
+  }
+
+  .col-seven-eight {
+    width: 87.5%;
+    display: inline-block;
+  }
+
+  .col-whole-half-image {
     width: 100%;
     text-align: center;
     margin: 90px 0;
-}
-
-.col-whole {
-  margin: 90px 0;
-  width: 100%;
-
-  img {
-    max-width: 100%;
-    max-height: initial;
   }
-}
 
-.arrow:before {
+  .col-whole {
+    margin: 90px 0;
+    width: 100%;
+
+    img {
+      max-width: 100%;
+      max-height: initial;
+    }
+  }
+
+  .arrow:before {
     content: "\2192 \00a0 \00a0";
     text-indent: 0 !important;
+  }
+  /* Typography */
+  .smalltext {
+    font-size: 0.9rem;
+  }
+  /* Image placement */
+  .sideimage img {
+    float: right;
+  }
 
-}
-/* Typography */
+  .middle-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.smalltext {
-  font-size: .9rem;
-}
+  .middle-image img {
+    margin: 90px;
+  }
 
-/* Image placement */
-.sideimage img{
-  float:right;
-}
+  .App nav {
+    background-color: black;
+  }
 
-.middle-image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  .App nav img {
+    width: 100px;
+    float: left;
+    padding-left: 60px;
+  }
 
-}
+  .video-hold {    height: 600px;
+    width: 80%;
+    background-color: lightgray;
+    margin: 0 auto;}
+  /*# sourceMappingURL=Autumn.css.map */
+  @media screen and (max-width: 786px) {
+    body {
+      font-size: 12px;
+    }
+    header {
 
-.middle-image img {
-  margin: 90px;
-}
 
-.App nav {
-  background-color:black;
+      .desktop {
+        display:block !important;
+      }
+    }
 
-}
+    h2.mobile {
+      display: none !important;
+    }
+    .video-container {
+      display: none;
+    }
+
+    ///EDITORS {
+    .editors .col-right {
+          -ms-flex-preferred-size: 50%;
+          flex-basis: 100%;
+          margin-bottom: 60px;
+      }
+
+    .editors {
+      section {
+        padding: 0 90px;
+      }
+    }
+      #EditorsLetter  {
+        h2 {
+        font-size: 3em;
+        }
+    }
+
+    // SMOKE
+
+    #WhereTheresSmokeTheresFire {
+      .video-container {
+        display: none;
+      }
+      header {
+        background-image: url(//images.contentful.com/a7w606b3ho4t/5TVMjmOrIcwQs4UysWIEQc/bdc9e8b…/Screen_Shot_2017-12-19_at_11.34.42_AM.png);
+        color: black;
+        height: 40vh;
+        background-size: contain;
+        /* margin: 30px 0; */
+        background-repeat: no-repeat;
+      }
+
+        .col-left, .col-right {
+          padding-top: 60px;
+          width: 100%;
+          -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+      }
+
+      blockquote {
+        height: 50vh;
+        p {
+          max-width: 100%;
+        }
+      }
+
+    }
+
+    // PADDOCK
+    #TheQuestforQualityEating {
+        header {
+          .desktop {
+            display: block !important;
+          }
+        }
+
+        .mobile {
+          display: none;
+        }
+        .box-shape {
+          zoom: 0.6;
+        }
+    }
+
+    //TwounderTen
+
+    #TwounderTen {
+      .addpadd {
+        .col-two-eight {
+          width: 100%;
+          .inside {
+            width: 100%;
+          }
+        }
+
+        .col-six-eight {
+          width: 100%;
+          padding-top:60px;
+        }
+
+      }
+    }
+    .chef-info {
+      .col-left {
+        padding:30px !important;
+      }
+
+      .col-right {
+         padding: 0 30px !important;
+      }
 
 
-.App nav img{
-width: 100px;
-float: left;
-padding-left: 60px;
-}
+    }
 
-/*# sourceMappingURL=Autumn.css.map */
+    /// ON THE MENU
+    #OntheMenu {
+      header {
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
 
- @media screen and (max-width: 786px) {
-   .col-left, .col-right {
+        .row h3 {
+          top:0;
+        }
+      .col-left {
+            flex-basis: 80%;
+      }
+
+      .col-right {
+          padding-left: 90px !important;
+          padding-right: 0px !important;
+          flex-basis: 80%;
+      }
+      .col-whole {
+        margin-top: 30px;
+      }
+    }
+
+    // sUMI THE LambLeg
+    #“Sumimasen—kudasithelamb” {
+      .col-right {
+          padding: 0;
+          width: 100%;
+
+      }
+
+      .lambboxsmall {
+        margin: 30px auto 60px;
+        width: 60%;
+      }
+      .biglambbox {
+          width: 60%;
+      }
+
+      .col-right {
+        width: 90%;
+        margin:0 auto;
+
+      }
+
+      .gif-left {
+        .col-right {
+          width: 40%;
+        }
+      }
+      .gif-right {
+        .col-left {
+          width: 40%;
+        }
+        .col-right {
+          width: 20%;
+        }
+      }
+    }
+
+    // Chef Profile
+
+    #ChefProfile {
+      .col-right {
+        width: 90%;
+        margin: 0 auto;
+        font-size: .8em;
+      }
+
+      .bigtitle {
+        font-size: 6rem;
+        img {
+          width: 90px;
+        }
+      }
+
+      .col-whole {
+        padding-top: 30px;
+      }
+    .imageleft .col-right h2, .imageright .col-left h2 {
+          color: blue;
+          margin-bottom: 60px;
+          font-size: 2rem;
+      }
+    }
+
+
+      // GRID MOBILE
+
+      .whole-half-image {
+        padding: 30px 0;
+      }
+    .col-left,
+    .col-right {
       width: 100%;
       flex-basis: 100%;
       padding: 30px;
-  }
+    }
 
-  .row img {
-      width: 100%;
-      margin-top: 0px;
+    .row img {
+      width: auto;
+      margin-top: 0;
       padding: 0;
-  }
+    }
 
-  .App-header header h1 {
+    .App-header header h1 {
       font-size: 3em;
-  }
+    }
 
-  .App-header img {
+    .App-header img {
       max-width: 160px;
+    }
+    // .article section{
+    //   padding: 0;
+    // }
+    blockquote {
+      padding: 60px;
+      font-size: 1.5em;
+    }
 
-  }
-  // .article section{
-  //   padding: 0;
-  // }
+    .article header {
+      height: 30vh;
+    }
 
-  blockquote {
-    padding: 60px;
-    font-size: 1.5em;
-  }
-  .article header {
-    height: 30vh;
+    .articleIndex {
+      min-height: auto;
+    }
 
-  }
-  .articleIndex {
-    min-height: auto;
-  }
-  .articleIndex h1 {
+    .articleIndex h1 {
       font-size: 2rem;
       font-weight: 100;
-      -webkit-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s;
-  }
-  .App-header header h1,.App-header h2, .App-header header small {
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+    }
+
+    .App-header h2,
+    .App-header header h1,
+    .App-header header small {
       left: 30px;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    h2.mobile {
+      padding: 30px;
+      font-weight: 100;
+      text-align: left;
+    }
+
+    .row {
+      padding: 0 0 60px;
+    }
+
+    .editors h2 {
+      font-size: 2em;
+      width: 100px;
+    }
+
+    .row h3 {
+      position: relative;
+      top: -30px;
+      /* padding: 30px; */
+      font-weight: 100;
+      font-size: 0.85em;
+    }
   }
 
-  .desktop {
-    display: none;
-  }
+  @media screen and (max-width: 420px) {
 
-  .mobile {
-    display: block;
-  }
+    .col-whole {
+        margin: 30px 0;
+        width: 100%;
+    }
+    .sideHeader {
+        left: 15px;
+        top: 130px;
 
-  h2.mobile  {
-    padding: 30px;
-    font-weight: 100;
-    text-align: left;
-  }
-
-  .row {
-    padding: 0;
-    padding-bottom: 60px;
-  }
-
-
-
-  .editors h2 {
-    font-size: 2em;
-    width: 100px;
-  }
-
-  .row h3 {
+    }
+        .sideHeader .back {
         position: relative;
-        top: -30px;
-        /* padding: 30px; */
-        font-weight: 100;
-        font-size: .85em;
+        left: 15px;
+        top: 0;
+        font-size: 1rem;
+    }
+    article section {
+      padding: 0 30px;
+    }
+    #EditorsLetter {
+      article section {
+        padding: 30px !important;
+      }
+
+      .col-right, .col-left {
+        padding: 0 15px;
+      }
+    }
+
+    // FRONT OF FrontofHouse
+
+    #FrontofHouse {
+      header {
+        h1 {
+          font-size: 3rem;
+        }
+
+        .desktop {
+            right: 60px;
+            top: 260px;
+            text-align: left;
+            width: 50%;
+            left: initial;
+            font-size: 1rem;
+        }
+        img {
+          width: 130px;
+        }
+
+      }
+      blockquote {
+          font-size: 1em !important;
+          padding: 0 0 90px;
+          width: 60%;
+          margin: 0 auto 90px;
+      }
+      .col-left, .col-right {
+        width: 100%;
+        flex-basis: 90%;
+        padding: 0 30px;
+
+      }
+    }
+
+    // CHEF PROFILE
+
+    #ChefProfile {
+
+      header {
+        height: 50vh;
+        h1 {
+          font-size: 3rem;
+        }
+        .desktop {
+          height: 50vh;
+          p:nth-child(2) {
+            position: relative;
+            top: 60%;
+            left: 30px;
+            font-size: 1.5rem;
+            text-indent: 0;
+            width: 10%;
+          }
+        }
+
+      }
+
+      .col-left, .col-right {
+        padding: 15px 30px;
+        flex-basis: 80%;
+      }
+
+      .imageleft {
+        .col-right {
+          width: 80%;
+        }
+      }
+
+      .imageright {
+        .col-left {
+          width: 80%;
+          padding-left:60px;
+        }
+      }
+    }
+
+    // LAMB
+    #“Sumimasen—kudasithelamb” {
+     .gif-left .col-right {
+          width: 80%;
+          padding: 0 30px;
+      }
+      .gif-right .col-left {
+        width: 80%;
+        padding: 0 30px;
+      }
+      header {
+        height: 50vh;
+        h1 {
+          font-size: 2rem;
+        }
+        .desktop {
+
+           display: block;
+           font-size: 1rem;
+           width: 60%;
+           bottom:0;
+           right:0;
+           text-align: left;
+           float: right;
+           -ms-flex-item-align: end;
+           align-self: flex-end;
+           padding-right: 90px;
+           margin-top: -3em;
+
+        }
+      }
+      .col-left {
+          padding-right: 0;
+          padding-left: 30px;
+          width: 80%;
+      }
+       .col-white > h2 {
+          text-align: center;
+          font-size: 3rem;
+
+      }
+      .col-white {
+        padding-top:0;
+      }
+       .col-right {
+          width: 90%;
+          margin: 0 auto;
+          font-size: .8em;
+          padding-right:0;
+      }
+    }
+
+    //TWO UNDER TEN
+    #TwounderTen {
+      header{
+            height: 50vh;
+            background-size: contain;
+            background-repeat: no-repeat;
+        h1 {
+
+        }
+        h2 {
+            text-indent: 0;
+            font-size: .9rem;
+            line-height: initial;
+        }
+      }
+
+      .col-two-eight .number {
+          font-size: 3rem;
+          padding: 30px;
+      }
+      .col-six-eight h2 {
+        font-size: 1.5rem;
+    }
+    .chef-info .col-right {
+        padding-left: 0;
+        width: 80%;
+    }
+
+    .ingredients li {
+        font-size: 1.5rem;
+        line-height: initial;
+        text-align: center;
+    }
+
+        .addpadd .col-two-eight {
+              width: 80%;
+              font-size: 1rem;
+
+              padding-left: 30px;
+              .inside {
+                width: 90%;
+              }
+          }
+          .addpadd .col-six-eight {
+                width: 80%;
+                font-size: 1rem;
+
+                padding-left: 30px;
+                .inside {
+                  width: 90%;
+                }
+            }
+
+      .col-left, .col-right {
+           padding: 0 30px;
+        }
+    }
+    //SMOKE
+    #WhereTheresSmokeTheresFire {
+      .col-left {
+        padding-top: 15px;
+        width: 100%;
+      }
+      .col-left p {
+          font-size: .8em;
+          text-indent: 1em;
+          flex-basis: 90%;
+          padding-left:30px;
+      }
+      .col-whole {
+        margin: 30px 0;
+        width: 100%;
+    }
+    blockquote {
+
+        font-size: 1em;
+        padding: 0 60px;
+    }
+
+         .col-right p {
+          padding: 0 0px 0 0;
+          -ms-flex-preferred-size: 50%;
+          flex-basis: 90%;
+          text-indent: 1em;
+
+      }
+    }
+
+    // Paddock
+    #TheQuestforQualityEating {
+
+      header {
+        height: 50vh;
+
+        .desktop {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    //Fast
+    #FastFacts {
+      .row section {
+          height: 70vh;
+          padding: 30px;
+          width: calc(100vw - 60px);
+      }
+      h2,h1 {
+           width: 40%;
+           position: absolute;
+           left: 60px;
+           font-size: 2rem;
+           line-height: initial;
+        }
+        .numbers {
+            left: 3px;
+            position: absolute;
+            bottom: 6rem;
+            font-size: 3rem;
+            display: -ms-flexbox;
+            display: flex;
+            font-family: 'LibreBodoni';
+            width: calc(100% - 30px);
+            text-align: left;
+        }
+    }
+
+    .chef-editor .side {
+        width: 100%;
+        display: inline-block;
+        margin-left: 0%;
+        margin-top: 60px;
+    }
+
+    .chef-editor {
+      h2 {
+        position: relative !important;
+        top:initial !important;
+        width: 100% !important;
+      }
+    }
+    .chef-editor h2:first-child {
+        position: absolute;
+        top: 60px;
+          width: 100% !important;
+        text-indent: 0;
+    }
   }
- }

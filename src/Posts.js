@@ -3,6 +3,8 @@ import './App.css';
 import Marked from 'marked';
 import Scrollchor from 'react-scrollchor';
 import $ from 'jquery'
+var OnImagesLoaded = require('react-on-images-loaded');
+
 
 class Posts extends Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class Posts extends Component {
        const interval = setInterval(() => {
            if (document.readyState === 'complete') {
                clearInterval(interval)
-               setTimeout(this.calculateTop, 1000)
+               setTimeout(this.calculateTop, 4000)
            }
        }, 500)
   }
@@ -60,7 +62,10 @@ class Posts extends Component {
     })
   }
 
-
+  runAfterImagesLoaded(){
+    console.log('Imagesloaded');
+       this.calculateTop()
+  }
   render() {
     // Set up sticky styles for the sticky effect
     const styles = {
@@ -111,6 +116,10 @@ class Posts extends Component {
 
       return (
         <div style={styles} className={`${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={cleanTitle}  ref={this.registerRef}>
+        <OnImagesLoaded
+              onLoaded={this.runAfterImagesLoaded.bind(this)}
+              timeout={7000}
+            >
             <article style={{backgroundColor: this.props.content.fields.backgroundColor ,color: this.props.content.fields.fontColor, borderColor: this.props.content.fields.imageBackgroundColorOnHover}} className={animation} ref={ (divElement) => this.divElement = divElement}>
                 <small className="sideHeader"><span>{sidetext} </span> <Scrollchor className="back" to="#contents">Back to contents</Scrollchor></small>
               <header style={{backgroundImage: `url(${background})`, color:this.props.content.fields.fontColor }}>
@@ -121,13 +130,15 @@ class Posts extends Component {
               <video className="video-container video-container-overlay" autoPlay loop muted="">
                 <source type="video/mp4" src={backgroundVideo}/>
               </video>
-              <h2 className="mobile">{this.props.content.fields.excerpt}</h2>
+              <h2 className="mobile" dangerouslySetInnerHTML={ { __html: ex}  }></h2>
               <section style={{ color:this.props.content.fields.fontColor }}>
                 <p className="row" dangerouslySetInnerHTML={ { __html: body}  }></p>
               </section>
               <Scrollchor className="back" to="#contents">Back to contents</Scrollchor>
           </article>
+           </OnImagesLoaded>
          </div>
+
       );
   }
 }

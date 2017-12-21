@@ -34,6 +34,7 @@ class AppRoute extends Component {
           var sortedContent = content.sort(function(a,b){
             return a.fields.order > b.fields.order
           })
+          
          this.setState({
            contents: sortedContent
          });

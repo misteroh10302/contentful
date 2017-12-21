@@ -41,7 +41,7 @@ a {
 
 .App-header header h1 {
   position: absolute;
-  top: 90px;
+  top: 60px;
   left: 90px;
   font-size: 4.5rem;
   font-weight: 100;
@@ -73,14 +73,14 @@ a {
 .App-header header small {
   font-family: 'Filosofia';
   position: absolute;
-  top: 60px;
+  top: 30px;
   left: 90px;
   font-size: 1.5rem;
   font-weight: 400; }
 
 .App-header h2 {
   position: absolute;
-  bottom: 60px;
+  bottom: 120px;
   left: 90px;
   font-size: 1rem;
   font-weight: 100;
@@ -96,6 +96,9 @@ a {
 .App-intro header {
   position: relative; }
 
+.video-hold {
+  margin-top: 190px; }
+
 h1,
 h2,
 h3,
@@ -103,6 +106,35 @@ h4,
 h5 {
   font-family: "Filosofia";
   font-weight: 100; }
+
+.App > div > iframe > html {
+  zoom: 0.5;
+  padding: 60px;
+  background-color: #e20c1d;
+  overflow: hidden; }
+
+.form html {
+  zoom: 0.5;
+  padding: 60px;
+  background-color: #e20c1d;
+  overflow: hidden; }
+
+.form-open {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index: 999; }
+  .form-open iframe {
+    width: 800px;
+    height: 600px;
+    padding: 0px;
+    border: 0;
+    overflow: hidden; }
+    .form-open iframe html {
+      zoom: 0.5;
+      padding: 60px;
+      background-color: #e20c1d;
+      overflow: hidden; }
 
 .sideHeader {
   position: absolute;
@@ -283,7 +315,7 @@ article section {
   position: absolute;
   left: 60px;
   bottom: 60px;
-  font-size: 1.25em;
+  font-size: 1em;
   color: inherit; }
 
 img {
@@ -369,7 +401,14 @@ blockquote {
 .newsButton {
   position: fixed;
   top: 0;
-  right: 0; }
+  right: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 90px;
+  width: 90px;
+  color: transparent;
+  cursor: pointer; }
 
 .App nav {
   position: fixed;
@@ -878,10 +917,14 @@ blockquote {
   position: relative; }
   #“Sumimasen—kudasithelamb” .biglambbox ol {
     width: 50%;
-    float: left; }
+    float: left;
+    list-style-type: decimal-leading-zero; }
   #“Sumimasen—kudasithelamb” .biglambbox img {
     position: absolute;
     right: 30px; }
+  #“Sumimasen—kudasithelamb” .biglambbox ol:nth-child(2) {
+    padding-left: 30px;
+    width: 45%; }
   #“Sumimasen—kudasithelamb” .biglambbox ol {
     font-size: 1em;
     color: blue; }
@@ -962,7 +1005,8 @@ blockquote {
   color: blue; }
   #ChefProfile .chefbox > img {
     position: absolute;
-    right: 30px; }
+    right: 30px;
+    top: 30px; }
   #ChefProfile .chefbox small {
     display: block; }
   #ChefProfile .chefbox h2 {
@@ -1378,7 +1422,8 @@ blockquote {
 
 /* Image placement */
 .sideimage img {
-  float: right; }
+  float: right;
+  width: 80%; }
 
 .middle-image {
   display: flex;
@@ -1444,6 +1489,9 @@ blockquote {
     display: none; }
   #TheQuestforQualityEating .box-shape {
     zoom: 0.6; }
+  #TwounderTen header {
+    background-size: contain;
+    background-repeat: no-repeat; }
   #TwounderTen .addpadd .col-two-eight {
     width: 100%; }
     #TwounderTen .addpadd .col-two-eight .inside {
@@ -1485,6 +1533,15 @@ blockquote {
     width: 40%; }
   #“Sumimasen—kudasithelamb” .gif-right .col-right {
     width: 20%; }
+  #FrontofHouse header {
+    height: 60vh; }
+  #FrontofHouse header .desktop {
+    font-size: 1.5rem;
+    right: 0px; }
+  #FrontofHouse .col-left, #FrontofHouse .col-right {
+    padding: 0 60px 15px;
+    -ms-flex-preferred-size: 34%;
+    flex-basis: 30%; }
   #ChefProfile .col-right {
     width: 90%;
     margin: 0 auto;
@@ -1513,7 +1570,7 @@ blockquote {
   .App-header header h1 {
     font-size: 3em; }
   .App-header img {
-    max-width: 160px; }
+    max-width: 90px; }
   blockquote {
     padding: 60px;
     font-size: 1.5em; }
@@ -1552,6 +1609,63 @@ blockquote {
     font-size: 0.85em; } }
 
 @media screen and (max-width: 420px) {
+  .video-hold {
+    height: 200px; }
+  .newsButton {
+    position: fixed;
+    top: 0;
+    right: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 78px;
+    width: 90px;
+    color: transparent;
+    cursor: pointer;
+    background-coloR: #b80e0e; }
+  article > .back {
+    display: none; }
+  .form-open iframe {
+    width: 80%;
+    height: 600px;
+    padding: 0px;
+    border: 0;
+    overflow: hidden; }
+  #LambLeg header {
+    height: auto;
+    padding: 40px; }
+    #LambLeg header h1 {
+      font-size: 3rem; }
+    #LambLeg header .desktop {
+      padding-left: 0px;
+      font-size: .9rem;
+      width: 50%; }
+  #LambLeg .col-left, #LambLeg .col-right {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%; }
+  #LambLeg .row h2 {
+    font-weight: 100;
+    padding: 0 0 1rem;
+    font-size: 2rem;
+    clear: both;
+    text-indent: 0; }
+  #LambLeg .row ul {
+    list-style-type: none;
+    width: 80%;
+    font-size: 1rem;
+    line-height: initial; }
+  #LambLeg .row {
+    margin-top: 60px; }
+  #LambLeg .row h3 {
+    position: initial;
+    padding: 1em 0 0;
+    text-transform: uppercase;
+    font-size: .9rem; }
+  #LambLeg .row img {
+    float: right;
+    max-width: 90px;
+    clear: both;
+    padding: 0; }
   .col-whole {
     margin: 30px 0;
     width: 100%; }
@@ -1570,10 +1684,11 @@ blockquote {
   #EditorsLetter .col-right, #EditorsLetter .col-left {
     padding: 0 15px; }
   #FrontofHouse header h1 {
-    font-size: 3rem; }
+    font-size: 2rem;
+    padding-left: 45px; }
   #FrontofHouse header .desktop {
-    right: 60px;
-    top: 260px;
+    right: 30px;
+    top: 30px;
     text-align: left;
     width: 50%;
     left: initial;
@@ -1684,7 +1799,7 @@ blockquote {
     padding-top: 15px;
     width: 100%; }
   #WhereTheresSmokeTheresFire .col-left p {
-    font-size: .8em;
+    font-size: initial;
     text-indent: 1em;
     flex-basis: 90%;
     padding-left: 30px; }
@@ -1727,7 +1842,8 @@ blockquote {
     width: 100%;
     display: inline-block;
     margin-left: 0%;
-    margin-top: 60px; }
+    margin-top: 60px;
+    font-size: .9rem; }
   .chef-editor h2 {
     position: relative !important;
     top: initial !important;

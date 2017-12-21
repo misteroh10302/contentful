@@ -46,7 +46,7 @@ a {
 
 .App-header header h1 {
   position: absolute;
-  top: 90px;
+  top: 60px;
   left: 90px;
   font-size: 4.5rem;
   font-weight: 100;
@@ -83,7 +83,7 @@ a {
 .App-header header small {
   font-family: 'Filosofia';
   position: absolute;
-  top: 60px;
+  top: 30px;
   left: 90px;
   font-size: 1.5rem;
   font-weight: 400;
@@ -91,7 +91,7 @@ a {
 
 .App-header h2 {
   position: absolute;
-  bottom: 60px;
+  bottom: 120px;
   left: 90px;
   font-size: 1rem;
   font-weight: 100;
@@ -110,6 +110,10 @@ a {
   position: relative;
 }
 
+.video-hold {
+      margin-top: 190px;
+}
+
 h1,
 h2,
 h3,
@@ -118,7 +122,39 @@ h5 {
   font-family: "Filosofia";
   font-weight: 100;
 }
+.App >div >iframe > html{
+  zoom: 0.5;
+  padding: 60px;
+  background-color: #e20c1d;
+  overflow: hidden;
+}
+.form html {
+  zoom: 0.5;
+  padding: 60px;
+  background-color: #e20c1d;
+  overflow: hidden;
+}
+.form-open {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index: 999;
 
+  iframe {
+    width: 800px;
+    height: 600px;
+    padding: 0px;
+    border: 0;
+    overflow: hidden;
+    html {
+      zoom: 0.5;
+      padding: 60px;
+      background-color: #e20c1d;
+      overflow: hidden;
+    }
+
+  }
+}
 .sideHeader {
   position: absolute;
   left: 0;
@@ -338,7 +374,7 @@ article section {
   position: absolute;
   left: 60px;
   bottom: 60px;
-  font-size: 1.25em;
+  font-size: 1em;
   color: inherit;
 }
 
@@ -444,6 +480,13 @@ blockquote {
   position: fixed;
   top:0;
   right:0;
+  position: fixed;
+top: 0;
+right: 0;
+height: 90px;
+width: 90px;
+color: transparent;
+cursor: pointer;
 }
 
 .App nav {
@@ -1072,11 +1115,17 @@ height: 90px;
     ol {
       width: 50%;
       float: left;
+      list-style-type: decimal-leading-zero;
     }
 
     img {
       position: absolute;
       right: 30px;
+    }
+
+    ol:nth-child(2){
+      padding-left: 30px;
+      width: 45%;
     }
 
     ol {
@@ -1186,6 +1235,7 @@ height: 90px;
     & > img {
       position: absolute;
     right: 30px;
+    top:30px;
     }
     small {
       display: block;
@@ -1761,6 +1811,7 @@ height: 90px;
   /* Image placement */
   .sideimage img {
     float: right;
+    width: 80%;
   }
 
   .middle-image {
@@ -1875,6 +1926,10 @@ height: 90px;
     //TwounderTen
 
     #TwounderTen {
+      header {
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
       .addpadd {
         .col-two-eight {
           width: 100%;
@@ -1963,6 +2018,21 @@ height: 90px;
       }
     }
 
+    #FrontofHouse {
+      header {
+        height:60vh;
+      }
+      header .desktop {
+          font-size: 1.5rem;
+          right: 0px;
+      }
+      .col-left,  .col-right {
+          padding: 0 60px 15px;
+          -ms-flex-preferred-size: 34%;
+          flex-basis: 30%;
+      }
+    }
+
     // Chef Profile
 
     #ChefProfile {
@@ -2013,7 +2083,7 @@ height: 90px;
     }
 
     .App-header img {
-      max-width: 160px;
+      max-width: 90px;
     }
     // .article section{
     //   padding: 0;
@@ -2075,10 +2145,89 @@ height: 90px;
       font-weight: 100;
       font-size: 0.85em;
     }
+
+
   }
 
   @media screen and (max-width: 420px) {
+    .video-hold {
+        height: 200px;
 
+    }
+
+    .newsButton {
+        position: fixed;
+        top: 0;
+        right: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 78px;
+        width: 90px;
+        color: transparent;
+        cursor: pointer;
+        background-coloR: #b80e0e;
+    }
+
+  article > .back {
+    display: none;
+  }
+    .form-open iframe {
+          width: 80%;
+          height: 600px;
+          padding: 0px;
+          border: 0;
+          overflow: hidden;
+
+      }
+        #LambLeg  {
+            header {
+              height: auto;
+              padding: 40px;
+              h1 {
+                font-size: 3rem;
+              }
+
+              .desktop {
+                padding-left: 0px;
+                font-size: .9rem;
+                width: 50%;
+              }
+          }
+
+            .col-left, .col-right {
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        }
+        .row h2 {
+            font-weight: 100;
+            padding: 0 0 1rem;
+            font-size: 2rem;
+            clear: both;
+            text-indent: 0;
+        }
+        .row ul {
+          list-style-type: none;
+          width: 80%;
+          font-size: 1rem;
+          line-height: initial;
+        }
+        .row {
+              margin-top: 60px;
+        }
+        .row h3 {
+            position: initial;
+            padding: 1em 0 0;
+            text-transform: uppercase;
+            font-size: .9rem;
+        }
+        .row img {
+            float: right;
+            max-width: 90px;
+            clear: both;
+            padding: 0;
+        }
+      }
     .col-whole {
         margin: 30px 0;
         width: 100%;
@@ -2112,12 +2261,13 @@ height: 90px;
     #FrontofHouse {
       header {
         h1 {
-          font-size: 3rem;
+          font-size: 2rem;
+          padding-left: 45px;
         }
 
         .desktop {
-            right: 60px;
-            top: 260px;
+            right: 30px;
+            top: 30px;
             text-align: left;
             width: 50%;
             left: initial;
@@ -2134,6 +2284,7 @@ height: 90px;
           width: 60%;
           margin: 0 auto 90px;
       }
+
       .col-left, .col-right {
         width: 100%;
         flex-basis: 90%;
@@ -2300,7 +2451,7 @@ height: 90px;
         width: 100%;
       }
       .col-left p {
-          font-size: .8em;
+          font-size: initial;
           text-indent: 1em;
           flex-basis: 90%;
           padding-left:30px;
@@ -2368,6 +2519,7 @@ height: 90px;
         display: inline-block;
         margin-left: 0%;
         margin-top: 60px;
+        font-size: .9rem;
     }
 
     .chef-editor {

@@ -20,7 +20,7 @@ class App extends Component {
       homepage: [],
       stateName: props.theName,
       height: 'auto',
-      openForm: "hidden"
+      openForm: "form"
     }
     this.clickImage = this.clickImage.bind(this);
   }
@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-        const height = this.articleEl.clientHeight /2 - 103;
+        const height = this.articleEl.clientHeight - 220;
         this.setState({ height });
         console.log('finished');
   }
@@ -129,7 +129,7 @@ class App extends Component {
     }
 
     var articleHeight = {
-      top: Math.min(0, window.innerHeight + this.state.height)
+      top: Math.min(0, window.innerHeight + this.state.height -120)
     }
   }
   clickImage = (e) => {
@@ -138,9 +138,16 @@ class App extends Component {
   }
 
   openNews(){
-    this.setState({
-      openForm: 'form-open'
-    });
+    if (this.state.openForm === 'form-open') {
+      this.setState({
+        openForm: 'form'
+      });
+    }  else{
+      this.setState({
+        openForm: 'form-open'
+      });
+    }
+
   }
 
   closeNews(){

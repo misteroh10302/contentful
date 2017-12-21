@@ -17,19 +17,8 @@ class Newsletter extends Component {
   render() {
     return (
       <div className={this.props.isOpen}>
-        <div className="closeForm" onClick={this.props.closeForm}>
-          <span></span>
-          <span></span>
-        </div>
-        <h1>Emag Signup</h1> <small> * mantadory </small>
-        <input type="text" className="full" placeholder="Name"/>
-        <input type="text" className="full"  placeholder="Email"/>
-        <input type="text" placeholder="Position"/>
-        <input type="text" placeholder="Location"/>
-        <input type="text" placeholder="Venue Name"/>
-        <input type="text" placeholder="Venue Type"/>
-        <input type="text" className="full"  placeholder="Contact phone Number"/>
-        <input type="submit" placeholder="Name"/>
+      <iframe src="http://raremedium.monkeylabs.com.au/iframe-signup-form/" frameborder="0"></iframe>
+      
       </div>
     );
   }

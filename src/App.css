@@ -18,7 +18,10 @@ a {
   color: inherit;
   text-decoration: none; }
 
-.row .back {
+.row > .back {
+  display: none; }
+
+article > .back {
   display: none; }
 
 .App {
@@ -1448,6 +1451,228 @@ blockquote {
   margin: 0 auto; }
 
 /*# sourceMappingURL=Autumn.css.map */
+@media screen and (min-width: 1400px) {
+  .App-intro {
+    font-size: 30px; }
+  .App-header header h1 {
+    position: absolute;
+    top: 160px;
+    left: 440px;
+    font-size: 7.5em;
+    font-weight: 100;
+    max-width: 100px;
+    text-align: left; }
+  .App-header h2 {
+    position: absolute;
+    bottom: 160px;
+    left: 430px;
+    font-size: 2rem;
+    font-weight: 100;
+    max-width: 350px;
+    text-align: left; }
+  .App-header header small {
+    top: 90px;
+    left: 450px;
+    font-size: 2em;
+    font-weight: 400; }
+  .row {
+    line-height: initial; }
+    .row img {
+      max-height: 100vh; }
+  .col-whole img {
+    max-height: 100%;
+    width: 100%; }
+  .editors .row h3 {
+    position: initial;
+    font-size: inherit;
+    top: 0; }
+  #EditorsLetter img {
+    width: 350px;
+    padding-right: 30px; }
+  #“Sumimasen—kudasithelamb” .col-white > h2 {
+    text-align: center;
+    font-size: 7rem;
+    max-width: 800px; }
+  #“Sumimasen—kudasithelamb” .col-white > h2 ~ hr {
+    width: 90px;
+    border-color: #fbe2e8;
+    margin: 30px auto;
+    border-width: 6px;
+    border-style: solid; }
+  #“Sumimasen—kudasithelamb” .lambboxsmall {
+    border: 1px solid blue;
+    padding: 40px;
+    margin: 30px;
+    margin-bottom: 90px; }
+  #“Sumimasen—kudasithelamb” .mid-whole {
+    max-width: 900px; }
+  #ChefProfile .chefbox {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    border: 1px solid blue;
+    padding: 40px;
+    color: blue; }
+  .articleIndex h3 {
+    padding: 60px;
+    font-size: 2.5em; }
+  #ChefProfile header h1 {
+    display: block;
+    font-size: 14.5rem; }
+  #“Sumimasen—kudasithelamb” header h1 {
+    display: block;
+    font-size: 9rem; }
+  #ChefProfile header .desktop p:nth-child(2) {
+    position: relative;
+    top: 80%;
+    color: blue;
+    left: 260px;
+    font-size: 4.5rem;
+    text-indent: 0;
+    width: 10%; }
+  #“Sumimasen—kudasithelamb” .gif-left h2, #“Sumimasen—kudasithelamb” .gif-right h2 {
+    font-size: 3em; }
+  .bigtitle {
+    font-size: 7em !important; }
+  #FastFacts .video-hold {
+    margin-top: 290px; }
+  #FastFacts h2:nth-child(2) {
+    top: 390px; }
+  #ChefProfile .chefbox > img {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 90px; }
+  .photo-grid div {
+    -ms-flex-preferred-size: 49%;
+    flex-basis: 49%;
+    width: 48%;
+    height: 460px;
+    margin-bottom: 40px;
+    overflow: hidden; }
+    .photo-grid div img {
+      max-height: initial; }
+  #FastFacts h2 img {
+    display: block;
+    width: 100px;
+    margin-bottom: 15px; }
+  .sideHeader .back {
+    position: relative;
+    left: 160px;
+    top: 0; }
+  #FrontofHouse header h1 {
+    display: block;
+    font-size: 10rem;
+    font-weight: 100;
+    width: 12.5%;
+    text-align: left;
+    padding-left: 120px; }
+  #ChefProfile .imageright .col-left h2 img, #ChefProfile .imageleft .col-right h2 img {
+    width: 60px;
+    max-height: inherit;
+    padding-right: 1em; }
+  #ChefProfile article section {
+    padding: 0;
+    margin-top: 160px; }
+  #ChefProfile .imageleft .col-right h2 {
+    font-size: 5rem; }
+  #ChefProfile .imageright .col-left h2 {
+    font-size: 5rem; }
+  #“Sumimasen—kudasithelamb” .biglambbox h2 {
+    color: blue;
+    margin: 60px 0;
+    border-bottom: 1px solid blue;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-size: 2.5rem;
+    /* float: left; */
+    margin-right: 50%;
+    width: 40%; }
+  #“Sumimasen—kudasithelamb” .biglambbox {
+    padding: 60px 120px; }
+    #“Sumimasen—kudasithelamb” .biglambbox img {
+      position: absolute;
+      right: 120px;
+      width: 60px; }
+  #FastFacts h2, #FastFacts h1 {
+    font-size: 8rem;
+    line-height: initial; }
+  #FastFacts .numbers {
+    font-size: 8rem; }
+  #WhereTheresSmokeTheresFire .col-right p, #WhereTheresSmokeTheresFire .col-left p {
+    font-size: 2rem;
+    line-height: 2.5rem; }
+  #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
+    height: 160px; }
+  #TheQuestforQualityEating .box-shape .col-half-third div {
+    height: 390px;
+    padding: 30px 0;
+    border-top: 1px solid black;
+    text-align: center; }
+  .largelamb img {
+    width: auto !important;
+    max-height: initial; }
+  #TwounderTen .chef-info img {
+    max-width: 500px; }
+  #TwounderTen .ingredients li {
+    font-size: 5rem;
+    line-height: initial;
+    text-align: center; }
+    #TwounderTen .ingredients li small {
+      font-size: .5em; }
+  #TwounderTen h2 {
+    text-indent: 0;
+    font-size: 3.5rem;
+    line-height: initial; }
+  #TwounderTen .chef-info p {
+    font-size: 1em; }
+  #TwounderTen .col-fourth h2 {
+    font-size: 1em; }
+  #LambLeg .desktop {
+    width: 40%;
+    float: right;
+    padding-left: 80px;
+    font-size: 2em; }
+  #LambLeg h1 {
+    font-size: 10rem; }
+  .sideHeader {
+    left: 40px;
+    top: 130px;
+    z-index: 1;
+    font-size: 1.5em; }
+  .fixSub .sideHeader {
+    position: fixed;
+    font-size: 1.1em; }
+  .fixSub .sideHeader .back {
+    width: 550px; }
+  #TheQuestforQualityEating .box-shape .col-one-third div {
+    height: 450px; }
+  .whole-half-image {
+    text-align: center;
+    padding: 90px 0;
+    width: 100%; }
+  #TheQuestforQualityEating .box-shape .col-one-third div:first-child {
+    height: 225px; }
+    #TheQuestforQualityEating .box-shape .col-one-third div:first-child img {
+      width: 90px;
+      width: 90px;
+      max-height: inherit; }
+  #LambLeg .row img {
+    float: right;
+    max-width: 150px;
+    clear: both;
+    padding: 0; }
+  #OntheMenu p {
+    font-size: 1.1em; }
+  #OntheMenu .col-left h3, #OntheMenu .col-right h3 {
+    font-size: 2.5rem;
+    line-height: initial; }
+  #OntheMenu .col-left h2, #OntheMenu .col-right h2 {
+    font-weight: 100;
+    font-size: 4rem;
+    line-height: initial;
+    padding-bottom: 15px; } }
+
 @media screen and (max-width: 786px) {
   body {
     font-size: 12px; }
@@ -1611,6 +1836,20 @@ blockquote {
 @media screen and (max-width: 420px) {
   .video-hold {
     height: 200px; }
+  .articleIndex {
+    padding: 60px 30px; }
+    .articleIndex h1 {
+      font-size: 2em; }
+  .row img {
+    width: 80%; }
+  .photo-grid div {
+    -ms-flex-preferred-size: 49%;
+    flex-basis: 100%;
+    width: 100%;
+    height: 160px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center; }
   .newsButton {
     position: fixed;
     top: 0;

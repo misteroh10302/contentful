@@ -80,6 +80,10 @@ article > .back {
   position: sticky;
 }
 
+.articleIndex {
+  display: none;
+}
+
 .no-stick {
   position: relative;
 }
@@ -324,7 +328,7 @@ article section {
   line-height: 1.15em;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0 190px;
+  padding: 0 0 0px;
   justify-content: space-between;
 }
 
@@ -577,6 +581,7 @@ height: 90px;
 
 #LambLeg h2 {
   position: initial;
+  line-height: initial;
 }
 
 #LambLeg video {
@@ -833,8 +838,12 @@ height: 90px;
 }
 
 #FrontofHouse header img {
-  margin: 60px 0;
+  margin: 0px 0;
   width: 207px;
+  transition: .25s;
+  &:hover {
+    opacity: 0;
+  }
 }
 
 #FrontofHouse .col-left,
@@ -959,10 +968,61 @@ height: 90px;
     background-color: #F47D5F;
   }
 }
+
+//FINAL
+
+#Final {
+  header {
+    height: 11vh;
+  }
+  .desktop {
+    font-size: 1.1em;
+    width: 100%;
+    left:0;
+    top:0;
+
+    h2 {
+      position: absolute;
+      top:60px;
+      text-indent: 1em;
+    }
+
+    p {
+      width: 50%;
+      align-self: flex-end;
+      right: 60px;
+      top:60px;
+      font-size: 1.1em;
+      position: absolute;
+    }
+  }
+
+  section {
+    padding: 60px;
+  }
+
+  .row {
+    width: 100%;    width: 100%;
+    border-bottom: 1px solid black;
+    img {
+      max-width: 300px;
+      float:left;
+    }
+  }
+}
 /// On the Menu
 #“Sumimasen—kudasithelamb” {
   .blackfont {
     color: black;
+  }
+
+  .desktop {
+    img {
+      position: absolute;
+        left: -190%;
+        top: -180%;
+        width: 100px;
+    }
   }
 
   .video-container {
@@ -1851,7 +1911,9 @@ height: 90px;
   /*# sourceMappingURL=Autumn.css.map */
 
     @media screen and (min-width: 1400px) {
-
+      #Final header {
+        height: 55vh;
+      }
       .App-intro {
         font-size: 30px;
       }
@@ -2510,6 +2572,18 @@ height: 90px;
 
     }
 
+    .image-inline {
+      img {
+        width: 100% !important;
+      }
+    }
+
+    #EditorsLetter img {
+      width: 100%;
+      float: left;
+      margin: 15px 0;
+      padding-right: 15px;
+  }
     .articleIndex {
         padding: 60px 30px;
           h1 {
@@ -2694,7 +2768,7 @@ height: 90px;
           font-size: 1em !important;
           padding: 0 0 90px;
           width: 60%;
-          margin: 0 auto 90px;
+          margin: 90px auto 90px;
       }
 
       .col-left, .col-right {
@@ -2703,6 +2777,63 @@ height: 90px;
         padding: 0 30px;
 
       }
+    }
+
+    #TheQuestforQualityEating .box-shape .col-one-third h2:first-child, #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
+          height: 60px;
+          font-size: 1em;
+          line-height: initial;
+          padding: 15px;
+      }
+
+      #TheQuestforQualityEating .box-shape ul {
+        list-style: none;
+        text-align: left;
+        width: 50%;
+        float: left;
+        line-height: initial;
+        width: 100%;
+    }
+    #TheQuestforQualityEating .box-shape .col-half-third div h3 {
+        width: 100%;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        position: initial;
+        line-height: initial;
+        padding-bottom: 15px;
+    }
+
+    #TheQuestforQualityEating .box-shape .col-half-third div img {
+        height: auto;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+
+      #Final {
+        .desktop h2 {
+            position: initial;
+            top: 60px;
+            width: 80%;
+            text-indent: 1em;
+          padding: 30px 30px 0px;
+
+        }
+        .desktop p {
+            position: initial;
+            top: 60px;
+            width: 80%;
+            text-indent: 1em;
+            padding: 30px 30px 0px;
+
+        }
+        header {
+          height: 60vh;
+        }
+      }
+      #Final section {
+        padding: 30px;
     }
 
     // CHEF PROFILE
@@ -2936,7 +3067,7 @@ height: 90px;
         display: inline-block;
         margin-left: 0%;
         margin-top: 60px;
-        font-size: .9rem;
+        font-size: 1em;
     }
 
     .chef-editor {

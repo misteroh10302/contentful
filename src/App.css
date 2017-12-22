@@ -70,6 +70,9 @@ article > .back {
   top: 0;
   position: sticky; }
 
+.articleIndex {
+  display: none; }
+
 .no-stick {
   position: relative; }
 
@@ -275,7 +278,7 @@ article section {
   line-height: 1.15em;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0 190px;
+  padding: 0 0 0px;
   justify-content: space-between; }
 
 .row img {
@@ -485,7 +488,8 @@ blockquote {
   flex-direction: row; }
 
 #LambLeg h2 {
-  position: initial; }
+  position: initial;
+  line-height: initial; }
 
 #LambLeg video {
   display: none; }
@@ -692,8 +696,11 @@ blockquote {
   font-size: 3em; }
 
 #FrontofHouse header img {
-  margin: 60px 0;
-  width: 207px; }
+  margin: 0px 0;
+  width: 207px;
+  transition: .25s; }
+  #FrontofHouse header img:hover {
+    opacity: 0; }
 
 #FrontofHouse .col-left,
 #FrontofHouse .col-right {
@@ -791,8 +798,45 @@ blockquote {
 #FastFacts .burntred {
   background-color: #F47D5F; }
 
+#Final header {
+  height: 11vh; }
+
+#Final .desktop {
+  font-size: 1.1em;
+  width: 100%;
+  left: 0;
+  top: 0; }
+  #Final .desktop h2 {
+    position: absolute;
+    top: 60px;
+    text-indent: 1em; }
+  #Final .desktop p {
+    width: 50%;
+    align-self: flex-end;
+    right: 60px;
+    top: 60px;
+    font-size: 1.1em;
+    position: absolute; }
+
+#Final section {
+  padding: 60px; }
+
+#Final .row {
+  width: 100%;
+  width: 100%;
+  border-bottom: 1px solid black; }
+  #Final .row img {
+    max-width: 300px;
+    float: left; }
+
 #“Sumimasen—kudasithelamb” .blackfont {
   color: black; }
+
+#“Sumimasen—kudasithelamb” .desktop img {
+  position: absolute;
+  left: -190%;
+  top: -180%;
+  width: 100px; }
 
 #“Sumimasen—kudasithelamb” .video-container {
   display: none; }
@@ -1457,6 +1501,8 @@ blockquote {
 
 /*# sourceMappingURL=Autumn.css.map */
 @media screen and (min-width: 1400px) {
+  #Final header {
+    height: 55vh; }
   .App-intro {
     font-size: 30px; }
   .App-header header h1 {
@@ -1841,6 +1887,13 @@ blockquote {
 @media screen and (max-width: 420px) {
   .video-hold {
     height: 200px; }
+  .image-inline img {
+    width: 100% !important; }
+  #EditorsLetter img {
+    width: 100%;
+    float: left;
+    margin: 15px 0;
+    padding-right: 15px; }
   .articleIndex {
     padding: 60px 30px; }
     .articleIndex h1 {
@@ -1973,11 +2026,51 @@ blockquote {
     font-size: 1em !important;
     padding: 0 0 90px;
     width: 60%;
-    margin: 0 auto 90px; }
+    margin: 90px auto 90px; }
   #FrontofHouse .col-left, #FrontofHouse .col-right {
     width: 100%;
     flex-basis: 90%;
     padding: 0 30px; }
+  #TheQuestforQualityEating .box-shape .col-one-third h2:first-child, #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
+    height: 60px;
+    font-size: 1em;
+    line-height: initial;
+    padding: 15px; }
+  #TheQuestforQualityEating .box-shape ul {
+    list-style: none;
+    text-align: left;
+    width: 50%;
+    float: left;
+    line-height: initial;
+    width: 100%; }
+  #TheQuestforQualityEating .box-shape .col-half-third div h3 {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    position: initial;
+    line-height: initial;
+    padding-bottom: 15px; }
+  #TheQuestforQualityEating .box-shape .col-half-third div img {
+    height: auto;
+    width: 100%;
+    margin-bottom: 5px; }
+  #Final .desktop h2 {
+    position: initial;
+    top: 60px;
+    width: 80%;
+    text-indent: 1em;
+    padding: 30px 30px 0px; }
+  #Final .desktop p {
+    position: initial;
+    top: 60px;
+    width: 80%;
+    text-indent: 1em;
+    padding: 30px 30px 0px; }
+  #Final header {
+    height: 60vh; }
+  #Final section {
+    padding: 30px; }
   #ChefProfile header {
     height: 50vh; }
     #ChefProfile header h1 {
@@ -2119,7 +2212,7 @@ blockquote {
     display: inline-block;
     margin-left: 0%;
     margin-top: 60px;
-    font-size: .9rem; }
+    font-size: 1em; }
   .chef-editor h2 {
     position: relative !important;
     top: initial !important;

@@ -48,7 +48,13 @@ class Posts extends Component {
                clearInterval(interval)
                setTimeout(this.calculateTop, 4000)
            }
-       }, 500)
+       }, 1000)
+
+       setInterval(() =>{
+         var that  = this;
+         this.calculateTop()
+
+       }, 1000);
   }
 
   componentDidUpdate(){
@@ -63,7 +69,7 @@ class Posts extends Component {
   }
 
   runAfterImagesLoaded(){
-    console.log('Imagesloaded');
+
        this.calculateTop()
   }
   render() {

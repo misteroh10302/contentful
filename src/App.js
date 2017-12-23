@@ -47,7 +47,7 @@ class App extends Component {
       var sortedContent = content.sort(function(a,b){
         return a.fields.order - b.fields.order
       })
-      console.log(sortedContent);
+
         this.setState({
            contents: sortedContent
          });
@@ -59,7 +59,7 @@ class App extends Component {
   componentDidMount(){
         const height = this.articleEl.clientHeight - 220;
         this.setState({ height });
-        console.log('finished');
+
   }
   componentDidUpdate(){
     var that = this;
@@ -104,7 +104,7 @@ class App extends Component {
         var docViewTop = $(window).scrollTop();
         var docViewBottom = docViewTop + $(window).height();
 
-        var elemTop = $(e).offset().top + $(window).height() - 70;
+        var elemTop = $(e).offset().top + $(window).height();
         // var elemBottom = elemTop + $(e).height();
 
         if ( docViewBottom > elemTop ){
@@ -131,6 +131,13 @@ class App extends Component {
     var articleHeight = {
       top: Math.min(0, window.innerHeight + this.state.height -120)
     }
+
+    var allArticlesTop = $('.App-intro > div');
+
+    $(allArticlesTop).each(function(e){
+        console.log($(this)[0].clientHeight);
+    });
+
   }
   clickImage = (e) => {
     var theEl = e.target;
@@ -187,9 +194,6 @@ class App extends Component {
         return a.fields.order - b.fields.order
       });
 
-
-
-    console.log(sortedContent);
 
     articleItems = this.state.contents.map(function(content,i){
         let thumbnail

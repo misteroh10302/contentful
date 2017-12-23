@@ -2,6 +2,7 @@
   "name": "contentfultest",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://madeline-omoore.com/",
   "dependencies": {
     "contentful": "^5.0.5",
     "jquery": "^3.2.1",

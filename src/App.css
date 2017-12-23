@@ -1,7 +1,8 @@
 @charset "UTF-8";
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  -webkit-font-smoothing: antialiased; }
 
 @font-face {
   src: url("//assets.contentful.com/a7w606b3ho4t/43mBXrVckgYMukWc6CW0iy/300281cdd282277cea67f8be0fe1b678/Filosofia_Regular.otf");
@@ -13,6 +14,19 @@
 
 body {
   font-size: 16px; }
+
+img {
+  opacity: 1;
+  animation: fadeIn 1s linear; }
+
+.video-container {
+  display: none; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 ul, ol {
   list-style: none;
@@ -37,24 +51,25 @@ article > .back {
   height: 80px; }
 
 .App-header {
-  margin-top: 70px; }
+  margin-top: 78px; }
 
 .App-header header {
-  height: 100vh;
+  height: calc(100vh - 78px);
   background-size: cover;
   background-position: center;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 0; }
 
 .App-header header h1 {
   position: absolute;
-  top: 60px;
+  top: 90px;
   left: 90px;
   font-size: 4.5rem;
   font-weight: 100;
   max-width: 100px;
-  text-align: left; }
+  text-align: left;
+  line-height: .9em; }
 
 .App-header img {
   width: 100%;
@@ -84,16 +99,16 @@ article > .back {
 .App-header header small {
   font-family: 'Filosofia';
   position: absolute;
-  top: 30px;
+  top: 60px;
   left: 90px;
-  font-size: 1.5rem;
-  font-weight: 400; }
+  font-size: 1.1rem;
+  font-weight: 100; }
 
 .App-header h2 {
   position: absolute;
-  bottom: 120px;
+  bottom: 60px;
   left: 90px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 100;
   max-width: 150px;
   text-align: left; }
@@ -153,19 +168,19 @@ h5 {
   transform: rotate(90deg);
   transform-origin: left;
   left: 30px;
-  top: 130px;
-  z-index: 1; }
+  top: 90px;
+  z-index: 1;
+  font-size: 1.1em; }
   .sideHeader .back {
     position: relative;
-    left: 15px;
+    left: 105px;
     top: 0; }
 
 .fixSub .sideHeader {
-  position: fixed;
-  font-size: 1em; }
+  position: fixed; }
   .fixSub .sideHeader .back {
     position: absolute;
-    left: 360px;
+    left: 160px;
     bottom: 60px;
     color: inherit;
     top: 0;
@@ -190,7 +205,8 @@ article h1 {
   position: relative;
   top: 100vh;
   background-color: white;
-  z-index: 1; }
+  z-index: 1;
+  overflow-x: hidden; }
 
 .editors header {
   display: none !important; }
@@ -292,8 +308,6 @@ article section {
   text-align: center;
   display: inline-block;
   line-height: 0;
-  margin-top: 60px;
-  margin-bottom: 60px;
   text-indent: 0; }
 
 .image-inline h3 {
@@ -346,7 +360,7 @@ img {
 .App-intro header h2 {
   position: absolute;
   bottom: 60px;
-  lefT: 60px;
+  lefT: 90px;
   width: 30%;
   text-align: left;
   font-weight: 100; }
@@ -429,7 +443,7 @@ blockquote {
   padding: 0px;
   background-color: #151515;
   width: 100%;
-  height: 70px; }
+  height: 0px; }
   .App nav img {
     display: none; }
   .App nav iframe {
@@ -481,6 +495,10 @@ blockquote {
   object-fit: cover; }
 
 /** LAMB ARTICLE **/
+#LambLeg .col-whole {
+  margin: 180px 0;
+  width: 60vw; }
+
 #LambLeg header {
   height: auto;
   padding: 90px;
@@ -518,8 +536,7 @@ blockquote {
   text-transform: capitalize; }
 
 #LambLeg header h2 p {
-  padding-left: 1.05em;
-  text-indent: -.9em; }
+  text-indent: 0; }
 
 #LambLeg header h2 {
   font-size: 1.5rem; }
@@ -571,7 +588,8 @@ blockquote {
   padding-right: 15px; }
 
 #EditorsLetter h2 {
-  font-size: 5em; }
+  font-size: 5em;
+  line-height: .9em; }
 
 .editors p {
   font-size: 1.1em;
@@ -596,8 +614,26 @@ blockquote {
   margin-bottom: 30px; }
 
 #WhereTheresSmokeTheresFire header {
-  background-position: top center;
-  background-size: contain; }
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 90px; }
+
+#WhereTheresSmokeTheresFire .col-left ~ .whole-half-image {
+  width: 100%;
+  padding: 180px 0; }
+
+#WhereTheresSmokeTheresFire .col-six-eight {
+  padding: 0 0 180px 0; }
+
+#WhereTheresSmokeTheresFire .col-left.smalltext {
+  margin-bottom: 180px; }
+
+#WhereTheresSmokeTheresFire blockquote ~ .col-whole {
+  margin-top: 0; }
+
+#WhereTheresSmokeTheresFire .sideimage img {
+  width: auto; }
 
 #WhereTheresSmokeTheresFire article p {
   text-indent: 0; }
@@ -613,7 +649,7 @@ blockquote {
 
 #WhereTheresSmokeTheresFire .col-left,
 #WhereTheresSmokeTheresFire .col-right {
-  padding-top: 60px;
+  padding-top: 0px;
   width: 50%;
   flex-basis: 50%; }
 
@@ -621,13 +657,12 @@ blockquote {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
   font-size: 1.25em;
   padding: 0 60px; }
 
 #WhereTheresSmokeTheresFire blockquote p {
   max-width: 50%;
-  margin: 0 auto; }
+  margin: 0 auto 180px; }
 
 #WhereTheresSmokeTheresFire .col-left p {
   padding: 0 0 0 90px;
@@ -648,7 +683,42 @@ blockquote {
   font-weight: 100;
   width: 12.5%;
   text-align: left;
-  padding-left: 90px; }
+  padding-left: 90px;
+  line-height: .9em; }
+
+#FrontofHouse .sideHeader {
+  top: 90px; }
+
+#FrontofHouse .image-line h3 {
+  font-size: 1rem; }
+
+#FrontofHouse .desktop .image-inline {
+  margin: 30px 0; }
+
+#FrontofHouse .large-side-image {
+  width: 50%;
+  flex-basis: 50%;
+  margin: 180px 0 180px !important; }
+  #FrontofHouse .large-side-image img {
+    width: 100%;
+    max-height: initial; }
+
+#FrontofHouse .row p .image-inline {
+  margin: 0; }
+
+#FrontofHouse .row .image-inline {
+  margin: 0; }
+
+#FrontofHouse .row .col-whole .image-inline {
+  margin: 0; }
+
+#FrontofHouse .col-whole-half {
+  width: 100%;
+  text-align: center; }
+
+#FrontofHouse .opening p:before {
+  content: "" !important;
+  text-indent: 1em !important; }
 
 #FrontofHouse .row h2 {
   font-size: 2em;
@@ -656,7 +726,7 @@ blockquote {
   text-align: left;
   text-indent: 0;
   line-height: initial;
-  margin: 60px 0; }
+  margin: 0 0 60px 0; }
 
 #FrontofHouse header .desktop {
   right: 60px;
@@ -667,7 +737,7 @@ blockquote {
 
 #FrontofHouse header {
   justify-content: flex-start;
-  padding-top: 60px; }
+  padding-top: 90px; }
 
 #FrontofHouse article section {
   padding: 0; }
@@ -677,17 +747,22 @@ blockquote {
 
 #FrontofHouse .col-left,
 #FrontofHouse .col-right {
-  padding: 0 90px 30px;
+  margin: 180px 90px 0;
   flex-basis: 34%; }
 
 #FrontofHouse .large-side-image {
   padding-right: 0; }
 
-#FrontofHouse blockquote {
+#FrontofHouse .col-whole ~ .col-left {
+  margin-top: 0; }
+  #FrontofHouse .col-whole ~ .col-left h2 {
+    margin-top: 0; }
+
+#FrontofHouse .row > blockquote {
   font-size: 1.5em;
-  padding: 0 0 90px;
+  padding: 0;
   width: 60%;
-  margin: 0 auto 90px; }
+  margin: 180px auto 180px; }
 
 #FrontofHouse header p {
   text-indent: 0; }
@@ -701,10 +776,6 @@ blockquote {
   transition: .25s; }
   #FrontofHouse header img:hover {
     opacity: 0; }
-
-#FrontofHouse .col-left,
-#FrontofHouse .col-right {
-  margin-bottom: 30px; }
 
 #FrontofHouse .col-left p:before,
 #FrontofHouse .col-right p:before {
@@ -732,18 +803,17 @@ blockquote {
   position: relative; }
   #FastFacts header .desktop {
     position: absolute;
-    left: 120px;
     font-size: 4rem;
     line-height: initial;
     width: 100%;
-    left: 0;
-    bottom: -120px; }
+    left: 60px;
+    bottom: initial; }
     #FastFacts header .desktop .numbers {
       bottom: 0; }
     #FastFacts header .desktop img {
       position: absolute;
-      top: -100vh;
-      left: 120px; }
+      top: 90px;
+      left: 60px; }
 
 #FastFacts h1 {
   display: block;
@@ -752,7 +822,7 @@ blockquote {
   position: absolute;
   left: 120px;
   font-size: 4rem;
-  line-height: initial;
+  line-height: .9em;
   text-align: left;
   top: 180px; }
 
@@ -761,7 +831,7 @@ blockquote {
   position: absolute;
   left: 120px;
   font-size: 4rem;
-  line-height: initial; }
+  line-height: .9em; }
   #FastFacts h2 img {
     display: block;
     max-width: 50px;
@@ -799,7 +869,7 @@ blockquote {
   background-color: #F47D5F; }
 
 #Final header {
-  height: 11vh; }
+  height: calc(100vh - 500px); }
 
 #Final .desktop {
   font-size: 1.1em;
@@ -832,11 +902,38 @@ blockquote {
 #“Sumimasen—kudasithelamb” .blackfont {
   color: black; }
 
+#“Sumimasen—kudasithelamb” .row .col-whole:first-child {
+  margin-bottom: 0; }
+
+#“Sumimasen—kudasithelamb” .col-whole .blackfont {
+  font-size: 1rem; }
+
+#“Sumimasen—kudasithelamb” .col-whole .col-left.blackfont {
+  padding: 0 90px;
+  width: calc(50% - 180px) !important;
+  font-size: 1rem; }
+
+#“Sumimasen—kudasithelamb” .sideHeader span::after {
+  background-image: url("//images.contentful.com/a7w606b3ho4t/5EvHt5rRxm0U4ciukOIaGe/52f9debafa2b91af68aa27df89dca299/Flag.png");
+  background-size: 10px 20px;
+  background-size: cover;
+  background-position: top;
+  display: inline-block;
+  width: 50px;
+  height: 60px;
+  margin: 3px;
+  border: 1px solid blue;
+  position: absolute;
+  top: -90px;
+  left: 0px;
+  content: ""; }
+
 #“Sumimasen—kudasithelamb” .desktop img {
   position: absolute;
   left: -190%;
   top: -180%;
-  width: 100px; }
+  width: 100px;
+  display: none; }
 
 #“Sumimasen—kudasithelamb” .video-container {
   display: none; }
@@ -849,7 +946,8 @@ blockquote {
   float: right;
   align-self: flex-end;
   padding-right: 90px;
-  margin-top: -3em; }
+  margin-top: -3em;
+  line-height: .9em; }
 
 #“Sumimasen—kudasithelamb” header .desktop {
   position: absolute;
@@ -882,8 +980,8 @@ blockquote {
 
 #“Sumimasen—kudasithelamb” .col-white {
   background-color: white;
-  margin: 0;
-  padding: 90px 0; }
+  padding: 180px 0 0;
+  margin: 0; }
 
 #“Sumimasen—kudasithelamb” .col-whole > img {
   width: 100%; }
@@ -1000,7 +1098,7 @@ blockquote {
 #“Sumimasen—kudasithelamb” .lambboxsmall {
   border: 1px solid blue;
   padding: 40px;
-  margin: 30px; }
+  margin: 30px 30px 0; }
   #“Sumimasen—kudasithelamb” .lambboxsmall h2 {
     margin: 60px 0;
     border-bottom: 1px solid blue;
@@ -1054,6 +1152,7 @@ blockquote {
   margin: 0 auto;
   border: 1px solid blue;
   padding: 40px;
+  margin-bottom: 90px;
   color: blue; }
   #ChefProfile .chefbox > img {
     position: absolute;
@@ -1087,38 +1186,51 @@ blockquote {
       width: 20px; }
 
 #ChefProfile .bigtitle {
-  padding: 60px 0 0;
+  padding: 180px 0 0;
   background-color: white;
   font-size: 9rem;
   line-height: initial;
   color: #fbe2e8;
   outline: blue;
   -webkit-text-stroke-color: blue;
-  -webkit-text-stroke-width: 1px; }
+  -webkit-text-stroke-width: 1px;
+  line-height: .9em; }
   #ChefProfile .bigtitle img {
+    padding-top: 60px;
     width: 150px; }
 
 #ChefProfile .row {
-  padding-bottom: 0; }
+  padding-bottom: 0;
+  margin-top: 240px; }
+  #ChefProfile .row .col-whole:last-child {
+    padding-bottom: 90px; }
 
 #ChefProfile .col-half-image, #ChefProfile .col-whole-half {
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  padding: 180px 0 90px; }
 
-#ChefProfile .imageleft .col-left,
-#ChefProfile .imageleft .col-right {
-  width: 40%; }
+#ChefProfile .imageleft {
+  padding-bottom: 0; }
+  #ChefProfile .imageleft .col-left {
+    padding-bottom: 0; }
+  #ChefProfile .imageleft .col-left,
+  #ChefProfile .imageleft .col-right {
+    width: 40%; }
+  #ChefProfile .imageleft .col-right h2 {
+    color: blue;
+    margin-bottom: 60px;
+    font-size: 2.5rem; }
+    #ChefProfile .imageleft .col-right h2 img {
+      padding-right: 1em; }
 
-#ChefProfile .imageleft .col-right h2 {
-  color: blue;
-  margin-bottom: 60px;
-  font-size: 2.5rem; }
-  #ChefProfile .imageleft .col-right h2 img {
-    padding-right: 1em; }
+#ChefProfile .imageright ~ .col-whole {
+  padding-bottom: 0; }
 
 #ChefProfile .imageright .col-left,
 #ChefProfile .imageright .col-right {
-  width: 40%; }
+  width: 40%;
+  padding-bottom: 0; }
 
 #ChefProfile .imageright .col-right {
   padding-right: 0; }
@@ -1152,21 +1264,32 @@ blockquote {
 #TwounderTen * {
   text-indent: 0; }
 
+#TwounderTen header {
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 90px; }
+
+#TwounderTen .row > .col-left {
+  margin-top: 180px; }
+
 #TwounderTen .number {
   padding: 90px; }
 
-#TwounderTen .ingredients li {
-  font-size: 3rem;
-  line-height: initial;
-  text-align: center; }
-  #TwounderTen .ingredients li small {
-    font-size: 1rem; }
+#TwounderTen .ingredients ~ .number-outer {
+  margin-top: 0; }
 
-#TwounderTen .ingredients li:last-child {
-  margin-top: 60px; }
-
-#TwounderTen .ingredients .last {
-  margin-top: 60px; }
+#TwounderTen .ingredients {
+  margin-top: 0; }
+  #TwounderTen .ingredients li {
+    font-size: 3rem;
+    line-height: initial;
+    text-align: center; }
+    #TwounderTen .ingredients li small {
+      font-size: 1rem; }
+  #TwounderTen .ingredients li:last-child {
+    margin-top: 60px; }
+  #TwounderTen .ingredients .last {
+    margin-top: 60px; }
 
 #TwounderTen .rightpad .col-six-eight {
   width: 60%;
@@ -1175,44 +1298,42 @@ blockquote {
 #TwounderTen .rightpad .col-two-eight {
   padding-right: 60px; }
 
-#TwounderTen .addpadd .arrow {
-  margin-bottom: 30px;
-  font-size: 0.9em; }
+#TwounderTen .addpadd {
+  margin-top: 0; }
+  #TwounderTen .addpadd .arrow {
+    margin-bottom: 30px;
+    font-size: 0.9em; }
+  #TwounderTen .addpadd .col-two-eight {
+    padding-left: 90px; }
+    #TwounderTen .addpadd .col-two-eight span {
+      transform: rotate(90deg);
+      display: inline-block;
+      transform-origin: left;
+      margin-left: 0.65em;
+      padding-left: 0.75em; }
+    #TwounderTen .addpadd .col-two-eight .inside {
+      margin-left: 2em;
+      border-left: 1px solid black;
+      padding-left: 20px; }
+  #TwounderTen .addpadd .col-six-eight {
+    width: 60%;
+    padding-left: 85.5px; }
 
-#TwounderTen .addpadd .col-two-eight {
-  padding-left: 90px; }
-  #TwounderTen .addpadd .col-two-eight span {
-    transform: rotate(90deg);
-    display: inline-block;
-    transform-origin: left;
-    margin-left: 0.65em;
-    padding-left: 0.75em; }
-  #TwounderTen .addpadd .col-two-eight .inside {
-    margin-left: 2em;
-    border-left: 1px solid black;
-    padding-left: 20px; }
-
-#TwounderTen .addpadd .col-six-eight {
-  width: 60%;
-  padding-left: 85.5px; }
-
-#TwounderTen .chef-info .arrow ~ p {
-  text-indent: 1em; }
-
-#TwounderTen .chef-info p {
-  font-size: 1.1rem; }
-
-#TwounderTen .chef-info img {
-  max-width: 300px; }
-
-#TwounderTen .chef-info .col-left {
-  padding-right: 0;
-  text-align: right;
-  width: 40%; }
-
-#TwounderTen .chef-info .col-right {
-  padding-left: 0;
-  width: 40%; }
+#TwounderTen .chef-info {
+  margin: 0; }
+  #TwounderTen .chef-info .arrow ~ p {
+    text-indent: 1em; }
+  #TwounderTen .chef-info p {
+    font-size: 1.1rem; }
+  #TwounderTen .chef-info img {
+    max-width: 300px; }
+  #TwounderTen .chef-info .col-left {
+    padding-right: 0;
+    text-align: right;
+    width: 40%; }
+  #TwounderTen .chef-info .col-right {
+    padding-left: 0;
+    width: 40%; }
 
 #TwounderTen section {
   padding: 0; }
@@ -1245,14 +1366,30 @@ blockquote {
   width: 80%;
   max-height: initial; }
 
+#TheQuestforQualityEating .photogridouter {
+  margin-top: 0; }
+
+#TheQuestforQualityEating .sideHeader {
+  top: 90px; }
+
+#TheQuestforQualityEating .whole-half-image {
+  width: 100%;
+  padding: 180px 0; }
+  #TheQuestforQualityEating .whole-half-image img {
+    width: 50%; }
+
+#TheQuestforQualityEating .row {
+  padding-top: 60px; }
+
 #TheQuestforQualityEating .desktop {
   font-size: 6rem;
   color: white;
   text-align: left;
   text-indent: 0;
   position: absolute;
-  top: 60px;
-  width: 40%; }
+  top: 90px;
+  width: 40%;
+  line-height: .9em; }
   #TheQuestforQualityEating .desktop p {
     text-indent: 0; }
 
@@ -1332,6 +1469,15 @@ blockquote {
     display: inline-block;
     margin-left: 50%; }
 
+#OntheMenu header {
+  background-size: contain;
+  padding-top: 90px;
+  background-position-y: 50px;
+  background-repeat: no-repeat; }
+
+#OntheMenu .row {
+  margin-bottom: 60px; }
+
 #OntheMenu .desktop {
   left: initial;
   right: 60px;
@@ -1346,7 +1492,7 @@ blockquote {
 
 #OntheMenu p {
   text-indent: 0;
-  font-size: 1rem; }
+  font-size: 1em; }
 
 #OntheMenu .col-left {
   padding-left: 60px;
@@ -1357,7 +1503,7 @@ blockquote {
   padding-right: 60px; }
 
 #OntheMenu .col-whole {
-  margin-top: 160px; }
+  margin-top: 180px; }
 
 #OntheMenu .margin-top,
 #OntheMenu .top-margin {
@@ -1417,7 +1563,7 @@ blockquote {
   .photo-grid div {
     flex-basis: 49%;
     width: 48%;
-    height: 260px;
+    height: 330px;
     margin-bottom: 20px;
     overflow: hidden; }
     .photo-grid div img {
@@ -1425,7 +1571,7 @@ blockquote {
 
 .col-whole-image {
   width: 100%;
-  padding: 90px 0;
+  padding: 180px 0;
   text-align: center; }
 
 .whole-half-image {
@@ -1458,7 +1604,7 @@ blockquote {
   margin: 90px 0; }
 
 .col-whole {
-  margin: 90px 0;
+  margin: 180px 0;
   width: 100%; }
   .col-whole img {
     max-width: 100%;
@@ -1500,31 +1646,50 @@ blockquote {
   margin: 0 auto; }
 
 /*# sourceMappingURL=Autumn.css.map */
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1800px) {
+  .App-intro {
+    font-size: 30px; }
+  #WhereTheresSmokeTheresFire blockquote {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 1.25em;
+    padding: 0 60px;
+    width: 100%; }
+  #WhereTheresSmokeTheresFire .sideimage img {
+    width: calc(100% - 90px); } }
+
+@media screen and (min-width: 1400px) and (max-width: 1800px) {
+  .col-whole {
+    margin: 360px 0;
+    width: 100%; }
   #Final header {
     height: 55vh; }
   .App-intro {
-    font-size: 30px; }
+    font-size: 16px; }
   .App-header header h1 {
     position: absolute;
-    top: 160px;
-    left: 440px;
-    font-size: 7.5em;
+    top: 130px;
+    left: 90px;
+    font-size: 5em;
     font-weight: 100;
     max-width: 100px;
     text-align: left; }
   .App-header h2 {
     position: absolute;
-    bottom: 160px;
-    left: 430px;
-    font-size: 2rem;
+    bottom: 90px;
+    left: 90px;
+    font-size: 1.5em;
     font-weight: 100;
     max-width: 350px;
     text-align: left; }
   .App-header header small {
     top: 90px;
-    left: 450px;
-    font-size: 2em;
+    left: 90px;
+    font-size: 1.5em;
     font-weight: 400; }
   .row {
     line-height: initial; }
@@ -1538,7 +1703,7 @@ blockquote {
     font-size: inherit;
     top: 0; }
   #EditorsLetter img {
-    width: 350px;
+    width: 200px;
     padding-right: 30px; }
   #“Sumimasen—kudasithelamb” .col-white > h2 {
     text-align: center;
@@ -1550,11 +1715,16 @@ blockquote {
     margin: 30px auto;
     border-width: 6px;
     border-style: solid; }
+  #“Sumimasen—kudasithelamb” .col-whole .blackfont {
+    font-size: 1em; }
   #“Sumimasen—kudasithelamb” .lambboxsmall {
     border: 1px solid blue;
     padding: 40px;
     margin: 30px;
     margin-bottom: 90px; }
+    #“Sumimasen—kudasithelamb” .lambboxsmall img {
+      width: 60px;
+      margin-bottom: 30px; }
   #“Sumimasen—kudasithelamb” .mid-whole {
     max-width: 900px; }
   #ChefProfile .chefbox {
@@ -1569,10 +1739,12 @@ blockquote {
     font-size: 2.5em; }
   #ChefProfile header h1 {
     display: block;
-    font-size: 14.5rem; }
+    font-size: 8.5em;
+    line-height: .9em; }
   #“Sumimasen—kudasithelamb” header h1 {
     display: block;
-    font-size: 9rem; }
+    font-size: 6.5em;
+    line-height: .9em; }
   #ChefProfile header .desktop p:nth-child(2) {
     position: relative;
     top: 80%;
@@ -1613,11 +1785,12 @@ blockquote {
     top: 0; }
   #FrontofHouse header h1 {
     display: block;
-    font-size: 10rem;
+    font-size: 6rem;
     font-weight: 100;
     width: 12.5%;
     text-align: left;
-    padding-left: 120px; }
+    padding-left: 90px;
+    line-height: .9em; }
   #ChefProfile .imageright .col-left h2 img, #ChefProfile .imageleft .col-right h2 img {
     width: 60px;
     max-height: inherit;
@@ -1625,10 +1798,8 @@ blockquote {
   #ChefProfile article section {
     padding: 0;
     margin-top: 160px; }
-  #ChefProfile .imageleft .col-right h2 {
-    font-size: 5rem; }
-  #ChefProfile .imageright .col-left h2 {
-    font-size: 5rem; }
+  #ChefProfile .imageleft .col-right h2, #ChefProfile .imageright .col-left h2 {
+    font-size: 3rem; }
   #“Sumimasen—kudasithelamb” .biglambbox h2 {
     color: blue;
     margin: 60px 0;
@@ -1646,13 +1817,12 @@ blockquote {
       right: 120px;
       width: 60px; }
   #FastFacts h2, #FastFacts h1 {
-    font-size: 8rem;
-    line-height: initial; }
+    font-size: 3em;
+    line-height: .9em; }
   #FastFacts .numbers {
-    font-size: 8rem; }
+    font-size: 6rem; }
   #WhereTheresSmokeTheresFire .col-right p, #WhereTheresSmokeTheresFire .col-left p {
-    font-size: 2rem;
-    line-height: 2.5rem; }
+    font-size: 1.5rem; }
   #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
     height: 160px; }
   #TheQuestforQualityEating .box-shape .col-half-third div {
@@ -1666,7 +1836,7 @@ blockquote {
   #TwounderTen .chef-info img {
     max-width: 500px; }
   #TwounderTen .ingredients li {
-    font-size: 5rem;
+    font-size: 3rem;
     line-height: initial;
     text-align: center; }
     #TwounderTen .ingredients li small {

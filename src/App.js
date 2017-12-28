@@ -59,19 +59,99 @@ class App extends Component {
   componentDidMount(){
         const height = this.articleEl.clientHeight - 220;
         this.setState({ height });
+        // if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+        // window.onmousewheel = document.onmousewheel = wheel;
+        //
+        // function wheel(event) {
+        //     var delta = 0;
+        //     if (event.wheelDelta) delta = event.wheelDelta / 120;
+        //     else if (event.detail) delta = event.wheelDelta / 120;
+        //
+        //     handle(delta);
+        //     if (event.preventDefault) event.preventDefault();
+        //     event.returnValue = false;
+        // }
+        //
+        // function handle(delta) {
+        //     var time = 100;
+        //     var distance = 50;
+        //
+        //     $('html, body').stop().animate({
+        //         scrollTop: $(window).scrollTop() - (distance * delta)
+        //     }, time );
+        // }
 
   }
   componentDidUpdate(){
     var that = this;
     var allImages = document.querySelectorAll('.imageClick img');
+    var allVideos = document.querySelectorAll('.video-hold');
     // Wrap each image in a div called image-inline to create a backgroundColor
     // Make an on click event for mobile
     var allImagesLength = allImages.length;
+    var allVideosLength = allVideos.length;
+
+
+    // FAST FACTS INTERACTION
+
+    $('.showlightgray').on('mouseover',function(){
+        $('.lightgray').css('opacity','1');
+        console.log('hello');
+    }).on('mouseout',function(){
+      $('.lightgray').css('opacity','0');
+    });
+    $('.showlightgreen').on('mouseover',function(){
+        $('.lightgreen').css('opacity','1');
+        console.log('hello');
+    }).on('mouseout',function(){
+      $('.lightgreen').css('opacity','0');
+    });
+    $('.showlightyellow').on('mouseover',function(){
+        $('.lightyellow').css('opacity','1');
+        console.log('hello');
+    }).on('mouseout',function(){
+        $('.lightyellow').css('opacity','0');
+    });
+    $('.showburntred').on('mouseover',function(){
+        $('.burntred').css('opacity','1');
+        console.log('hello');
+    }).on('mouseout',function(){
+        $('.burntred').css('opacity','0');
+    });
+    $('.showdarkgray').on('mouseover',function(){
+        $('.darkgray').css('opacity','1');
+        console.log('hello');
+    }).on('mouseout',function(){
+        $('.darkgray').css('opacity','0');
+    });
+
+
+      allVideos.forEach(function(e){
+        var playButton = document.createElement('div');
+        $(playButton).addClass('play');
+        $(playButton).html('&#9658;');
+        $(e).find('video').after(playButton);
+      });
+
+      $('.play').on('click',function(e){
+
+        var theVideo  = e.target.previousSibling;
+
+        if (theVideo.paused) {
+          theVideo.play();
+          $(e.target).html('&#9616;&#9616;').css({'color':'rgba(18, 12, 12, 0.3607843137254902)', 'letter-spacing': '2px'});
+
+        } else {
+          theVideo.pause();
+            $(e.target).html('&#9658;').css('color','white');
+        }
+
+
+          // $(e).prev('video').play();
+      });
 
       if ($('.image-inline').length < allImagesLength) {
         allImages.forEach(function(e){
-
-
            // Check to see if the element already has a title element added
           // If it does not add one
 
@@ -96,6 +176,17 @@ class App extends Component {
     // For reach loop to see if the element is on the screen
     window.addEventListener('scroll', scrollEvents);
     function scrollEvents() {
+      var windowScrollPostion = window.scrollY;
+
+      // for the Lamb Article - Tokyo flag to fall off after we scrolls
+      // Past the first image .flag images
+      var flatImage = $('.flagimage').offset().top + $(window).height();
+      var globalSpotlight = $('#“Sumimasen—lambkudasi”');
+      if (windowScrollPostion > flatImage - 90) {
+        $(globalSpotlight).addClass('removeFlag');
+      } else if (windowScrollPostion < flatImage) {
+          $(globalSpotlight).removeClass('removeFlag');
+      }
       // As the use scrolls
       // If the scroll top is greater than the scroll top of the element add a class activeArticle
       // Else if the scroll top is greater than the height of the element remove class astiveArticle
@@ -105,14 +196,40 @@ class App extends Component {
         var docViewBottom = docViewTop + $(window).height();
 
         var elemTop = $(e).offset().top + $(window).height();
-        // var elemBottom = elemTop + $(e).height();
+          var elemBottom = elemTop + $(this).height();
 
-        if ( docViewBottom > elemTop ){
+        if ( docViewBottom > elemTop +2  ){
            $(e).addClass('fixSub');
-        }  else {
+        }  else if (docViewBottom < elemTop + 2){
           $(e).removeClass('fixSub');
         }
       });
+
+
+
+      // Make the videos start playing as you scroll onto ths screen
+      $('.video-hold video').each(function(e){
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
+
+        var elemTop = $(this).offset().top+ $(window).height() - 190;
+        var elemBottom = elemTop + $(this).height();
+
+        var elementBottom = elemBottom - 300;
+        var stopBottom = elemBottom / 2;
+        if ( docViewBottom > elemTop  && docViewBottom < elementBottom ){
+           $(this)[0].play();
+        }  else if ( docViewBottom > stopBottom) {
+          $(this)[0].pause();
+        } else if ( docViewBottom < elemTop ) {
+            $(this)[0].pause();
+        }
+
+
+      });
+
+
+
 
       // animate any meat element
       animateElements.forEach((e) => {
@@ -135,7 +252,6 @@ class App extends Component {
     var allArticlesTop = $('.App-intro > div');
 
     $(allArticlesTop).each(function(e){
-        console.log($(this)[0].clientHeight);
     });
 
   }
@@ -163,6 +279,30 @@ class App extends Component {
     });
   }
 
+
+  hover(e) {
+
+    var updateText = e.target.nextSibling.innerText;
+
+    e.target.innerText = updateText;
+
+  }
+  out(e){
+    var oldName = e.target.nextSibling.nextSibling.innerText;
+
+    e.target.innerText = oldName;
+  }
+
+  fullscreen() {
+    var el = document.documentElement,
+     rfs = el.requestFullscreen
+       || el.webkitRequestFullScreen
+       || el.mozRequestFullScreen
+       || el.msRequestFullscreen
+   ;
+
+   rfs.call(el);
+  }
   render() {
 
     var indexItems
@@ -174,7 +314,7 @@ class App extends Component {
           return(
             <header key={item.sys.id} style={{backgroundImage: `url(${item.fields.backgroundImage.fields.file.url})`, color: `${item.fields.fontColor}`}}>
               <img src={item.fields.logo.fields.file.url} alt={item.fields.title} />
-              <small>{item.fields.issueNumber} -</small>
+              <small>{item.fields.issueNumber}</small>
               <h1 key={item.sys.id}>{item.fields.magazineTitle}</h1>
               <h2>{item.fields.subHeader}</h2>
             </header>
@@ -203,11 +343,16 @@ class App extends Component {
             thumbnail = null
          }
 
+
         if (content.fields.issueName === this.state.stateName ){
           return(
             <Scrollchor to={`#${content.fields.title.replace(/ /g,'').replace(/'/g,'')}`} key={content.sys.id}>
               <div key={content.sys.id} className={`${content.fields.issueName}`}>
-                <h1>{content.fields.title}</h1>
+                <h1 onMouseOut={this.out.bind(this)} onMouseOver={this.hover.bind(this)} >{content.fields.sideHeaderText}</h1>
+
+                <h1 className="shadow-text" >{content.fields.title}</h1>
+                <h3>{content.fields.sideHeaderText}</h3>
+
                 <img src={thumbnail} alt="" />
               </div>
             </Scrollchor>
@@ -239,13 +384,15 @@ class App extends Component {
           <div className="newsButton" onClick={this.openNews.bind(this)}>
             <h3>EMAG</h3>
           </div>
+
         </nav>
         <div className="App-header">
           {indexItems}
         </div>
         <span  id="contents"> </span>
         <section id="lower">
-          <div className="articleIndex" ref={ (articleEl) => this.articleEl = articleEl} style={{'top': "-"+this.state.height}}>
+          <div className="fullscreen" onClick={this.fullscreen.bind(this)}>&#9634;</div>
+          <div className="articleIndex" ref={ (articleEl) => this.articleEl = articleEl} style={{'top': "-"+this.state.height+'px'}}>
             <h3>Table of content</h3>
             {articleItems}
           </div>
@@ -254,6 +401,7 @@ class App extends Component {
           </div>
         </section>
         <Newsletter isOpen={this.state.openForm} closeForm={this.closeNews.bind(this)}/>
+
       </div>
     );
   }

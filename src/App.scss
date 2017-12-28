@@ -6,6 +6,31 @@
 }
 
 $primary-padding: 30px;
+$openingFontDesktop: 1.5rem;
+$openingFont15: 1.65rem;
+$largeScreenFont: 1.65rem;
+$bodyFontDesktop: 1.15rem;
+$mobileBodyFont: 1.1rem;
+$mobileWidth: calc(100% - 90px);
+$ipadWidth: calc(100% - 120px);
+$ipadBodyFont: 1.3rem;
+$ipadPadding: 0 45px;
+$mobilePad: 0 45px;
+$largeMobileTitle: 2rem;
+
+html {
+  font-size: 16px;
+}
+
+p{
+  margin: 0;
+}
+
+.col-whole-half {
+  text-indent: 0;
+}
+
+
 @font-face {
   src: url("//assets.contentful.com/a7w606b3ho4t/43mBXrVckgYMukWc6CW0iy/300281cdd282277cea67f8be0fe1b678/Filosofia_Regular.otf");
   font-family: "Filosofia";
@@ -24,8 +49,26 @@ img {
 }
 
 
+.fullscreen {
+  font-size: 60px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999999;
+  cursor: pointer;
+}
 .video-container {
   display:none;
+}
+
+.play {
+  position: absolute;
+  font-size: 8rem;
+  color:transparent;
+  top: 40%;
+  left:0;
+  right:0;
+  margin: 0 auto;
 }
 @keyframes fadeIn {
   0% {
@@ -103,8 +146,10 @@ article > .back {
   position: sticky;
 }
 
-.articleIndex {
-  display: none;
+.articleIndex > h3{
+
+
+   display: block !important;
 }
 
 .no-stick {
@@ -149,6 +194,10 @@ article > .back {
 
 .video-hold {
       margin-top: 190px;
+      position: relative;
+      video {
+        width: 100%;
+      }
 }
 
 h1,
@@ -200,22 +249,23 @@ h5 {
   left: 30px;
   top: 90px;
   z-index: 1;
-  font-size: 1.1em;
+  font-size: 1.1rem;
 
   .back {
-    position: relative;
-    left: 105px;
+    position: absolute;
+    left: 230px;
     top: 0;
+    width: 150px;
   }
 }
 
 .fixSub .sideHeader {
   position: fixed;
-
+  top:86px !important;
 
   .back {
     position: absolute;
-    left: 160px;
+    left: 230px;
     bottom: 60px;
     color: inherit;
     top: 0;
@@ -234,6 +284,7 @@ h5 {
 
 article {
   position: relative;
+  background-color: white;
 }
 
 article p {
@@ -246,11 +297,28 @@ article h1 {
 
 #lower {
   position: relative;
-  top: 100vh;
+  top: 200vh;
   background-color: white;
   z-index: 1;
-  overflow-x: hidden;
+
 }
+
+video::-webkit-media-controls-panel {
+	opacity: 1 !important;
+	// display: -webkit-flex !important;
+	margin-top: 30px;
+	height: 30px;
+  color:white;
+	background-color: black;
+	border-radius: 0 0 10px 10px;
+  display: none;
+}
+
+video::-internal-media-controls-download-button {
+    display:none;
+   }
+
+
 
 .editors header {
   display: none !important;
@@ -275,19 +343,29 @@ article h1 {
   font-size: 5rem;
   font-weight: 100;
   transition: 0.5s;
+  position: relative;
+  z-index: 2;
+}
+
+
+.articleIndex {
+  .shadow-text , h3 {
+    display: none;
+  }
 }
 
 .articleIndex img {
   opacity: 0;
   height: 0;
   position: absolute;
+  z-index: 1;
   transition: 0.25s ease;
-  max-width: 200px;
+  max-width: 300px;
   transform: translateY(-50%) translateX(100%);
 }
 
 .articleIndex a:nth-child(2n) img {
-  transform: translateY(-50%) translateX(-200%);
+  transform: translateY(-50%) translateX(-150%);
 }
 
 .articleIndex h1:hover ~ img {
@@ -384,7 +462,7 @@ article section {
 
 #contents {
   position: absolute;
-  top: 100vh;
+  top: 200vh;
 }
 
 .row .image-inline:hover img {
@@ -702,13 +780,22 @@ height: 90px;
   padding-left: 1em;
 }
 
-#EditorsLetter img {
+#EditorsLetters img {
   width: 169px;
   float: left;
   padding-right: 15px;
 }
 
-#EditorsLetter h2 {
+#EditorsLetters .row{
+  small {
+    margin-top: 60px;
+    display: inline-block;
+    text-indent: 0;
+    font-size: .75em;
+  }
+}
+
+#EditorsLetters h2 {
   font-size: 5em;
   line-height: .9em;
 }
@@ -747,10 +834,6 @@ height: 90px;
       background-repeat: no-repeat;
       padding-top: 90px;
 }
-#WhereTheresSmokeTheresFire .col-left ~ .whole-half-image {
-  width: 100%;
-  padding: $primary-padding*6 0;
-}
 
 #WhereTheresSmokeTheresFire {
     .col-six-eight {
@@ -766,7 +849,12 @@ height: 90px;
     }
 
     .sideimage img{
-      width: auto;
+      width: 80% !important;
+    }
+
+    .desktop {
+      width: 20%;
+      bottom: 80px;
     }
 }
 #WhereTheresSmokeTheresFire article p {
@@ -774,7 +862,7 @@ height: 90px;
 }
 
 #WhereTheresSmokeTheresFire article section {
-  padding: 90px 0;
+  padding: 0 0 90px 0;
 }
 
 #WhereTheresSmokeTheresFire .col-right p {
@@ -795,14 +883,14 @@ height: 90px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-
   font-size: 1.25em;
   padding: 0 60px;
+  width: 100%;
 }
 
 #WhereTheresSmokeTheresFire blockquote p {
   max-width: 50%;
-  margin: 0 auto $primary-padding*6;
+  margin: $primary-padding*6 auto $primary-padding*12;
 }
 
 #WhereTheresSmokeTheresFire .col-left p {
@@ -824,7 +912,7 @@ height: 90px;
   }
 }
 /* FRONT OF HOUSE **/
-#FrontofHouse header h1 {
+#UpFront header h1 {
   display: block;
   font-size: 6rem;
   font-weight: 100;
@@ -834,7 +922,9 @@ height: 90px;
   line-height: .9em;
 }
 
-#FrontofHouse {
+#UpFront {
+
+
   .sideHeader {
     top:90px;
   }
@@ -847,20 +937,33 @@ height: 90px;
   }
 
   .desktop {
+    p {
+      u {
+        border-bottom: 1px solid black;
+        text-decoration: none;
+        line-height: .9em;
+        display: inline-block;
+      }
+    }
     .image-inline {
-      margin: $primary-padding 0;
+      margin: $primary-padding*2 0;
     }
   }
 
+    .col-whole ~ .col-left.large-side-image {
+      margin-top: 180px;
+      margin-left: 0;
+    }
   .large-side-image {
     width: 50%;
     flex-basis: 50%;
-    margin:  $primary-padding*6  0 $primary-padding*6 !important;
+    margin:  $primary-padding*6  0 $primary-padding*6;
     img {
       width: 100%;
       max-height: initial;
     }
   }
+
 
 
 
@@ -886,9 +989,17 @@ height: 90px;
   .col-whole-half {
     width:100%;
     text-align: center;
+    img {
+      max-height: 100vh;
+    }
   }
 
   .opening {
+    font-size: 1.5rem;
+    flex-basis: 40%;
+    line-height: initial;
+    flex-basis: 42%;
+    margin-left: 0 !important;
     p:before{
       content: "" !important;
       text-indent: 1em !important;
@@ -896,7 +1007,7 @@ height: 90px;
   }
 }
 
-#FrontofHouse .row h2 {
+#UpFront .row h2 {
   font-size: 2em;
   font-weight: 100;
   text-align: left;
@@ -905,36 +1016,39 @@ height: 90px;
   margin: 0 0 60px 0;
 }
 
-#FrontofHouse header .desktop {
+#UpFront header .desktop {
   right: 60px;
-  top: 60px;
+  top: 90px;
   text-align: left;
   width: 50%;
   left: initial;
 }
 
-#FrontofHouse header {
+#UpFront header {
   justify-content: flex-start;
   padding-top: 90px;
+  margin-bottom: $primary-padding*6;
+
 }
 
-#FrontofHouse article section {
+#UpFront article section {
   padding: 0;
 }
 
-#FrontofHouse article section p {
+#UpFront article section .col-whole {
   text-indent: 0;
 }
 
-#FrontofHouse .col-left,
-#FrontofHouse .col-right {
+#UpFront .col-left,
+#UpFront .col-right {
   margin:  $primary-padding*6 $primary-padding*3 0;
   flex-basis: 34%;
 }
 
-#FrontofHouse {
+#UpFront {
   .large-side-image {
     padding-right: 0;
+    text-indent: 0;
   }
 
 
@@ -947,22 +1061,22 @@ height: 90px;
   }
 }
 
-#FrontofHouse .row > blockquote {
+#UpFront .row > blockquote {
   font-size: 1.5em;
   padding: 0;
   width: 60%;
   margin: $primary-padding*6 auto $primary-padding*6 ;
 }
 
-#FrontofHouse header p {
+#UpFront header p {
   text-indent: 0;
 }
 
-#FrontofHouse header .desktop {
+#UpFront header .desktop {
   font-size: 3em;
 }
 
-#FrontofHouse header img {
+#UpFront header img {
   margin: 0px 0;
   width: 207px;
   transition: .25s;
@@ -973,15 +1087,22 @@ height: 90px;
 
 
 
-#FrontofHouse .col-left p:before,
-#FrontofHouse .col-right p:before {
-  content: "\2192 \00a0 \00a0";
+#UpFront .arrow {
   text-indent: 0 !important;
 }
+#UpFront .arrow:before {
+  content: "";
+  background-repeat: no-repeat;
+  background-image: url("http://images.contentful.com/a7w606b3ho4t/95SZUOzwCkgc4ISWqamcU/9e6c775111cdce3157d95bffc72a2ac1/Arrow_Black.svg");
+  width: 30px;
+  height: 20px;
+  display: inline-block;
 
-#FrontofHouse .col-left p,
-#FrontofHouse .col-right p {
-  text-indent: 0 !important;
+}
+
+#UpFront .col-left p,
+#UpFront .col-right p {
+
 }
 
 #WhereTheresSmokeTheresFire .col-left p:first-child {
@@ -992,6 +1113,8 @@ height: 90px;
   .row {
     padding-bottom: 0;
   }
+
+
   section {
     padding: 0;
     position: relative;
@@ -1006,20 +1129,30 @@ height: 90px;
 
     .desktop {
       position: absolute;
-
+        height: 100vh;
+        top:0px;
       font-size: 4rem;
       line-height: initial;
-      width: 100%;
+    width: calc(100vw - 60px);
       left: 60px;
       bottom:initial;
 
       .numbers {
-        bottom: 0;
+        bottom: 60px;
+      }
+      .numbers {
+        z-index: 10;
+
+
+        span:hover {
+
+          cursor: pointer;
+        }
       }
 
       img {
         position: absolute;
-        top: 90px;
+        top: 60px;
         left: 60px;
       }
     }
@@ -1034,8 +1167,12 @@ height: 90px;
     font-size: 4rem;
     line-height: .9em;
     text-align: left;
-    top: 180px;
+    top: 125px;
+
+
   }
+
+
 
   h2 {
     width: 40%;
@@ -1059,6 +1196,7 @@ height: 90px;
     font-family: 'LibreBodoni';
     width: calc(100% - 90px);
 
+
     span {
       flex-basis: 20%;
       vertical-align: top;
@@ -1071,6 +1209,14 @@ height: 90px;
     height: 100vh;
     padding: 60px;
     width: calc(100vw - 120px);
+
+    .numbers {
+      display: none;
+    }
+  }
+
+  .row {
+    position: relative;
   }
 
   .darkgray,
@@ -1089,6 +1235,17 @@ height: 90px;
   .burntred {
     background-color: #F47D5F;
   }
+  .darkgray,
+  .lightgray,
+  .lightgreen,
+  .lightyellow,
+  .burntred {
+    position: absolute;
+    top:-100vh;
+    opacity: 0;
+  }
+
+
 }
 
 //FINAL
@@ -1132,8 +1289,62 @@ height: 90px;
     }
   }
 }
+
+///CHEF
+#ChefProfile {
+  p {
+    margin: 0;
+  }
+  .chef-profile-header ~ .col-left ~ .col-right {
+    color:black;
+    font-size: 1.35rem;
+    padding-top: $primary-padding*6;
+    padding-bottom: $primary-padding*6;
+  }
+  .col-whole::after {
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+    content: "";
+    clear:both;
+  }
+  .chef-profile-header {
+    position: relative;
+    h1 {
+      display: block;
+      font-size: 8.5rem;
+      transform: rotate(90deg);
+      transform-origin: left;
+      width: 30%;
+      left: 30%;
+      top:-30px;
+      position: absolute;
+      line-height: .9em;
+    }
+
+    h2 {
+      position: absolute;
+      bottom: 60px;
+      position: absolute;
+      bottom: -100vh;
+      left: 22%;
+      width: 10%;
+      line-height: initial;
+      font-size: 2.5rem;
+    }
+    img {
+      width: 50vw;
+      max-height: initial;
+      float:right;
+    }
+  }
+}
 /// On the Menu
-#“Sumimasen—kudasithelamb” {
+.removeFlag  .sideHeader span::after  {
+  opacity: 0;
+}
+#“Sumimasen—lambkudasi” {
   .blackfont {
     color: black;
   }
@@ -1142,33 +1353,42 @@ height: 90px;
     margin-bottom: 0;
   }
 
+  .paddbottom {
+    padding-bottom: $primary-padding*6 !important;
+  }
+
   .col-whole .blackfont {
     font-size: 1rem;
   }
 
    .col-whole .col-left.blackfont{
     padding: 0 $primary-padding*3;
-    width: calc(50% - 180px) !important;
-      font-size: 1rem;
+    width: calc(50% - 180px) ;
+      font-size: 1.35rem;
   }
 
 
   .sideHeader span::after {
 
     background-image: url('//images.contentful.com/a7w606b3ho4t/5EvHt5rRxm0U4ciukOIaGe/52f9debafa2b91af68aa27df89dca299/Flag.png');
-     background-size: 10px 20px;
-     background-size: cover;
-     background-position: top;
-     display: inline-block;
-     width: 50px;
-     height: 60px;
-     margin: 3px;
-     border:1px solid blue;
+    background-size: 10px 20px;
+    background-size: contain;
+    background-position: bottom;
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 90px;
+    height: 60px;
+    margin: 3px;
+     border:0px solid blue;
      position: absolute;
-     top:-90px;
-     left:0px;
-     content:"";
+     top: -120px;
+     left: -15px;
+     content: "";
+     transform: rotate(90deg);
+     transition: .25s ease;
+
   }
+
 
   .desktop {
     img {
@@ -1225,7 +1445,11 @@ height: 90px;
   .row {
     text-indent: 0;
     padding-bottom: 0;
-    padding-bottom: 90px;
+    margin-bottom: 0;
+
+    .gif-right:last-child {
+      padding-bottom: 180px;
+    }
   }
 
   article section {
@@ -1299,7 +1523,7 @@ height: 90px;
       width: 60%;
       padding-right: 0;
       padding-left: 60px;
-      width: 58%;
+      width: 56%;
       padding-right: 90px;
       padding-left: 60px;
     }
@@ -1329,6 +1553,7 @@ height: 90px;
     margin: 0 auto;
     border-width: 3px;
     border-style: solid;
+    margin-bottom: 60px;
   }
 
   .biglambbox {
@@ -1337,10 +1562,16 @@ height: 90px;
     margin: 30px auto;
     max-width: 700px;
     position: relative;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    h2 {
+      margin-right: 50% !important;
+    }
 
     ol {
-      width: 50%;
-      float: left;
+      width: 42%;
+      flex-basis: 42%;
       list-style-type: decimal-leading-zero;
     }
 
@@ -1386,11 +1617,26 @@ height: 90px;
     border: 1px solid blue;
     padding: 40px;
     margin: $primary-padding $primary-padding 0;
+    position: relative;
 
+    p {
+      text-indent: -1.5em;
+      padding-left: 1em;
+      margin-left: .7rem;
+    }
     h2 {
       margin: 60px 0;
+      margin-top: 0;
       border-bottom: 1px solid blue;
       display: inline-block;
+      font-size: 3rem;
+      line-height: 2.5rem;
+    }
+
+    img {
+      right:30px;
+      top:30px;
+      position: absolute;
     }
 
     small {
@@ -1458,6 +1704,7 @@ height: 90px;
     margin: 0 auto;
     border: 1px solid blue;
     padding: 40px;
+    padding-bottom: $primary-padding*3;
     margin-bottom: 90px;
     color:blue;
     & > img {
@@ -1509,11 +1756,11 @@ height: 90px;
     color: #fbe2e8;
     outline: blue;
     -webkit-text-stroke-color: blue;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 3px;
     line-height: .9em;
     img {
       padding-top: $primary-padding *2;
-      width: 150px;
+      width: 115px;
     }
   }
 
@@ -1531,6 +1778,10 @@ height: 90px;
     width: 100%;
 
     padding: $primary-padding*6 0 $primary-padding*3;
+  }
+
+  .imageright, .imageleft {
+    color:black;
   }
 
   .imageleft {
@@ -1617,10 +1868,24 @@ height: 90px;
       background-size: contain;
       background-repeat: no-repeat;
       padding: 90px;
+      padding-bottom: 0;
+
+      .desktop {
+          bottom:70px;
+          font-size: 1.5rem;
+
+      }
     }
 
     .row > .col-left {
       margin-top: $primary-padding*6;
+
+    }
+
+    .row .col-left:first-child p{
+      font-size: 1.5rem;
+      line-height: initial;
+      text-indent: 1em;
     }
 
     .number {
@@ -1673,6 +1938,7 @@ height: 90px;
 
       .col-two-eight {
         padding-left: 90px;
+        margin-top: 0;
 
         span {
           transform: rotate(90deg);
@@ -1734,6 +2000,10 @@ height: 90px;
       text-indent: 0;
       font-size: 2.5rem;
       line-height: initial;
+       u {
+             box-shadow: inset 0 0.04px white, inset 0 -1px black;
+             text-decoration: none;
+       }
     }
 
     .col-two-eight {
@@ -1768,7 +2038,14 @@ height: 90px;
     }
 
   }
-  #TheQuestforQualityEating {
+  #TheQuestforEatingQuality {
+    .video-hold {
+      height: auto;
+    }
+
+    .box-shape   .full {
+      width: 60%;
+    }
 
     .photogridouter {
       margin-top: 0;
@@ -1781,7 +2058,7 @@ height: 90px;
       width: 100%;
       padding: $primary-padding *6 0 ;
       img {
-        width: 50%;
+        width: 70%;
       }
     }
 
@@ -1833,8 +2110,12 @@ height: 90px;
 
 
       .col-half-third {
-        width: 40%;
+        width: 38%;
         display: inline-block;
+        br {
+          display: none;
+        }
+
 
         div {
           height: 200px;
@@ -1847,12 +2128,18 @@ height: 90px;
             display: inline-block;
             vertical-align: top;
             text-align: left;
+                font-size: 1em;
           }
 
           img {
             height: auto;
             width: 58%;
             margin-bottom: 30px;
+
+          }
+          img ~ img {
+            width: 22px;
+            transform: rotate(90deg);
           }
         }
       }
@@ -1874,7 +2161,12 @@ height: 90px;
           display: flex;
           justify-content: center;
           flex-direction: column;
+          text-align: center;
 
+        }
+        img {
+            width: 22px;
+            margin: 0 auto;
         }
       }
     }
@@ -1926,6 +2218,9 @@ height: 90px;
 
     .row {
       margin-bottom: 60px;
+      .col-left:last-child {
+        margin-bottom: $primary-padding*6;
+      }
     }
     //Header
     .desktop {
@@ -1933,6 +2228,9 @@ height: 90px;
       right: 60px;
       width: 40%;
       font-size: 1.5em;
+       p {
+         font-size: 1.5rem;
+       }
     }
 
     .video-container {
@@ -1945,19 +2243,19 @@ height: 90px;
 
     p {
       text-indent: 0;
-      font-size: 1em;
+      font-size: 1.35rem;
     }
 
     .col-whole {}
 
     .col-left {
-      padding-left: 60px;
+      padding-left: 90px;
       padding-right: 0;
     }
 
     .col-right {
       padding-left: 0;
-      padding-right: 60px;
+      padding-right: 90px;
     }
 
     .col-whole {
@@ -1980,7 +2278,8 @@ height: 90px;
 
     .col-left,
     .col-right {
-      width: 30%;
+      width: calc(42% - 180px);
+      flex-basis: calc(50% - 90px);
 
       span {
         display: inline-block;
@@ -2022,6 +2321,10 @@ height: 90px;
       h3 {
         font-size: 1.5rem;
         line-height: initial;
+        u {
+          text-decoration: none;
+              box-shadow: inset 0 0.04px white, inset 0 -1px black;
+        }
       }
     }
   }
@@ -2096,8 +2399,24 @@ height: 90px;
     }
   }
 
+  #“Sumimasen—lambkudasi” .arrow:before {
+    content: "";
+    background-repeat: no-repeat;
+    background-image: url("//images.contentful.com/a7w606b3ho4t/7FxEk8s7cWUwiSSUuuAySI/e7648be1fa7d0aa1d3185d0fc4e27237/Arrow.svg");
+    width: 30px;
+    height: 20px;
+    display: inline-block;
+    text-indent: 0 !important;
+    background-size: contain;
+  }
+
   .arrow:before {
-    content: "\2192 \00a0 \00a0";
+    content: "";
+    background-repeat: no-repeat;
+    background-image: url("http://images.contentful.com/a7w606b3ho4t/95SZUOzwCkgc4ISWqamcU/9e6c775111cdce3157d95bffc72a2ac1/Arrow_Black.svg");
+    width: 30px;
+    height: 20px;
+    display: inline-block;
     text-indent: 0 !important;
   }
   /* Typography */
@@ -2130,23 +2449,72 @@ height: 90px;
     padding-left: 60px;
   }
 
+  #WhereTheresSmokeTheresFire .col-left ~ .whole-half-image {
+    width: 100%;
+    padding: $primary-padding*6 0;
+  }
+
+
   .video-hold {    height: 600px;
     width: 80%;
-    background-color: lightgray;
+    // background-color: lightgray;
     margin: 0 auto;}
   /*# sourceMappingURL=Autumn.css.map */
     @media screen and (min-width: 1800px) {
       .App-intro {
-        font-size: 30px;
+          font-size: 30px;
       }
-          #WhereTheresSmokeTheresFire blockquote {
+
+      article {
+        padding: 0 20%;
+      }
+      #“Sumimasen—lambkudasi” .col-whole .blackfont,
+      #“Sumimasen—lambkudasi” .col-whole .col-left.blackfont,
+      #OntheMenu p,
+      #TwounderTen .chef-info p,
+      #TwounderTen .col-fourth h2,
+      #TwounderTen .row .col-left:first-child p,
+      article p,
+      #WhereTheresSmokeTheresFire .col-left p, #WhereTheresSmokeTheresFire .col-right p,
+      #OntheMenu .desktop p{
+          font-size:$largeScreenFont;
+          line-height: initial;
+      }
+
+      #FastFacts header .desktop {
+          position: absolute;
+          height: 100vh;
+          top: 0px;
+          font-size: 4rem;
+          line-height: initial;
+          width: calc(100vw - 50%);
+          left: 0px;
+          bottom: initial;
+      }
+
+      .col-white {
+        background-color: transparent;
+      }
+
+      #UpFront .row h2,#TwounderTen .col-six-eight h2 {
+        font-size: $largeScreenFont*2;
+      }
+
+      #TwounderTen .ingredients li {
+        font-size: $largeScreenFont*2.5;
+      }
+
+      .video-hold {
+        height: auto;
+      }
+                #WhereTheresSmokeTheresFire blockquote {
             display: -ms-flexbox;
             display: flex;
             -ms-flex-pack: center;
             justify-content: center;
             -ms-flex-direction: column;
             flex-direction: column;
-            font-size: 1.25em;
+            font-size: 1.95rem;
             padding: 0 60px;
             width: 100%;
         }
@@ -2162,7 +2530,7 @@ height: 90px;
 
 
     @media screen and (min-width: 1400px) and (max-width: 1800px) {
-      $primary-padding: 60px !global;
+      $primary-padding: 30px !global;
 
       .col-whole {
         margin: $primary-padding*6 0;
@@ -2191,7 +2559,7 @@ height: 90px;
           left: 90px;
           font-size: 1.5em;
           font-weight: 100;
-          max-width: 350px;
+          max-width: 250px;
           text-align: left;
       }
       .App-header header small {
@@ -2220,7 +2588,8 @@ height: 90px;
           top: 0;
       }
 
-      #EditorsLetter {
+      #EditorsLetters {
+
         img {
           width: 200px;
           padding-right: 30px;
@@ -2228,14 +2597,23 @@ height: 90px;
       }
 
 
-      #“Sumimasen—kudasithelamb” {
+      #“Sumimasen—lambkudasi” {
+
+
+        .desktop {
+          bottom:60px !important;
+          p {
+            text-align: center;
+              text-indent: 0;
+            }
+        }
         .col-white > h2 {
             text-align: center;
             font-size: 7rem;
             max-width: 800px;
         }
        .col-white > h2 ~ hr {
-            width: 90px;
+            width: 60px;
             border-color: #fbe2e8;
             margin: 30px auto;
             border-width: 6px;
@@ -2249,22 +2627,27 @@ height: 90px;
             padding: 40px;
             margin: 30px;
             margin-bottom: 90px;
+            position: relative;
             img {
+              top:30px;
               width: 60px;
               margin-bottom: 30px;
             }
         }
 
         .mid-whole {
-          max-width: 900px;
+          max-width: 50%;
+          padding-left: 10rem;
+          font-size: 1.35rem;
         }
     }
     #ChefProfile .chefbox {
         position: relative;
-        max-width: 700px;
+        max-width: 500px;
         margin: 0 auto;
         border: 1px solid blue;
         padding: 40px;
+        margin-bottom: $primary-padding*1.5;
         color: blue;
     }
       .articleIndex h3 {
@@ -2279,11 +2662,18 @@ height: 90px;
 
   }
 
-  #“Sumimasen—kudasithelamb” header h1 {
+  #“Sumimasen—lambkudasi” header h1 {
         display: block;
-        font-size: 6.5em;
+        font-size: 7em;
         line-height: .9em;
+            text-indent: -.5em;
+            top: 130px;
+            margin-top: 0;
+position: absolute;
+max-width: 52%;
     }
+
+
 
     #ChefProfile header .desktop p:nth-child(2) {
         position: relative;
@@ -2296,7 +2686,7 @@ height: 90px;
     }
 
 
-    #“Sumimasen—kudasithelamb” .gif-left h2, #“Sumimasen—kudasithelamb” .gif-right h2 {
+    #“Sumimasen—lambkudasi” .gif-left h2, #“Sumimasen—lambkudasi” .gif-right h2 {
       font-size: 3em;
     }
 
@@ -2309,21 +2699,21 @@ height: 90px;
     }
   }
       #FastFacts h2:nth-child(2) {
-            top: 390px;
+            top: 0px;
       }
 
       #ChefProfile .chefbox > img {
         position: absolute;
         right: 30px;
         top: 30px;
-        width: 90px;
+        width: 60px;
     }
     .photo-grid div {
       -ms-flex-preferred-size: 49%;
       flex-basis: 49%;
       width: 48%;
-      height: 460px;
-      margin-bottom: 40px;
+      height: 330px;
+      margin-bottom: 20px;
       overflow: hidden;
       img {
             max-height: initial;
@@ -2339,8 +2729,9 @@ height: 90px;
         position: relative;
         left: 160px;
         top: 0;
+
     }
-    #FrontofHouse header h1 {
+    #UpFront header h1 {
     display: block;
       font-size: 6rem;
       font-weight: 100;
@@ -2348,6 +2739,9 @@ height: 90px;
       text-align: left;
       padding-left: 90px;
           line-height: .9em;
+  }
+  #ChefProfile .imageright,  #ChefProfile .imageleft  {
+    color:black;
   }
     #ChefProfile .imageright .col-left h2 img,  #ChefProfile .imageleft .col-right h2 img {
       width: 60px;
@@ -2367,7 +2761,7 @@ height: 90px;
       }
 
     }
-    #“Sumimasen—kudasithelamb” .biglambbox h2 {
+    #“Sumimasen—lambkudasi” .biglambbox h2 {
         color: blue;
         margin: 60px 0;
         border-bottom: 1px solid blue;
@@ -2376,16 +2770,21 @@ height: 90px;
         font-size: 2.5rem;
         /* float: left; */
         margin-right: 50%;
-        width: 40%;
+        width: 50%;
     }
 
-    #“Sumimasen—kudasithelamb” {
+    #“Sumimasen—lambkudasi” {
       .biglambbox {
-        padding: 60px 120px;
+        justify-content: space-between;
+        padding: 60px;
+        ol {
+          flex-basis: 40%;
+        }
         img {
            position: absolute;
-           right: 120px;
+           right: 60px;
            width: 60px;
+           top:60px;
         }
       }
 
@@ -2407,11 +2806,30 @@ height: 90px;
           }
       }
 
-      #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
+      #WhereTheresSmokeTheresFire blockquote {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        font-size: 1.95rem;
+        padding: 0 60px;
+        width: 100%;
+    }
+
+
+      #TheQuestforEatingQuality {
+        .desktop {
+          font-size: 7rem;
+        }
+      }
+
+      #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child {
           height: 160px;
       }
-      #TheQuestforQualityEating .box-shape .col-half-third div {
-          height: 390px;
+      #TheQuestforEatingQuality .box-shape .col-half-third div {
+          height: 230px;
           padding: 30px 0;
           border-top: 1px solid black;
           text-align: center;
@@ -2434,10 +2852,22 @@ height: 90px;
             small {
               font-size: .5em;
             }
+
         }
+
+        .desktop {
+          bottom: 110px;
+          font-size: 1.65rem !important;
+        }
+
+       .row .col-left:first-child p {
+          font-size: 1.65rem;
+          line-height: initial;
+          text-indent: 1em;
+      }
           h2 {
             text-indent: 0;
-            font-size: 3.5rem;
+            font-size:2em;
             line-height: initial;
           }
           .chef-info p {
@@ -2456,7 +2886,7 @@ height: 90px;
           width: 40%;
           float: right;
           padding-left: 80px;
-          font-size: 2em;
+          font-size: 1.65rem;
       }
 
       #LambLeg {
@@ -2469,18 +2899,18 @@ height: 90px;
           left: 40px;
           top: 130px;
           z-index: 1;
-          font-size: 1.5em;
+              font-size: 1.35rem;
       }
       .fixSub .sideHeader {
         position: fixed;
-      font-size: 1.1em;
+      font-size: 1.35rem;
     }
         .fixSub .sideHeader .back {
 
         width: 550px;
     }
-    #TheQuestforQualityEating .box-shape .col-one-third div {
-    height: 450px;
+    #TheQuestforEatingQuality .box-shape .col-one-third div {
+    height: 290px;
 
   }
       .whole-half-image {
@@ -2488,7 +2918,7 @@ height: 90px;
         padding: 90px 0;
         width: 100%;
     }
-  #TheQuestforQualityEating .box-shape .col-one-third div:first-child {
+  #TheQuestforEatingQuality .box-shape .col-one-third div:first-child {
           height: 225px;
            img{
              width: 90px;width: 90px;
@@ -2503,8 +2933,11 @@ height: 90px;
           padding: 0;
       }
       #OntheMenu {
+        .desktop {
+          bottom: 90px;
+        }
         p {
-          font-size: 1.1em;
+          font-size: 1.2em;
         }
         .col-left h3, .col-right h3 {
             font-size: 2.5rem;
@@ -2519,11 +2952,75 @@ height: 90px;
       }
 
     }
+
+    @media screen and (max-width: 1024px) {
+
+      .col-whole {
+          margin: 120px 0;
+          width: 100%;
+        }
+        #TwounderTen {
+              .addpadd  {
+                    .col-two-eight {
+                      padding-left: 90px;
+                      margin-top: 0px;
+                    }
+                    .col-six-eight {
+                            width: 50%;
+                            padding-left: 85.5px;
+                        }
+
+                }
+              .chef-info {
+                img {
+                    max-width: initial;
+                    width: 100%;
+                }
+
+                .col-right {
+                  width: 30%;
+                }
+              }
+        }
+
+
+
+          #OnTheMenu {
+
+          }
+    }
+
+    // MEDIA QUERY 786
   @media screen and (max-width: 786px) {
 
 
     body {
       font-size: 12px;
+    }
+
+      article section {
+            padding: 90px 60px;
+      }
+
+      .nofloatmob, .nofloatmobile {
+          .col-left, .col-right {
+            float:none;
+          }
+      }
+
+      .col-whole {
+            margin: 60px 0;
+      }
+
+    .col-whole-image {
+        width: 100%;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .video-hold {
+      margin-top: 60px;
+      height:auto;
     }
     header {
 
@@ -2540,6 +3037,70 @@ height: 90px;
       display: none;
     }
 
+    .col-left, .col-right {
+      padding: $primary-padding*2 0;
+    }
+
+    // LAMBLEG
+    #LambLeg {
+      header {
+         flex-direction: column;
+         padding: 60px;
+         h3 {
+           margin-top: 60px;
+           left: 60px;
+         }
+      }
+      h1 {
+        position: initial;
+        float: none;
+        width: 100%;
+        margin-bottom: 60px;
+      }
+      .desktop {
+        position: initial;
+        width: 100%;
+        float: none;
+        flex-basis: 100%;
+        padding-left: 0;
+          margin-bottom: 60px;
+      }
+
+    }
+
+    /// FAST
+    #FastFacts {
+      h2, .side {
+        position: initial;
+        width: 100%;
+        float:none;
+        margin-left: 0;
+      }
+      h2 {
+        margin-bottom: 60px;
+        width: 100%;
+      }
+    }
+    // FINAL
+    #Final {
+      .desktop {
+         h2 {
+             position: initial;
+             width: $ipadWidth;
+
+             margin: 60px auto 30px;
+         } p {
+             position: initial;
+             width: $ipadWidth;
+              margin: 30px auto;
+         }
+
+      }
+      header {
+        height: calc( 100vh - 300px);
+      }
+    }
+
     ///EDITORS {
     .editors .col-right {
           -ms-flex-preferred-size: 50%;
@@ -2549,13 +3110,31 @@ height: 90px;
 
     .editors {
       section {
-        padding: 0 90px;
+        padding: 0 60px;
       }
     }
-      #EditorsLetter  {
+      #EditorsLetters  {
         h2 {
         font-size: 3em;
         }
+    }
+
+    /// FAST
+
+    #FastFacts {
+      header .desktop {
+        img {
+          left:0;
+        }
+      }
+      h1 {
+        left: 60px;
+      }
+      h2 {
+        left: 60px;
+        font-size: 3rem;
+        width: 100%;
+      }
     }
 
     // SMOKE
@@ -2563,6 +3142,45 @@ height: 90px;
     #WhereTheresSmokeTheresFire {
       .video-container {
         display: none;
+      }
+      .whole-half-image {
+        padding: 90px 0;
+      }
+      .col-six-eight {
+        padding: 90px 0;
+      }
+      .col-whole {
+        margin: 90px 0;
+      }
+      .col-left {
+        padding: 0 60px;
+        p {
+          padding: 0;
+          font-size: $ipadBodyFont
+        }
+      }
+
+      .col-right {
+        padding: 0 60px;
+        font-size: $ipadBodyFont;
+        p {
+          padding-right: 0;
+          font-size: $ipadBodyFont
+        }
+      }
+      .whole-half-image ~ .col-left   {
+        // display: none;
+
+      }
+      .col-left ~ .whole-half-image {
+          width: 100%;
+          padding: $primary-padding*3 0;
+      }
+
+      .sideimage {
+        img {
+          max-height: initial;
+        }
       }
       header {
         background-image: url(//images.contentful.com/a7w606b3ho4t/5TVMjmOrIcwQs4UysWIEQc/bdc9e8b…/Screen_Shot_2017-12-19_at_11.34.42_AM.png);
@@ -2574,10 +3192,13 @@ height: 90px;
       }
 
         .col-left, .col-right {
-          padding-top: 60px;
+          padding-top: 0px;
           width: 100%;
           -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
+      }
+      .col-left.smalltext {
+          margin-bottom: 60px;
       }
 
       blockquote {
@@ -2590,10 +3211,20 @@ height: 90px;
     }
 
     // PADDOCK
-    #TheQuestforQualityEating {
+    #TheQuestforEatingQuality {
         header {
           .desktop {
             display: block !important;
+          }
+        }
+
+        .row .col-left:first-child ~ .col-right {
+          // display: none;
+        }
+        .row .col-left:first-child ~ .col-right ~ .whole-half-image {
+          padding: 0 0 60px 0;
+          img {
+            width: 100%;
           }
         }
 
@@ -2603,37 +3234,100 @@ height: 90px;
         .box-shape {
           zoom: 0.6;
         }
+
+        .row {
+          padding-top: 0;
+        }
+
+        .row .col-left:first-child {
+          padding-top: 0;
+        }
+
+        .whole-half-image {
+          padding: $primary-padding*3 0;
+        }
+        .whole-half-image ~ .col-left {
+        padding: 0;
+        }
+
+        .col-whole {
+          margin-top: 0;
+        }
+        .photo-grid div {
+
+            height: auto;
+            margin-bottom: 3px;
+            overflow: hidden;
+        }
+
+        .photogridouter {
+          margin-bottom: 0;
+        }
     }
 
     //TwounderTen
 
     #TwounderTen {
+      .chef-info {
+        .col-left {
+          float:none;
+        }
+        .col-right {
+          width:$ipadWidth;
+          padding-right: 0;
+          float:none;
+          margin: 0 auto;
+        }
+      }
+      .chef-info p {
+        font-size: $ipadBodyFont;
+      }
+     .addpadd .col-two-eight {
+          padding-left: 60px;
+          margin-top: 0px;
+      }
+      .col-whole {
+        margin: 60px 0;
+      }
+      .col-left, .col-right {
+        padding: 0 60px;
+
+      }
+      .row > .col-left {
+          margin-top: 60px;
+      }
+      .row .col-left:first-child p {
+          font-size: $ipadBodyFont;
+          line-height: initial;
+          text-indent: 1em;
+      }
       header {
         background-size: contain;
         background-repeat: no-repeat;
       }
       .addpadd {
         .col-two-eight {
-          width: 100%;
+          width: calc(100% -  180px);
           .inside {
             width: 100%;
           }
         }
 
         .col-six-eight {
-          width: 100%;
+          width: calc(100% -  180px);
           padding-top:60px;
+          padding-left: 60px;
         }
 
       }
     }
     .chef-info {
       .col-left {
-        padding:30px !important;
+        padding:30px ;
       }
 
       .col-right {
-         padding: 0 30px !important;
+         padding: 0 30px ;
       }
 
 
@@ -2652,11 +3346,13 @@ height: 90px;
         }
       .col-left {
             flex-basis: 80%;
+            padding-left: 60px;
       }
 
+
       .col-right {
-          padding-left: 90px !important;
-          padding-right: 0px !important;
+          padding-left: 60px ;
+          padding-right: 0px ;
           flex-basis: 80%;
       }
       .col-whole {
@@ -2664,44 +3360,83 @@ height: 90px;
       }
     }
 
+    #UpFront .col-whole-half {
+
+        text-indent: 0;
+    }
+
     // sUMI THE LambLeg
-    #“Sumimasen—kudasithelamb” {
+    #“Sumimasen—lambkudasi” {
+      header {
+        h1 {
+          font-size: 4rem;
+          top:0;
+        }
+      }
+      .col-white {
+
+          padding: 30px 0 0;
+
+      }
       .col-right {
           padding: 0;
           width: 100%;
 
       }
+      .col-whole .blackfont {
+         font-size: $mobileBodyFont;
+      }
+      .col-whole .col-left.blackfont {
+          font-size: $ipadBodyFont;
+          width: $ipadWidth;
+          padding: 0px 60px;
+      }
 
       .lambboxsmall {
         margin: 30px auto 60px;
         width: 60%;
+        position: relative;
+        img {
+          left:0;
+        }
       }
       .biglambbox {
           width: 60%;
       }
 
       .col-right {
-        width: 90%;
+        width: calc(100% - 120px);
         margin:0 auto;
 
+      }
+      .gif-left , .gif-right {
+        padding-top: 60px;
+        h2 {
+          padding-top: 30px;
+        }
+        .col-left, .col-right {
+          padding-top: 0;
+        }
       }
 
       .gif-left {
         .col-right {
-          width: 40%;
+          width: 50%;
+          padding-right: 60px;
         }
       }
       .gif-right {
         .col-left {
-          width: 40%;
+          width: 50%;
+            padding-left: 60px;
         }
         .col-right {
-          width: 20%;
+          width: 30%;
         }
       }
     }
 
-    #FrontofHouse {
+    #UpFront {
       header {
         height:60vh;
       }
@@ -2710,19 +3445,49 @@ height: 90px;
           right: 0px;
       }
       .col-left,  .col-right {
+        margin:  30px 0;
           padding: 0 60px 15px;
-          -ms-flex-preferred-size: 34%;
-          flex-basis: 30%;
+          -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+      }
+
+      .col-whole ~ .col-left.large-side-image {
+        margin-top: 0;
+      }
+
+      .opening {
+            font-size: $ipadBodyFont;
+        flex-basis: 100%;
       }
     }
 
     // Chef Profile
 
     #ChefProfile {
+      .imageright .col-left {
+        padding-left: 60px;
+      }
+      .chef-profile-header ~ .col-left ~ .col-right {
+          color: black;
+          font-size: $ipadBodyFont;
+          margin: 0 60px;
+          width: calc(100% - 120px);
+          padding-top: 200px;
+          padding-bottom: 180px;
+      }
+      .chefbox {
+        margin: 0 60px;
+      }
       .col-right {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
-        font-size: .8em;
+        font-size: $ipadBodyFont;
+
+      }
+      .imageleft {
+        .col-right {
+          margin-right: 60px;
+        }
       }
 
       .bigtitle {
@@ -2745,6 +3510,14 @@ height: 90px;
 
       // GRID MOBILE
 
+      .editors p {
+        font-size: $ipadBodyFont;
+      }
+      #WhereTheresSmokeTheresFire .col-left p {
+          font-size: $ipadBodyFont;
+          text-indent: 1em;
+
+      }
       .whole-half-image {
         padding: 30px 0;
       }
@@ -2752,7 +3525,7 @@ height: 90px;
     .col-right {
       width: 100%;
       flex-basis: 100%;
-      padding: 30px;
+      padding: $primary-padding*2 0;
     }
 
     .row img {
@@ -2832,10 +3605,27 @@ height: 90px;
 
   }
 
+
+//MOBILE STYLES
   @media screen and (max-width: 420px) {
+    .editors p {
+      font-size: $mobileBodyFont;
+    }
     .video-hold {
         height: 200px;
+        margin-top: 0;
+    }
+    .chef-editor .video-hold {
+      margin-top: 0px;
+  }
 
+    .opening {
+      font-size: $mobileBodyFont !important;
+    }
+
+    .col-left, .col-right {
+        font-size: $mobileBodyFont;
+        padding: $mobilePad;
     }
 
     .image-inline {
@@ -2844,7 +3634,7 @@ height: 90px;
       }
     }
 
-    #EditorsLetter img {
+    #EditorsLetters img {
       width: 100%;
       float: left;
       margin: 15px 0;
@@ -2895,18 +3685,30 @@ height: 90px;
           overflow: hidden;
 
       }
+      #TwounderTen .row .col-left:first-child p {
+            font-size: $mobileBodyFont;
+          line-height: initial;
+          text-indent: 1em;
+      }
+
         #LambLeg  {
             header {
               height: auto;
               padding: 40px;
+              flex-direction: column;
               h1 {
                 font-size: 3rem;
+              }
+              h3 {
+                position: initial;
+                padding-top: 45px;
               }
 
               .desktop {
                 padding-left: 0px;
-                font-size: .9rem;
-                width: 50%;
+                font-size: $mobileBodyFont;
+                width: 100%;
+                padding-top: 45px;
               }
           }
 
@@ -2944,12 +3746,16 @@ height: 90px;
         }
       }
     .col-whole {
-        margin: 30px 0;
+        margin: 45px 0;
         width: 100%;
+    }
+
+    .fixSub .sideHeader {
+      top: 80px;
     }
     .sideHeader {
         left: 15px;
-        top: 130px;
+        top: 45px;
         font-size: 1.1em;
     }
         .sideHeader .back {
@@ -2958,11 +3764,11 @@ height: 90px;
         top: 0;
         font-size: 1rem;
     }
-        #“Sumimasen—kudasithelamb” .biglambbox img {
+        #“Sumimasen—lambkudasi” .biglambbox img {
         width: 30px;
         top:30px;
     }
-    #“Sumimasen—kudasithelamb” .biglambbox h2 {
+    #“Sumimasen—lambkudasi” .biglambbox h2 {
         color: blue;
         margin: 60px 0;
         border-bottom: 1px solid blue;
@@ -2970,13 +3776,14 @@ height: 90px;
         padding-bottom: 10px;
         font-size: 2.5rem;
         line-height: initial;
+        margin-right: 50%;
     }
-    #“Sumimasen—kudasithelamb” .biglambbox ol {
+    #“Sumimasen—lambkudasi” .biglambbox ol {
         width: 100%;
         float: left;
         list-style-type: decimal-leading-zero;
     }
-    #“Sumimasen—kudasithelamb” .col-white {
+    #“Sumimasen—lambkudasi” .col-white {
           background-color: white;
           margin: 0;
           padding: 90px 0 15px;
@@ -2996,9 +3803,9 @@ height: 90px;
       font-size: 1.1em;
     }
     article section {
-      padding: 0 30px;
+      padding: $mobilePad;
     }
-    #EditorsLetter {
+    #EditorsLetters {
       article section {
         padding: 30px !important;
       }
@@ -3010,12 +3817,18 @@ height: 90px;
 
     // FRONT OF FrontofHouse
 
-    #FrontofHouse {
+    #UpFront {
+      .opening {
+        flex-basis: 100%;
+        margin: 60px 0;
+      }
+
       header {
         h1 {
           font-size: 2rem;
           padding-left: 45px;
         }
+
 
         .desktop {
             right: 30px;
@@ -3038,21 +3851,50 @@ height: 90px;
       }
 
       .col-left, .col-right {
-        width: 100%;
-        flex-basis: 90%;
-        padding: 0 30px;
+        width: $mobileWidth;
+        flex-basis: $mobileWidth;
+        padding:$mobilePad;
+        margin: 22.5px 0;
 
       }
-    }
 
-    #TheQuestforQualityEating .box-shape .col-one-third h2:first-child, #TheQuestforQualityEating .box-shape .col-half-third h2:first-child {
+      .large-side-image {
+        margin: 45px 0;
+      }
+
+      .row h2 {
+        font-size: $largeMobileTitle;
+        line-height: 1.9rem;
+        margin-bottom: $primary-padding*1.5;
+      }
+    }
+    #TheQuestforEatingQuality {
+      .row {
+        padding-top: 45px;
+      }
+      .col-whole-image {
+        padding: 45px 0;
+      }
+      .col-left, .col-right {
+        padding: 0;
+      }
+
+      .box-shape {
+        margin-top: 45px;
+      }
+
+      .video-hold {
+        margin-top: 45px;
+      }
+    }
+    #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child, #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child {
           height: 60px;
           font-size: 1em;
           line-height: initial;
           padding: 15px;
       }
 
-      #TheQuestforQualityEating .box-shape ul {
+      #TheQuestforEatingQuality .box-shape ul {
         list-style: none;
         text-align: left;
         width: 50%;
@@ -3060,7 +3902,7 @@ height: 90px;
         line-height: initial;
         width: 100%;
     }
-    #TheQuestforQualityEating .box-shape .col-half-third div h3 {
+    #TheQuestforEatingQuality .box-shape .col-half-third div h3 {
         width: 100%;
         display: inline-block;
         vertical-align: top;
@@ -3070,7 +3912,7 @@ height: 90px;
         padding-bottom: 15px;
     }
 
-    #TheQuestforQualityEating .box-shape .col-half-third div img {
+    #TheQuestforEatingQuality .box-shape .col-half-third div img {
         height: auto;
         width: 100%;
         margin-bottom: 5px;
@@ -3081,21 +3923,25 @@ height: 90px;
         .desktop h2 {
             position: initial;
             top: 60px;
-            width: 80%;
+            width: $mobileWidth;
             text-indent: 1em;
-          padding: 30px 30px 0px;
+            padding:$mobilePad;
+            padding-top: 45px;
 
         }
         .desktop p {
             position: initial;
             top: 60px;
-            width: 80%;
+          width: $mobileWidth;
             text-indent: 1em;
-            padding: 30px 30px 0px;
+              padding:$mobilePad;padding-top: 45px;
 
         }
+        .row {
+          padding-bottom: 0;
+        }
         header {
-          height: 60vh;
+          height: 70vh;
         }
       }
       #Final section {
@@ -3106,8 +3952,12 @@ height: 90px;
 
     #ChefProfile {
 
-      header {
-        height: 50vh;
+        .chef-profile-header {
+          img {
+            display: none;
+          }
+        }
+
         h1 {
           font-size: 3rem;
         }
@@ -3123,29 +3973,31 @@ height: 90px;
           }
         }
 
-      }
+
 
       .col-left, .col-right {
-        padding: 15px 30px;
+        padding: 45px 0px;
         flex-basis: 80%;
+        float:none;
       }
 
       .imageleft {
         .col-right {
-          width: 80%;
+          width: $mobileWidth;
+          float: none;
         }
       }
 
       .imageright {
         .col-left {
           width: 80%;
-          padding-left:60px;
+          padding-left:45px;
         }
       }
     }
 
     // LAMB
-    #“Sumimasen—kudasithelamb” {
+    #“Sumimasen—lambkudasi” {
      .gif-left .col-right {
           width: 80%;
           padding: 0 30px;
@@ -3154,17 +4006,28 @@ height: 90px;
         width: 80%;
         padding: 0 30px;
       }
+      .col-white.bigtitle {
+        font-size: 4rem;
+          -webkit-text-stroke-width: 2px;
+          padding-top: 45px;
+          img {
+            padding-top: 45px;
+          }
+      }
       header {
         height: 50vh;
         h1 {
           font-size: 2rem;
+          font-size: 3rem;
+          width: 75%;
+          padding-right: 45px;
         }
         .desktop {
 
            display: block;
-           font-size: 1rem;
+           font-size: $largeMobileTitle/1.5;
            width: 60%;
-           bottom:0;
+           bottom:45px;
            right:0;
            text-align: left;
            float: right;
@@ -3182,16 +4045,40 @@ height: 90px;
       }
        .col-white > h2 {
           text-align: center;
-          font-size: 3rem;
+          font-size: $largeMobileTitle*1.5;
+          margin-top: $primary-padding*1.5;
 
+      }
+
+      .col-whole {
+        .col-left {
+          float:none;
+        }
+        .col-right{
+          float:none;
+          width: $mobileWidth;
+
+          img {
+            width: 100%;
+            margin-top: $primary-padding*1.5;
+          }
+        }
+      }
+      .col-whole:after {
+        display: block;
+        font-size: 0;
+        height:0;
+        content:"";
+        clear:both;
+        visibility: hidden;
       }
       .col-white {
         padding-top:0;
       }
        .col-right {
-          width: 90%;
+          width: 100%;
           margin: 0 auto;
-          font-size: .8em;
+          font-size: $ipadBodyFont;
           padding-right:0;
       }
     }
@@ -3210,11 +4097,28 @@ height: 90px;
             font-size: .9rem;
             line-height: initial;
         }
+
+
+
+        .desktop {
+          font-size: $mobileBodyFont;
+        }
+      }
+      .col-six-eight .col-fourth {
+        width: 40%;
+        h2 {
+          font-size: $mobileBodyFont ;
+        }
       }
 
       .col-two-eight .number {
           font-size: 3rem;
           padding: 30px;
+      }
+      .col-six-eight {
+        img {
+          width: 100%;
+        }
       }
       .col-six-eight h2 {
         font-size: 1.5rem;
@@ -3222,6 +4126,16 @@ height: 90px;
     .chef-info .col-right {
         padding-left: 0;
         width: 80%;
+    }
+
+    .chef-info .col-left {
+      width: $mobileWidth;
+      margin: 22.5px auto;
+      float:none;
+      padding: 0;
+      img {
+        width: 100%;
+      }
     }
 
     .ingredients li {
@@ -3233,8 +4147,9 @@ height: 90px;
         .addpadd .col-two-eight {
               width: 80%;
               font-size: 1rem;
-
+              margin-top: $primary-padding*1.5;
               padding-left: 30px;
+              padding-right: 0;
               .inside {
                 width: 90%;
               }
@@ -3250,20 +4165,48 @@ height: 90px;
             }
 
       .col-left, .col-right {
-           padding: 0 30px;
+           padding: $mobilePad;
         }
     }
     //SMOKE
     #WhereTheresSmokeTheresFire {
+      .desktop {
+        font-size: $mobileBodyFont;
+        bottom:45px;
+        left:45px;
+        width: 50%;
+      }
+
+      .col-whole-image {
+        margin: 0;
+        padding: 45px 0;
+      }
+      .col-left ~ .whole-half-image {
+          width: 100%;
+          padding: 45px 0;
+      }
+
+      .col-left.smalltext{
+        padding-top: 0px;
+        display: block;
+        margin-bottom: 22.5px;
+      }
+      .col-right {
+        width: $mobileWidth;
+      }
       .col-left {
         padding-top: 15px;
         width: 100%;
       }
       .col-left p {
-          font-size: initial;
+          font-size: $mobileBodyFont;
           text-indent: 1em;
-          flex-basis: 90%;
-          padding-left:30px;
+          flex-basis:100%;
+          padding-left:0px;
+      }
+      .col-right p {
+        font-size: $mobileBodyFont;
+
       }
       .col-whole {
         margin: 30px 0;
@@ -3285,24 +4228,53 @@ height: 90px;
     }
 
     // Paddock
-    #TheQuestforQualityEating {
+    #TheQuestforEatingQuality {
 
       header {
         height: 50vh;
 
         .desktop {
-          font-size: 2rem;
+          font-size: 3rem;
+          left: 45px;
+          top: 45px;
         }
       }
+      .whole-half-image {
+            padding: 45px 0;
+            img {
+              width: 100%;
+            }
+        }
+
+        .largelamb, .col-whole-image {
+          img {
+            width: 100%;
+          }
+        }
     }
 
       .lambboxsmall {
         img {
-          width: 30px;
+          width: 30px !important;
+          margin-top: 0 !important;
         }
       }
     //Fast
     #FastFacts {
+
+      header {
+        .desktop {
+          left:30px;
+          .numbers {
+            width: 100%;
+          }
+        }
+      }
+      header .desktop img {
+          position: absolute;
+          top: 90px;
+          left: 10px;
+      }
       .row section {
           height: 70vh;
           padding: 30px;
@@ -3333,7 +4305,7 @@ height: 90px;
         display: inline-block;
         margin-left: 0%;
         margin-top: 60px;
-        font-size: 1em;
+        font-size: $mobileBodyFont;
     }
 
     .chef-editor {
@@ -3346,7 +4318,186 @@ height: 90px;
     .chef-editor h2:first-child {
         position: absolute;
         top: 60px;
-          width: 100% !important;
+          width: 50% !important;
         text-indent: 0;
     }
+
+    #OntheMenu {
+      header {
+        height: 50vh;
+      }
+      p {
+        font-size: $mobileBodyFont;
+      }
+
+      .margin-top, .top-margin {
+        margin-top: $primary-padding*1.5;
+      }
+
+      .row {
+        img {
+          width: 100%;
+        }
+      }
+
+      .desktop {
+        width: $mobileWidth;
+        padding: $mobilePad;
+        right: initial;
+      }
+      .desktop p {
+        font-size: $mobileBodyFont;
+      }
+
+      .col-left {
+        padding-left: 45px;
+      }
+      .col-right {
+        padding-left: 45px;
+      }
+
+       .col-left h2, .col-right h2 {
+          font-size: 2rem;
+          line-height: 1.5rem;
+      }
+    }
+
+    #“Sumimasen—lambkudasi” .col-whole .col-left.blackfont {
+          width:$mobileWidth;
+          font-size: $mobileBodyFont;
+          padding: $mobilePad;
+      }
+      #“Sumimasen—lambkudasi”{
+        .row >  .col-whole > .col-one-eight {
+          display: none;
+        }
+
+        .lambboxsmall {
+          margin: 45px auto 0;
+          width: calc(100% - 45px);
+          padding: 22.5px;
+          margin: 45px 0;
+          h2 {
+              font-size: $largeMobileTitle;
+          }
+          img {
+            right: 22.5px;
+            left: initial;
+          }
+        }
+
+        .mid-whole {
+          padding-left: 45px;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        .biglambbox {
+          ol{
+            width: 100%;
+            flex-basis: 100%;
+          }
+        }
+        .gif-left .col-left,.gif-right .col-left {
+          width: calc(100% - 90px);
+            margin: 0 auto;
+        }
+
+        .gif-left h2 , .gif-right h2 {
+          font-size: 2rem;
+          padding: 45px 0;
+          margin: 0;
+          border-top: 0;
+          text-decoration: underline;
+        }
+      }
+
+      #ChefProfile .chef-profile-header ~ .col-left ~ .col-right {
+          color: black;
+          font-size: $mobileBodyFont;
+            width:$mobileWidth;
+            float:none;
+            padding-left: 0;
+            padding-top: 230px;
+            padding-bottom: 0;
+
+      }
+      #ChefProfile {
+        .col-whole {
+          padding: 22.5px 0;
+        }
+        .chefbox {
+          width: calc(100% - 120px);
+          margin: 0 auto 22.5px;
+          padding: 22px;
+          h2 {
+            margin: 45px 0;
+            font-size: $largeMobileTitle;
+          }
+          h3 {
+            font-size: $mobileBodyFont;
+            position: initial;
+          }
+          p {
+            font-size: 1rem;
+            margin-bottom: 22px;
+            margin-top: 11px;
+            text-indent: 0;
+            img {
+              width: 16px;
+            }
+          }
+        }
+        .chef-profile-header {
+          h1 {
+            font-size: 4rem;
+          }
+          img {
+            display: block;
+          }
+          h2 {
+            position: absolute;
+            top: 34vh;
+            font-size: 1.1rem;
+            lefT: 60px;
+          }
+        }
+
+        .imageleft .col-left {
+          width: $mobileWidth;
+          padding-top: 0;
+          margin: 0 auto;
+          padding-left: 0;
+          img {
+            width: 100%;
+          }
+        }
+          .imageleft {
+              .col-right {
+                  h2 {
+                    margin-bottom: 45px;
+                      img {
+                        margin-top: 0;
+                        padding-right: 0;
+                      }
+                  }
+              }
+          }
+          .imageright {
+              .col-left {
+                  h2 {
+                    margin-bottom: 45px;
+                      img {
+                        margin-top: 0;
+                        padding-right: 0;
+                      }
+                  }
+              }
+              .col-right {
+                padding-top: 0;
+              }
+          }
+
+      }
+
   }

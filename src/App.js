@@ -5,6 +5,7 @@ import Newsletter from "./Newsletter";
 import Scrollchor from 'react-scrollchor';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
+import FacebookProvider, { Share } from 'react-facebook';
 // import Canvas from 'react-canvas-component'
 
 var contentful = require('contentful')
@@ -70,6 +71,32 @@ class App extends Component {
   // }
 
   componentDidUpdate(){
+    var scrollPosition;
+      var savedScrollPosition;
+
+      window.addEventListener('scroll', function() {
+          scrollPosition = window.scrollY;
+      });
+
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      window.addEventListener('orientationchange', function(event) {
+          if (Math.abs(window.orientation) === 90) {
+              savedScrollPosition = scrollPosition;
+          } else {
+              if (isIOS) {
+                  var retryScroll = setInterval(function () {
+                      if (window.scrollX === 0 && window.scrollY == savedScrollPosition) {
+                          clearInterval(retryScroll);
+                      } else {
+                          window.scrollTo(0, savedScrollPosition);
+                      }
+                  }, 1 );
+              } else {
+                  window.scrollTo(0, savedScrollPosition);
+              }
+          }
+      });
     window.addEventListener("resize", this.updateDimensions);
 
     var that = this;
@@ -94,6 +121,39 @@ class App extends Component {
     var burntred= $('.burntred');
     var showdarkgray = $('.showdarkgray');
     var darkgray= $('.darkgray');
+
+
+    var fact_share = $('#FastFacts .row section h3');
+
+    $(fact_share).on('click',function(event){
+      const FB = window.FB;
+      event.preventDefault();
+         event.stopPropagation();
+         event.stopImmediatePropagation();
+
+             // Dynamically gather and set the FB share data.
+             var FBDesc      = 'Your custom description';
+             var FBTitle     = 'Your custom title';
+             var FBLink      = 'http://example.com/your-page-link';
+             var FBPic       = 'http://example.com/img/your-custom-image.jpg';
+
+             // Open FB share popup
+             FB.ui({
+                 method: 'share_open_graph',
+                 action_type: 'og.shares',
+                 action_properties: JSON.stringify({
+                     object: {
+                         'og:url': FBLink,
+                         'og:title': FBTitle,
+                         'og:description': FBDesc,
+                         'og:image': FBPic
+                     }
+                 })
+             },
+             function (response) {
+             // Action after response
+             })
+    });
 
     $(showlightgray).on('mouseover',function(){
         $(lightgray).css('opacity','1');
@@ -165,6 +225,29 @@ class App extends Component {
         }
       });
 
+      document.addEventListener('fullscreenchange', exitHandler);
+      document.addEventListener('webkitfullscreenchange', exitHandler);
+      document.addEventListener('mozfullscreenchange', exitHandler);
+      document.addEventListener('MSFullscreenChange', exitHandler);
+
+      function exitHandler() {
+          if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+              ///fire your event
+                $('.fullscreen_open').removeClass('fullscreen_open');
+                  $('.fullscreenvideo').css('display','block');
+          }
+      }
+
+
+      $(document).on('keydown',function(evt) {
+            if (evt.keyCode == 27) {
+              console.log($('.fullscreen_open'));
+
+              $('.fullscreen_open').removeClass('fullscreen_open');
+              $('body').addClass('fullscreenvideo_display');
+              $('.fullscreenvideo').css('display','block');
+            }
+        });
 
       // Create variables for all of the controls
       var replay = $('.replay');
@@ -177,7 +260,6 @@ class App extends Component {
 
       $(fullscreen_video).on('click',function(e){
           var element = e.target.parentElement.parentElement.parentElement;
-
           if(fullscreenT === false) {
             element.classList.add('fullscreen_open');
             if (element.requestFullscreen) {
@@ -190,6 +272,8 @@ class App extends Component {
               element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
             }
             fullscreenT = true;
+
+
           } else {
               element.classList.remove('fullscreen_open');
             if(document.exitFullscreen) {
@@ -200,6 +284,8 @@ class App extends Component {
                document.webkitExitFullscreen();
              }
              fullscreenT = false;
+
+
           }
 
 
@@ -545,7 +631,15 @@ class App extends Component {
         // Handle event
       });
 
-
+      const FB = window.FB;
+        document.getElementById('shareBtn').onclick = function(e) {
+          e.preventDefault;
+          FB.ui({
+            method: 'share',
+            display: 'popup',
+            href: 'http://raremedium.monkeylabs.com.au/',
+          }, function(response){});
+        }
 
 
   }
@@ -589,7 +683,8 @@ class App extends Component {
   fullscreen() {
     var scrollTop = window.scrollY;
     this.launchFullscreen(document.documentElement);
-
+    $('body').addClass('fullscreenvideo_display');
+    $('.fullscreenvideo').css('display','none');
      setTimeout(function(){
         $(window).scrollTop(scrollTop);
      },300);
@@ -728,16 +823,18 @@ class App extends Component {
               </a>
             </div>
             <div className="nav_left">
-              <a href="http://raremedium.monkeylabs.com.au/proteins/">Sign Up</a>
-              <a href="http://raremedium.monkeylabs.com.au/production/">Share</a>
-              <a href="http://raremedium.monkeylabs.com.au/">Raremedium.com</a>
+              <a id="shareBtn" >Share</a>
+              <a href="http://raremedium.monkeylabs.com.au/">Raremedium.com.au</a>
               <a href="http://raremedium.monkeylabs.com.au/emag/">
                 <div className="newsButton" onClick={this.openNews.bind(this)}>
                   <h3>EMAG</h3>
+                  <h3>Sign up </h3>
                 </div>
               </a>
+
             </div>
           </nav>
+
         </div>
         <div className="App-header">
           {indexItems}
@@ -760,6 +857,7 @@ class App extends Component {
             </span>
           </div>
           <div className="App-intro">
+
             {thePosts}
           </div>
         </section>

@@ -19,7 +19,7 @@ p {
 .show_caption {
   opacity: 1; }
 
-.full #FastFacts header .desktop .showlightgray img {
+#FastFacts header .desktop .showlightgray img {
   transform: rotate(90deg);
   top: -3rem;
   left: 2.5rem;
@@ -586,16 +586,17 @@ blockquote {
 
 .newsButton {
   position: relative;
-  top: -30px;
+  top: -10px;
   height: 82px;
   width: 90px;
   color: white;
   cursor: pointer;
   background-color: #e10d1c;
-  display: inline-block; }
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center; }
   .newsButton h3 {
-    position: relative;
-    top: 30px;
+    font-size: 14px;
     font-family: 'SansMain';
     text-transform: uppercase; }
 
@@ -613,11 +614,12 @@ blockquote {
     text-transform: uppercase;
     color: white;
     position: relative;
-    top: 18px;
+    top: -4px;
     font-size: 14px;
     float: right; }
     .App nav .nav_left a {
-      padding: 30px 30px 30px 20px; }
+      padding: 30px 30px 32px 20px;
+      cursor: pointer; }
       .App nav .nav_left a:hover {
         background-color: #e10d1c; }
   .App nav img {
@@ -1793,6 +1795,14 @@ blockquote {
   padding: 180px 0; }
   #TheQuestforEatingQuality .whole-half-image img {
     width: 70%; }
+
+#TheQuestforEatingQuality .col-whole-image.desktop {
+  position: initial;
+  margin: 0 auto; }
+
+#TheQuestforEatingQuality .col-whole-image .desktop {
+  position: initial;
+  margin: 0 auto; }
 
 #TheQuestforEatingQuality .col-whole-image .photo_caption {
   width: 38%;
@@ -3076,10 +3086,26 @@ blockquote {
     margin-bottom: 0px !important; } }
 
 @media screen and (max-width: 450px) {
+  .App nav img {
+    width: 160px;
+    float: left;
+    padding-left: 30px;
+    padding-top: 10px; }
+  #TheQuestforEatingQuality .col-whole-image.mobile {
+    display: block; }
+  .photogridouter {
+    margin-top: 45px !important; }
   .App nav .nav_left a:first-child {
-    display: none; }
+    display: block;
+    position: absolute;
+    right: 80px; }
+  .App nav .nav_left a:last-child {
+    display: flex !important;
+    color: white; }
+    .App nav .nav_left a:last-child h3 {
+      color: white; }
   .App-header header {
-    background-image: url(//images.contentful.com/a7w606b3ho4t/2OZSmNxoS4Wy2AE0mA8Uya/f7dbd78780e8714386edc196d738af3f/Cover_MobileCrop_V2.jpg) !important; }
+    background-image: url(//images.contentful.com/a7w606b3ho4t/6xqAIhc5XyqyWiG4imkAwC/40c01ea55ad6978a7f44dd804c1c64ed/Cover_MobileCrop_V3.jpg) !important; }
   .App-header img {
     display: none; }
   .sideHeader {
@@ -3104,8 +3130,8 @@ blockquote {
   .image-inline:hover h3 {
     opacity: 0; }
   .App-header h2 {
-    bottom: initial;
-    top: 35%; }
+    bottom: 30px;
+    top: initial; }
   .box-desktop {
     display: none; }
   .box-mobile {
@@ -3378,7 +3404,8 @@ blockquote {
     #TheQuestforEatingQuality .box-shape .full {
       width: 100%; }
   #TheQuestforEatingQuality .video-hold {
-    margin-top: 45px; }
+    margin-top: 45px;
+    margin-bottom: 45px !important; }
   #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child,
   #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child {
     height: 60px;
@@ -4069,10 +4096,37 @@ blockquote {
 
 /* Landscape */
 @media screen and (min-device-width: 320px) and (max-device-width: 750px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .play {
+    display: none; }
+  #LambLeg .desktop {
+    position: initial;
+    width: 100%;
+    float: none;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    padding-left: 0;
+    margin-bottom: 0px; }
   .show_caption h3 {
     opacity: 1 !important; }
   .show_caption img {
     opacity: 0 !important; }
+  .photo_caption_nohover {
+    display: none; }
+  #LambLeg header h3 {
+    margin-top: 0;
+    left: 60px;
+    left: 45px;
+    position: inherit;
+    margin-bottom: 15px; }
+  #LambLeg header {
+    padding-bottom: 0; }
+  #LambLeg .video-hold {
+    margin-top: 0; }
+  #LambLeg video {
+    margin-top: 0;
+    margin-bottom: 0; }
+  #LambLeg .desktop .desktop {
+    display: none !important; }
   #lower {
     position: relative;
     top: 96vh;
@@ -4161,7 +4215,7 @@ blockquote {
   .photo_caption_nohover {
     float: none;
     padding-left: 90px;
-    display: block;
+    display: none;
     font-size: 8px;
     clear: both;
     text-align: left;
@@ -4273,9 +4327,9 @@ blockquote {
     font-size: 2.8rem; }
     #FastFacts header .desktop .numbers .showlightgray img {
       position: absolute;
-      left: .5rem; }
+      left: 1.56rem; }
     #FastFacts header .desktop .numbers span:hover:before {
-      left: .5rem !important; }
+      left: 1.56rem !important; }
   #FastFacts h2, #FastFacts h1 {
     left: 60px;
     font-size: 1.65rem;

@@ -47,12 +47,14 @@ class AppRoute extends Component {
     index = this.state.homepage.map(function(index,i) {
       if (index.fields.currentIssue){
         return(
-          <Route key={`${i}-${index.sys.id}`}  exact path="/" render={() => (<Redirect to={index.fields.magazineTitle.replace(/ /g,'')} />)} children={({match}) => {
-                if (match) return  <App key={index} theName={index} >
-            </App>
-              return null;
-            }} />
+          <div>
+            <Route key={`${i}-${index.sys.id}`} exact path="/" children={({match}) => {
+                  if (match) return  <App key={index} theName={index.fields.issueNumberMain} >
+              </App>
+                return null;
+              }} />
 
+          </div>
         )
       } else {
         return null;

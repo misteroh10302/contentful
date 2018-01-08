@@ -424,7 +424,7 @@ class App extends Component {
         // EXECUTE IF MOBILE
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-          console.log('hello');
+
           $(photo_cap_image_mobile).each(function(e, elem){
              // Check to see if the element already has a title element added
             // If it does not add one
@@ -440,6 +440,17 @@ class App extends Component {
               newDiv.innerHTML = elem.innerHTML;
               $(theParent).wrap(theDiv);
               $(theParent).after(newDiv);
+          });
+
+          $('.back').on('click',function(e){
+            e.preventDefault();
+
+            $('html, body').animate({
+              scrollTop: 300
+            }, 0, function(){
+
+
+            });
           });
         }
 
@@ -586,7 +597,7 @@ class App extends Component {
 
           // Store hash
           var hash =   this.hash.replace(/ /g,'').replace(/'/g,'').replace(/%E2%80%9D/g,'').replace(/%E2%80%9C/g,'').replace(/%E2%80%94/g,'').replace(/,/g,'');
-          console.log(hash);
+
 
           // Using jQuery's animate() method to add smooth page scroll
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
@@ -608,7 +619,7 @@ class App extends Component {
 
           // Store hash
           var hash =   this.hash.replace(/ /g,'').replace(/'/g,'').replace(/%E2%80%9D/g,'').replace(/%E2%80%9C/g,'').replace(/%E2%80%94/g,'').replace(/,/g,'');
-          console.log(hash);
+
 
           // Using jQuery's animate() method to add smooth page scroll
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
@@ -637,7 +648,7 @@ class App extends Component {
           FB.ui({
             method: 'share',
             display: 'popup',
-            href: 'http://raremedium.monkeylabs.com.au/',
+            href: 'www.raremedium.com.au',
           }, function(response){});
         }
 
@@ -818,14 +829,14 @@ class App extends Component {
         <div className="wrapper">
           <nav>
             <div className="main_logo">
-              <a href="http://raremedium.monkeylabs.com.au/">
+              <a target="_blank" href="http://raremedium.com.au/">
               <img src="//images.contentful.com/a7w606b3ho4t/2YMbFSH8HuAiA80cKI8kug/ff588cf9b15a6d541996a86d1ff41af3/logo-mobile_2x.png" alt="Rare Medium Logo" />
               </a>
             </div>
             <div className="nav_left">
               <a id="shareBtn" >Share</a>
-              <a href="http://raremedium.monkeylabs.com.au/">Raremedium.com.au</a>
-              <a href="http://raremedium.monkeylabs.com.au/emag/">
+              <a target="_blank" href="http://raremedium.com.au/">Raremedium.com.au</a>
+              <a target="_blank" href="http://raremedium.com.au/emag/">
                 <div className="newsButton" onClick={this.openNews.bind(this)}>
                   <h3>EMAG</h3>
                   <h3>Sign up </h3>

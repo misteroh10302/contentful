@@ -10,6 +10,9 @@ html {
 p {
   margin: 0; }
 
+#Sumimasenlambkudasi .col-whole:last-child .photo_caption_nohover {
+  padding-bottom: 60px; }
+
 .box-desktop {
   display: block; }
 
@@ -495,7 +498,7 @@ article section {
 
 .row h3 {
   font-weight: 100;
-  font-size: 0.85em; }
+  font-size: 0.85rem; }
 
 .back {
   position: absolute;
@@ -625,7 +628,7 @@ blockquote {
   .App nav img {
     width: 230px;
     float: left;
-    padding-left: 30px;
+    padding-left: 100px;
     padding-top: 1px; }
   .App nav iframe {
     height: 78px;
@@ -2286,7 +2289,7 @@ blockquote {
     margin: 180px 0;
     width: 100%; }
   #NextIssue header {
-    height: 55vh; }
+    height: 40vh; }
   .App-intro {
     font-size: 16px; }
   .App-header header h1 {
@@ -3059,6 +3062,8 @@ blockquote {
   .articleIndex h1:hover {
     color: #D2262D;
     cursor: pointer; }
+  .articleIndex {
+    top: 89px; }
   .articleIndex h1:hover ~ img {
     position: absolute;
     height: auto;
@@ -3086,11 +3091,14 @@ blockquote {
     margin-bottom: 0px !important; } }
 
 @media screen and (max-width: 450px) {
+  #TheQuestforEatingQuality .desktop p {
+    text-indent: 0;
+    text-transform: capitalize; }
   .App nav img {
-    width: 160px;
+    width: 120px;
     float: left;
     padding-left: 30px;
-    padding-top: 10px; }
+    padding-top: 16px; }
   #TheQuestforEatingQuality .col-whole-image.mobile {
     display: block; }
   .photogridouter {

@@ -5,7 +5,7 @@ import Newsletter from "./Newsletter";
 import Scrollchor from 'react-scrollchor';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
-import FacebookProvider, { Share } from 'react-facebook';
+// import FacebookProvider, { Share } from 'react-facebook';
 // import Canvas from 'react-canvas-component'
 
 var contentful = require('contentful')
@@ -65,10 +65,6 @@ class App extends Component {
         this.setState({ height });
   }
 
-  // updateDimensions() {
-  //   const height = this.articleEl.clientHeight - 220;
-  //   this.setState({ height });
-  // }
 
   componentDidUpdate(){
     var scrollPosition;
@@ -198,20 +194,6 @@ class App extends Component {
     });
 
       // Add controls to all videos
-      // allVideos.forEach(function(e){
-      //   if ($(e).find('.play').length !== 0) {
-      //     return;
-      //   } else {
-      //     var playButton = document.createElement('div');
-      //     var replay = document.createElement('div');
-      //     $(playButton).addClass('play').addClass('play_desktop');
-      //     $(playButton).html('<div class="video_controls"><div class="play_pause">pause</div><div class="replay">replay</div><div class="fullscreenvideo">Full Screen</div></div>');
-      //     $(replay).html('replay').addClass('replay');
-      //     $(e).find('video').after(playButton);
-      //   }
-      // });
-
-      // Add controls to all videos
       allVideos.forEach(function(e){
         if ($(e).find('.play-mobile').length !== 0) {
           return;
@@ -241,7 +223,6 @@ class App extends Component {
 
       $(document).on('keydown',function(evt) {
             if (evt.keyCode == 27) {
-              console.log($('.fullscreen_open'));
 
               $('.fullscreen_open').removeClass('fullscreen_open');
               $('body').addClass('fullscreenvideo_display');
@@ -328,22 +309,21 @@ class App extends Component {
       $(play_pause).on('click',function(e){
 
         var theVideo  = e.target.parentElement.parentElement.parentElement.firstElementChild;
-        console.log(theVideo.paused)
+
         if (theVideo.paused) {
           var playPromise =    theVideo.play();
           if (playPromise !== undefined) {
              playPromise.then(_ => {
-               console.log('play');
+
                // Automatic playback started!
                // Show playing UI.
              })
              .catch(error => {
-               console.log('error');
+
                // Auto-play was prevented
                // Show paused UI.
              });
            }
-
           $(e.target).html('pause');
 
 
@@ -352,12 +332,12 @@ class App extends Component {
           if (playPromise !== undefined) {
              playPromise.then(_ => {
                theVideo.pause();
-               console.log('play');
+
                // Automatic playback started!
                // Show playing UI.
              })
              .catch(error => {
-               console.log('error');
+
                // Auto-play was prevented
                // Show paused UI.
              });
@@ -442,18 +422,7 @@ class App extends Component {
               $(theParent).after(newDiv);
           });
 
-          $('.back').on('click',function(e){
-            e.preventDefault();
-
-            $('html, body').animate({
-              scrollTop: 300
-            }, 0, function(){
-
-
-            });
-          });
         }
-
 
         $('.image-inline').on('click',function(){
           $(this).toggleClass('show_caption');
@@ -546,12 +515,13 @@ class App extends Component {
             var playPromise =  $(this)[0].play();
             if (playPromise !== undefined) {
                playPromise.then(_ => {
-                 console.log('play');
+
                  // Automatic playback started!
                  // Show playing UI.
                })
                .catch(error => {
-                 console.log('error');
+
+
                  // Auto-play was prevented
                  // Show paused UI.
                });
@@ -634,13 +604,6 @@ class App extends Component {
       });
     });
 
-    console.log(document.readyState);
-
-      document.addEventListener("load", function(event) {
-            console.log(document.readyState);
-            alert('loaded');
-        // Handle event
-      });
 
       const FB = window.FB;
         document.getElementById('shareBtn').onclick = function(e) {

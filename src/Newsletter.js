@@ -18,7 +18,7 @@ class Newsletter extends Component {
     return (
       <div className={this.props.isOpen}>
       <iframe src="http://raremedium.monkeylabs.com.au/iframe-signup-form/" frameborder="0"></iframe>
-      
+
       </div>
     );
   }

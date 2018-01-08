@@ -3,7 +3,6 @@ import './App.css';
 import Marked from 'marked';
 import Scrollchor from 'react-scrollchor';
 import $ from 'jquery'
-var OnImagesLoaded = require('react-on-images-loaded');
 
 
 class Posts extends Component {
@@ -50,11 +49,15 @@ class Posts extends Component {
            }
        }, 1000)
 
-       setInterval(() =>{
-         var that  = this;
-         this.calculateTop()
+       setTimeout(()=>{
+         setInterval(() =>{
+           var that  = this;
+           this.calculateTop()
 
-       }, 1000);
+         }, 1000);
+       },9000);
+
+      
   }
 
   componentDidUpdate(){
@@ -72,11 +75,21 @@ class Posts extends Component {
 
        this.calculateTop()
   }
+
+  backToTop(){
+    var windowHeight = window.innerHeight * 1.5;
+    $(window).scrollTop(windowHeight);
+  }
   render() {
     // Set up sticky styles for the sticky effect
     const styles = {
       position: 'sticky',
+      position: '-webkit-sticky',
       top: this.state.stickyTop,
+      zIndex: this.props.id
+    }
+
+    const sidestyle  = {
       zIndex: this.props.id
     }
     // Set up variables for each element
@@ -117,17 +130,13 @@ class Posts extends Component {
         animation = "animate"
       }
 
-      let cleanTitle = this.props.content.fields.title.replace(/ /g,'').replace(/'/g,'');
+      let cleanTitle = this.props.content.fields.title.replace(/ /g,'').replace(/'/g,'').replace(/,/g,'').replace(/“/g,'').replace(/—/g,'').replace(/”/g,'');
 
 
       return (
         <div style={styles} className={`${videoB} ${this.state.fixed} ${this.props.content.fields.categories}`} id={cleanTitle}  ref={this.registerRef}>
-        <OnImagesLoaded
-              onLoaded={this.runAfterImagesLoaded.bind(this)}
-              timeout={7000}
-            >
             <article style={{backgroundColor: this.props.content.fields.backgroundColor ,color: this.props.content.fields.fontColor, borderColor: this.props.content.fields.imageBackgroundColorOnHover}} className={animation} ref={ (divElement) => this.divElement = divElement}>
-                <small className="sideHeader"><span>{sidetext} </span> <Scrollchor className="back" to="#contents">Back to contents</Scrollchor></small>
+                <small style={sidestyle} className="sideHeader"><span>{sidetext} </span> <span className="back" onClick={this.backToTop.bind(this)}>Back to contents</span></small>
               <header style={{backgroundImage: `url(${background})`, color:this.props.content.fields.fontColor }}>
                 <h1>{this.props.content.fields.title}</h1>
                 <h2 className="desktop" dangerouslySetInnerHTML={ { __html: ex}  }></h2>
@@ -142,7 +151,6 @@ class Posts extends Component {
               </section>
               <Scrollchor className="back" to="#contents">Back to contents</Scrollchor>
           </article>
-           </OnImagesLoaded>
          </div>
 
       );

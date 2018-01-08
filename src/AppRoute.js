@@ -29,19 +29,16 @@ class AppRoute extends Component {
     // Get all articles
     client.getEntries({
        content_type: 'article'
-    }).then(function(res){
+     }).then(function(res){
           var content = res.items
           var sortedContent = content.sort(function(a,b){
             return a.fields.order > b.fields.order
           })
-          
+
          this.setState({
            contents: sortedContent
          });
      }.bind(this));
-
-
-
   }
 
 
@@ -50,10 +47,9 @@ class AppRoute extends Component {
     index = this.state.homepage.map(function(index,i) {
       if (index.fields.currentIssue){
         return(
-          <Route key={`${i}-${index.sys.id}`} exact path="/" render={() => (<Redirect to={index.fields.magazineTitle.replace(/ /g,'')} />)} children={({match}) => {
-                if (match) return  <App  theName={index} >
-
-                </App>
+          <Route key={`${i}-${index.sys.id}`}  exact path="/" render={() => (<Redirect to={index.fields.magazineTitle.replace(/ /g,'')} />)} children={({match}) => {
+                if (match) return  <App key={index} theName={index} >
+            </App>
               return null;
             }} />
 
@@ -64,17 +60,20 @@ class AppRoute extends Component {
 
     });
     return (
-      <BrowserRouter>
-        <nav>
-            {this.state.homepage.map((nav, i) =>
-                 <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'').replace(/$/g,'')} tag={nav.title} children={({match}) => {
-                    if (match) return  <App theName={nav.fields.issueNumberMain} >
-                    </App>
-                  return null;
-                }} />
-              )}
-              {index}
-        </nav>
+      <BrowserRouter >
+
+            <nav>
+                {this.state.homepage.map((nav, i) =>
+                     <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'').replace(/$/g,'')} tag={nav.title} children={({match}) => {
+                        if (match) return  <App key={index} theName={nav.fields.issueNumberMain} >
+                        </App>
+                      return null;
+                    }} />
+                  )}
+
+                {index}
+            </nav>
+
       </BrowserRouter>
     );
   }

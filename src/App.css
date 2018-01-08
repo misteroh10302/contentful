@@ -10,6 +10,24 @@ html {
 p {
   margin: 0; }
 
+.box-desktop {
+  display: block; }
+
+.box-mobile {
+  display: none; }
+
+.show_caption {
+  opacity: 1; }
+
+.full #FastFacts header .desktop .showlightgray img {
+  transform: rotate(90deg);
+  top: -3rem;
+  left: 2.5rem;
+  margin-left: 0;
+  position: relative;
+  display: inline;
+  animation: blink 1s infinite; }
+
 .col-whole-half {
   text-indent: 0; }
 
@@ -21,6 +39,18 @@ p {
   src: url("//assets.contentful.com/a7w606b3ho4t/3uuI8PJNsASAMG2Ccwumuq/491cfdbbe5f00b51b2177ccc503cfe84/LibreBodoni-Regular.ttf");
   font-family: "LibreBodoni"; }
 
+@font-face {
+  src: url("//assets.contentful.com/a7w606b3ho4t/6MzNbskuiISMcgwGEwQCq4/d614883a9a12aec09541f28a472d21ce/PollyRounded-Bold.ttf");
+  font-family: "BoldSans"; }
+
+@font-face {
+  src: url("//assets.contentful.com/a7w606b3ho4t/5dwksT0fjOKEGEcCkksAi6/fc4caa2e2afedc7a031b797f853f4630/PollyRounded-Regular.ttf");
+  font-family: "SansMain"; }
+
+@font-face {
+  src: url("//assets.contentful.com/a7w606b3ho4t/3JqaT74FpuWOYic8SeEGwU/9b2fa538674c9adb69d01292be45b85c/PollyRounded-Thin.ttf");
+  font-family: "SansMainThin"; }
+
 body {
   font-size: 16px; }
 
@@ -28,25 +58,102 @@ img {
   opacity: 1;
   animation: fadeIn 1s linear; }
 
+.fullscreen_open {
+  width: 100vw !important; }
+
 .fullscreen {
   font-size: 60px;
   position: fixed;
-  bottom: 30px;
+  bottom: 15px;
   right: 30px;
+  width: 60px;
   z-index: 999999;
   cursor: pointer; }
 
+.shrink {
+  width: 30px;
+  display: none; }
+
 .video-container {
+  display: none; }
+
+.photo_caption {
+  float: none;
+  padding-left: 90px;
+  display: block;
+  font-size: 0.9rem;
+  clear: both;
+  text-align: left;
+  margin-top: 15px;
+  display: none; }
+
+.photo_caption_nohover {
+  float: none;
+  padding-left: 90px;
+  display: block;
+  font-size: 0.9rem;
+  clear: both;
+  text-align: left;
+  margin-top: 15px; }
+
+.replay, .replay_mobile {
+  background-color: #ffffff99;
+  left: 0;
+  right: 0;
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  font-size: 2rem;
+  text-transform: capitalize;
+  z-index: 3;
+  width: 30%;
+  transition: 0.5s ease;
+  opacity: 0.1; }
+
+.play-mobile {
   display: none; }
 
 .play {
   position: absolute;
   font-size: 8rem;
-  color: transparent;
-  top: 40%;
-  left: 0;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
   right: 0;
-  margin: 0 auto; }
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.5s ease; }
+  .play .play_pause, .play .play_pause_mobile, .play .fullscreenvideo {
+    padding: 1.5rem 1.5rem;
+    font-size: 1.65rem;
+    background-color: #ffffff99;
+    text-transform: capitalize;
+    width: 28%;
+    opacity: 0.1;
+    transition: 0.5s ease; }
+  .play .video_controls {
+    display: flex;
+    height: 30%;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.5s ease; }
+    .play .video_controls:hover {
+      opacity: 1; }
+  .play .play_pause:hover, .play .fullscreenvideo:hover {
+    color: #120c0c !important;
+    opacity: 1; }
+  .play .replay:hover {
+    color: #120c0c !important;
+    opacity: 1; }
 
 @keyframes fadeIn {
   0% {
@@ -54,7 +161,8 @@ img {
   100% {
     opacity: 1; } }
 
-ul, ol {
+ol,
+ul {
   list-style: none;
   padding: 0;
   margin: 0; }
@@ -95,21 +203,30 @@ article > .back {
   font-weight: 100;
   max-width: 100px;
   text-align: left;
-  line-height: .9em; }
+  line-height: 0.9em; }
 
 .App-header img {
   width: 100%;
-  max-width: 260px;
+  max-width: 215px;
   margin: 30px auto;
-  max-width: 260px;
+  width: 25vw;
   margin: 30px auto;
-  max-height: 200px;
-  width: auto; }
+  top: 0;
+  position: relative; }
 
 .App-intro > article,
 .articleIndex {
+  background-color: white;
   top: 0;
-  position: sticky; }
+  position: sticky;
+  position: -webkit-sticky; }
+  .App-intro > article .mobile-portrait,
+  .articleIndex .mobile-portrait {
+    display: none; }
+
+.App-intro > div {
+  position: sticky;
+  position: -webkit-sticky; }
 
 .articleIndex > h3 {
   display: block !important; }
@@ -150,7 +267,8 @@ article > .back {
 
 .video-hold {
   margin-top: 190px;
-  position: relative; }
+  position: relative;
+  line-height: 0; }
   .video-hold video {
     width: 100%; }
 
@@ -168,6 +286,9 @@ h5 {
   background-color: #e20c1d;
   overflow: hidden; }
 
+.form {
+  display: none; }
+
 .form html {
   zoom: 0.5;
   padding: 60px;
@@ -182,7 +303,7 @@ h5 {
   .form-open iframe {
     width: 800px;
     height: 600px;
-    padding: 0px;
+    padding: 0;
     border: 0;
     overflow: hidden; }
     .form-open iframe html {
@@ -199,12 +320,17 @@ h5 {
   left: 30px;
   top: 90px;
   z-index: 1;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  transition: 0.5s ease; }
   .sideHeader .back {
     position: absolute;
     left: 230px;
     top: 0;
-    width: 150px; }
+    width: 150px;
+    transition: 0.5s ease;
+    cursor: pointer; }
+    .sideHeader .back:hover {
+      text-decoration: underline; }
 
 .fixSub .sideHeader {
   position: fixed;
@@ -235,7 +361,7 @@ article h1 {
 
 #lower {
   position: relative;
-  top: 200vh;
+  top: 100vh;
   background-color: white;
   z-index: 1; }
 
@@ -273,7 +399,8 @@ video::-internal-media-controls-download-button {
   position: relative;
   z-index: 2; }
 
-.articleIndex .shadow-text, .articleIndex h3 {
+.articleIndex .shadow-text,
+.articleIndex h3 {
   display: none; }
 
 .articleIndex img {
@@ -287,15 +414,6 @@ video::-internal-media-controls-download-button {
 
 .articleIndex a:nth-child(2n) img {
   transform: translateY(-50%) translateX(-150%); }
-
-.articleIndex h1:hover ~ img {
-  position: absolute;
-  height: auto;
-  opacity: 1; }
-
-.articleIndex h1:hover {
-  color: #D2262D;
-  cursor: pointer; }
 
 .posts img {
   width: 100%;
@@ -343,7 +461,7 @@ article section {
   line-height: 1.15em;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0 0px;
+  padding: 0;
   justify-content: space-between; }
 
 .row img {
@@ -365,21 +483,15 @@ article section {
   text-align: center;
   left: 0;
   right: 0;
-  opacity: 0; }
+  opacity: 0;
+  line-height: initial; }
 
 #contents {
   position: absolute;
   top: 200vh; }
 
-.row .image-inline:hover img {
-  opacity: 0;
-  filter: hue-rotate(0deg) saturate(100%) brightness(56%); }
-
 .image-inline img {
   padding: 0; }
-
-.image-inline:hover h3 {
-  opacity: 1; }
 
 .row h3 {
   font-weight: 100;
@@ -473,28 +585,46 @@ blockquote {
   transition: 0.5s; }
 
 .newsButton {
-  position: fixed;
-  top: 0;
-  right: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 90px;
+  position: relative;
+  top: -30px;
+  height: 82px;
   width: 90px;
-  color: transparent;
-  cursor: pointer; }
+  color: white;
+  cursor: pointer;
+  background-color: #e10d1c;
+  display: inline-block; }
+  .newsButton h3 {
+    position: relative;
+    top: 30px;
+    font-family: 'SansMain';
+    text-transform: uppercase; }
 
 .App nav {
   position: fixed;
   top: 0;
   z-index: 10;
   right: 0;
-  padding: 0px;
-  background-color: #151515;
+  padding: 10px;
+  background-color: #191917;
   width: 100%;
-  height: 0px; }
+  height: 60px; }
+  .App nav .nav_left {
+    font-family: 'SansMain';
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    top: 18px;
+    font-size: 14px;
+    float: right; }
+    .App nav .nav_left a {
+      padding: 30px 30px 30px 20px; }
+      .App nav .nav_left a:hover {
+        background-color: #e10d1c; }
   .App nav img {
-    display: none; }
+    width: 230px;
+    float: left;
+    padding-left: 30px;
+    padding-top: 1px; }
   .App nav iframe {
     height: 78px;
     border: 0; }
@@ -504,11 +634,9 @@ blockquote {
   top: 0;
   right: 0;
   width: 90px;
-  height: 90px; }
-
-.App nav a {
-  padding: 0 15px;
-  display: none; }
+  height: 90px;
+  float: right;
+  background-color: #e10d1c; }
 
 /*.App-intro > div {
    position: fixed;
@@ -545,8 +673,8 @@ blockquote {
 
 /** LAMB ARTICLE **/
 #LambLeg .col-whole {
-  margin: 180px 0;
-  width: 60vw; }
+  margin: 0px 0;
+  width: 100vw; }
 
 #LambLeg header {
   height: auto;
@@ -558,8 +686,17 @@ blockquote {
   position: initial;
   line-height: initial; }
 
+#LambLeg .video-hold {
+  width: 70%; }
+
 #LambLeg video {
-  display: none; }
+  margin: 0 auto;
+  margin-top: 90px;
+  width: 90%;
+  margin-bottom: 180px; }
+
+#LambLeg .video_controls {
+  bottom: 20%; }
 
 #LambLeg .desktop {
   width: 40%;
@@ -640,11 +777,11 @@ blockquote {
   margin-top: 60px;
   display: inline-block;
   text-indent: 0;
-  font-size: .75em; }
+  font-size: 0.75em; }
 
 #EditorsLetters h2 {
   font-size: 5em;
-  line-height: .9em; }
+  line-height: 0.9em; }
 
 .editors p {
   font-size: 1.1em;
@@ -669,13 +806,13 @@ blockquote {
   margin-bottom: 30px; }
 
 #WhereTheresSmokeTheresFire header {
-  background-position: center;
-  background-size: contain;
+  background-position: center 90px;
+  background-size: 80%;
   background-repeat: no-repeat;
   padding-top: 90px; }
 
 #WhereTheresSmokeTheresFire .col-six-eight {
-  padding: 0 0 180px 0; }
+  padding: 0 0 180px; }
 
 #WhereTheresSmokeTheresFire .col-left.smalltext {
   margin-bottom: 180px; }
@@ -683,18 +820,43 @@ blockquote {
 #WhereTheresSmokeTheresFire blockquote ~ .col-whole {
   margin-top: 0; }
 
+#WhereTheresSmokeTheresFire .whole-half-image .image-inline {
+  width: 50%; }
+  #WhereTheresSmokeTheresFire .whole-half-image .image-inline img {
+    width: 100%; }
+
+#WhereTheresSmokeTheresFire .sideimage .image-inline {
+  width: 80%;
+  float: right; }
+
 #WhereTheresSmokeTheresFire .sideimage img {
-  width: 80% !important; }
+  width: 100% !important;
+  clear: both;
+  max-height: initial; }
 
 #WhereTheresSmokeTheresFire .desktop {
-  width: 20%;
-  bottom: 80px; }
+  width: 30%;
+  bottom: 130px; }
+
+#WhereTheresSmokeTheresFire .col-left ~ .whole-half-image .photo_caption {
+  width: 50%;
+  margin: 0 auto;
+  padding-left: 0; }
+
+#WhereTheresSmokeTheresFire .sideimage {
+  max-height: initial; }
+  #WhereTheresSmokeTheresFire .sideimage .photo_caption {
+    width: 30%;
+    padding-left: 0;
+    margin-top: 15px;
+    padding-top: 15px;
+    margin-left: 20%; }
 
 #WhereTheresSmokeTheresFire article p {
   text-indent: 0; }
 
 #WhereTheresSmokeTheresFire article section {
-  padding: 0 0 90px 0; }
+  padding: 0 0 90px; }
 
 #WhereTheresSmokeTheresFire .col-right p {
   padding: 0 90px 0 0;
@@ -704,7 +866,7 @@ blockquote {
 
 #WhereTheresSmokeTheresFire .col-left,
 #WhereTheresSmokeTheresFire .col-right {
-  padding-top: 0px;
+  padding-top: 0;
   width: 50%;
   flex-basis: 50%; }
 
@@ -733,130 +895,138 @@ blockquote {
   max-height: inherit; }
 
 /* FRONT OF HOUSE **/
-#UpFront header h1 {
+#AndrewGaleGrossiFlorentino header h1 {
   display: block;
   font-size: 6rem;
   font-weight: 100;
   width: 12.5%;
   text-align: left;
   padding-left: 90px;
-  line-height: .9em; }
+  line-height: 0.9em; }
 
-#UpFront .sideHeader {
+#AndrewGaleGrossiFlorentino .sideHeader {
   top: 90px; }
 
-#UpFront .image-line h3 {
+#AndrewGaleGrossiFlorentino .image-line h3 {
   font-size: 1rem; }
 
-#UpFront .desktop p u {
+#AndrewGaleGrossiFlorentino header h1 {
+  display: none; }
+
+#AndrewGaleGrossiFlorentino .desktop h1 {
+  display: block;
+  position: absolute;
+  left: -45vw; }
+
+#AndrewGaleGrossiFlorentino .desktop p u {
   border-bottom: 1px solid black;
   text-decoration: none;
-  line-height: .9em;
+  line-height: 0.9em;
   display: inline-block; }
 
-#UpFront .desktop .image-inline {
+#AndrewGaleGrossiFlorentino .desktop .image-inline {
   margin: 60px 0; }
 
-#UpFront .col-whole ~ .col-left.large-side-image {
+#AndrewGaleGrossiFlorentino .col-whole ~ .col-left.large-side-image {
   margin-top: 180px;
   margin-left: 0; }
 
-#UpFront .large-side-image {
+#AndrewGaleGrossiFlorentino .large-side-image {
   width: 50%;
   flex-basis: 50%;
-  margin: 180px 0 180px; }
-  #UpFront .large-side-image img {
+  margin: 180px 0; }
+  #AndrewGaleGrossiFlorentino .large-side-image img {
     width: 100%;
     max-height: initial; }
 
-#UpFront .row p .image-inline {
+#AndrewGaleGrossiFlorentino .row p .image-inline {
   margin: 0; }
 
-#UpFront .row .image-inline {
+#AndrewGaleGrossiFlorentino .row .image-inline {
   margin: 0; }
 
-#UpFront .row .col-whole .image-inline {
+#AndrewGaleGrossiFlorentino .row .col-whole .image-inline {
   margin: 0; }
 
-#UpFront .col-whole-half {
+#AndrewGaleGrossiFlorentino .col-whole-half {
   width: 100%;
   text-align: center; }
-  #UpFront .col-whole-half img {
+  #AndrewGaleGrossiFlorentino .col-whole-half img {
     max-height: 100vh; }
 
-#UpFront .opening {
+#AndrewGaleGrossiFlorentino .opening {
   font-size: 1.5rem;
   flex-basis: 40%;
   line-height: initial;
   flex-basis: 42%;
   margin-left: 0 !important; }
-  #UpFront .opening p:before {
+  #AndrewGaleGrossiFlorentino .opening p:before {
     content: "" !important;
     text-indent: 1em !important; }
 
-#UpFront .row h2 {
+#AndrewGaleGrossiFlorentino .row h2 {
   font-size: 2em;
   font-weight: 100;
   text-align: left;
   text-indent: 0;
   line-height: initial;
-  margin: 0 0 60px 0; }
+  margin: 0 0 60px; }
 
-#UpFront header .desktop {
+#AndrewGaleGrossiFlorentino header .desktop {
   right: 60px;
   top: 90px;
   text-align: left;
   width: 50%;
   left: initial; }
 
-#UpFront header {
+#AndrewGaleGrossiFlorentino header {
   justify-content: flex-start;
   padding-top: 90px;
   margin-bottom: 180px; }
 
-#UpFront article section {
+#AndrewGaleGrossiFlorentino article section {
   padding: 0; }
 
-#UpFront article section .col-whole {
+#AndrewGaleGrossiFlorentino article section .col-whole {
   text-indent: 0; }
 
-#UpFront .col-left,
-#UpFront .col-right {
+#AndrewGaleGrossiFlorentino .col-left,
+#AndrewGaleGrossiFlorentino .col-right {
   margin: 180px 90px 0;
   flex-basis: 34%; }
 
-#UpFront .large-side-image {
+#AndrewGaleGrossiFlorentino .large-side-image {
   padding-right: 0;
   text-indent: 0; }
 
-#UpFront .col-whole ~ .col-left {
+#AndrewGaleGrossiFlorentino .col-whole ~ .col-left {
   margin-top: 0; }
-  #UpFront .col-whole ~ .col-left h2 {
+  #AndrewGaleGrossiFlorentino .col-whole ~ .col-left h2 {
     margin-top: 0; }
 
-#UpFront .row > blockquote {
+#AndrewGaleGrossiFlorentino .row > blockquote {
   font-size: 1.5em;
   padding: 0;
   width: 60%;
-  margin: 180px auto 180px; }
+  margin: 180px auto; }
 
-#UpFront header p {
+#AndrewGaleGrossiFlorentino header p {
   text-indent: 0; }
 
-#UpFront header .desktop {
+#AndrewGaleGrossiFlorentino header .desktop {
   font-size: 3em; }
 
-#UpFront header img {
-  margin: 0px 0;
+#AndrewGaleGrossiFlorentino header img {
+  margin: 0;
   width: 207px;
-  transition: .25s; }
-  #UpFront header img:hover {
-    opacity: 0; }
+  transition: 0.25s; }
+  #AndrewGaleGrossiFlorentino header img:hover {
+    opacity: 1; }
 
-#UpFront .arrow {
+#AndrewGaleGrossiFlorentino .arrow {
   text-indent: 0 !important; }
 
-#UpFront .arrow:before {
+#AndrewGaleGrossiFlorentino .arrow:before {
   content: "";
   background-repeat: no-repeat;
   background-image: url("http://images.contentful.com/a7w606b3ho4t/95SZUOzwCkgc4ISWqamcU/9e6c775111cdce3157d95bffc72a2ac1/Arrow_Black.svg");
@@ -869,6 +1039,8 @@ blockquote {
 
 #FastFacts .row {
   padding-bottom: 0; }
+  #FastFacts .row section {
+    left: -50vw; }
 
 #FastFacts section {
   padding: 0;
@@ -882,7 +1054,7 @@ blockquote {
   #FastFacts header .desktop {
     position: absolute;
     height: 100vh;
-    top: 0px;
+    top: 0;
     font-size: 4rem;
     line-height: initial;
     width: calc(100vw - 60px);
@@ -890,13 +1062,35 @@ blockquote {
     bottom: initial; }
     #FastFacts header .desktop .numbers {
       bottom: 60px; }
+    #FastFacts header .desktop .showlightgray:before {
+      content: "";
+      background-image: none;
+      opacity: 0; }
     #FastFacts header .desktop .numbers {
-      z-index: 10; }
+      z-index: 10;
+      clear: both; }
+      #FastFacts header .desktop .numbers span {
+        display: block;
+        position: relative; }
       #FastFacts header .desktop .numbers span:hover {
         cursor: pointer; }
+        #FastFacts header .desktop .numbers span:hover:before {
+          content: "";
+          width: 45px;
+          height: 45px;
+          background-size: cover;
+          margin: 30px;
+          position: absolute;
+          top: -3rem;
+          left: 5.5rem;
+          display: block;
+          clear: both;
+          margin: 0 auto;
+          transform: rotate(90deg);
+          background-image: url("//images.contentful.com/a7w606b3ho4t/95SZUOzwCkgc4ISWqamcU/9e6c775111cdce3157d95bffc72a2ac1/Arrow_Black.svg"); }
     #FastFacts header .desktop img {
       position: absolute;
-      top: 60px;
+      top: 90px;
       left: 60px; }
 
 #FastFacts h1 {
@@ -906,16 +1100,17 @@ blockquote {
   position: absolute;
   left: 120px;
   font-size: 4rem;
-  line-height: .9em;
+  line-height: 0.9em;
   text-align: left;
-  top: 125px; }
+  top: 160px; }
 
 #FastFacts h2 {
   width: 40%;
   position: absolute;
   left: 120px;
   font-size: 4rem;
-  line-height: .9em; }
+  line-height: 0.9em;
+  top: 100px; }
   #FastFacts h2 img {
     display: block;
     max-width: 50px;
@@ -957,28 +1152,28 @@ blockquote {
 #FastFacts .burntred {
   background-color: #F47D5F; }
 
+#FastFacts .burntred,
 #FastFacts .darkgray,
 #FastFacts .lightgray,
 #FastFacts .lightgreen,
-#FastFacts .lightyellow,
-#FastFacts .burntred {
+#FastFacts .lightyellow {
   position: absolute;
   top: -100vh;
   opacity: 0; }
 
-#Final header {
-  height: calc(100vh - 500px); }
+#NextIssue header {
+  height: calc(100vh - 490px); }
 
-#Final .desktop {
+#NextIssue .desktop {
   font-size: 1.1em;
   width: 100%;
   left: 0;
   top: 0; }
-  #Final .desktop h2 {
+  #NextIssue .desktop h2 {
     position: absolute;
     top: 60px;
     text-indent: 1em; }
-  #Final .desktop p {
+  #NextIssue .desktop p {
     width: 50%;
     align-self: flex-end;
     right: 60px;
@@ -986,14 +1181,14 @@ blockquote {
     font-size: 1.1em;
     position: absolute; }
 
-#Final section {
+#NextIssue section {
   padding: 60px; }
 
-#Final .row {
+#NextIssue .row {
   width: 100%;
   width: 100%;
   border-bottom: 1px solid black; }
-  #Final .row img {
+  #NextIssue .row img {
     max-width: 300px;
     float: left; }
 
@@ -1025,7 +1220,7 @@ blockquote {
     left: 30%;
     top: -30px;
     position: absolute;
-    line-height: .9em; }
+    line-height: 0.9em; }
   #ChefProfile .chef-profile-header h2 {
     position: absolute;
     bottom: 60px;
@@ -1043,24 +1238,36 @@ blockquote {
 .removeFlag .sideHeader span::after {
   opacity: 0; }
 
-#“Sumimasen—lambkudasi” .blackfont {
+#Sumimasenlambkudasi .blackfont {
   color: black; }
 
-#“Sumimasen—lambkudasi” .row .col-whole:first-child {
+#Sumimasenlambkudasi .photo_grid {
+  margin: 15px 90px;
+  display: inline-block; }
+
+#Sumimasenlambkudasi .row .col-whole:first-child {
   margin-bottom: 0; }
 
-#“Sumimasen—lambkudasi” .paddbottom {
+#Sumimasenlambkudasi .paddbottom {
   padding-bottom: 180px !important; }
 
-#“Sumimasen—lambkudasi” .col-whole .blackfont {
+#Sumimasenlambkudasi .col-whole .image-inline {
+  width: 100%; }
+  #Sumimasenlambkudasi .col-whole .image-inline img {
+    width: 100%; }
+
+#Sumimasenlambkudasi .col-whole .blackfont {
   font-size: 1rem; }
 
-#“Sumimasen—lambkudasi” .col-whole .col-left.blackfont {
+#Sumimasenlambkudasi .col-whole .col-left.blackfont {
   padding: 0 90px;
   width: calc(50% - 180px);
   font-size: 1.35rem; }
 
-#“Sumimasen—lambkudasi” .sideHeader span::after {
+#Sumimasenlambkudasi .sideHeader span.back::after {
+  display: none; }
+
+#Sumimasenlambkudasi .sideHeader span::after {
   background-image: url("//images.contentful.com/a7w606b3ho4t/5EvHt5rRxm0U4ciukOIaGe/52f9debafa2b91af68aa27df89dca299/Flag.png");
   background-size: 10px 20px;
   background-size: contain;
@@ -1070,25 +1277,29 @@ blockquote {
   width: 90px;
   height: 60px;
   margin: 3px;
-  border: 0px solid blue;
+  border: 0 solid blue;
   position: absolute;
   top: -120px;
   left: -15px;
   content: "";
   transform: rotate(90deg);
-  transition: .25s ease; }
+  transition: 0.25s ease; }
 
-#“Sumimasen—lambkudasi” .desktop img {
+#Sumimasenlambkudasi .desktop img {
   position: absolute;
   left: -190%;
   top: -180%;
   width: 100px;
   display: none; }
 
-#“Sumimasen—lambkudasi” .video-container {
+#Sumimasenlambkudasi .row .desktop img {
+  position: initial;
+  display: block; }
+
+#Sumimasenlambkudasi .video-container {
   display: none; }
 
-#“Sumimasen—lambkudasi” header h1 {
+#Sumimasenlambkudasi header h1 {
   display: block;
   font-size: 6rem;
   width: 60%;
@@ -1097,9 +1308,9 @@ blockquote {
   align-self: flex-end;
   padding-right: 90px;
   margin-top: -3em;
-  line-height: .9em; }
+  line-height: 0.9em; }
 
-#“Sumimasen—lambkudasi” header .desktop {
+#Sumimasenlambkudasi header .desktop {
   position: absolute;
   bottom: 160px;
   lefT: initial;
@@ -1110,47 +1321,47 @@ blockquote {
   font-size: 2.5rem;
   align-items: flex-end; }
 
-#“Sumimasen—lambkudasi” .col-left {
+#Sumimasenlambkudasi .col-left {
   padding-right: 0;
   padding-left: 90px;
   width: 50%; }
 
-#“Sumimasen—lambkudasi” .col-right {
+#Sumimasenlambkudasi .col-right {
   padding-left: 0;
   padding-right: 90px;
   width: 34%; }
 
-#“Sumimasen—lambkudasi” .row {
+#Sumimasenlambkudasi .row {
   text-indent: 0;
   padding-bottom: 0;
   margin-bottom: 0; }
-  #“Sumimasen—lambkudasi” .row .gif-right:last-child {
+  #Sumimasenlambkudasi .row .gif-right:last-child {
     padding-bottom: 180px; }
 
-#“Sumimasen—lambkudasi” article section {
+#Sumimasenlambkudasi article section {
   padding: 0; }
 
-#“Sumimasen—lambkudasi” .col-white {
+#Sumimasenlambkudasi .col-white {
   background-color: white;
   padding: 180px 0 0;
   margin: 0; }
 
-#“Sumimasen—lambkudasi” .col-whole > img {
+#Sumimasenlambkudasi .col-whole > img {
   width: 100%; }
 
-#“Sumimasen—lambkudasi” .gif-left li:before,
-#“Sumimasen—lambkudasi” .gif-right li:before {
+#Sumimasenlambkudasi .gif-left li:before,
+#Sumimasenlambkudasi .gif-right li:before {
   content: "\2014 "; }
 
-#“Sumimasen—lambkudasi” .gif-left li,
-#“Sumimasen—lambkudasi” .gif-right li {
+#Sumimasenlambkudasi .gif-left li,
+#Sumimasenlambkudasi .gif-right li {
   list-style-type: none;
   list-style-position: inside;
   text-indent: -1em;
   padding-left: 1em; }
 
-#“Sumimasen—lambkudasi” .gif-left h2,
-#“Sumimasen—lambkudasi” .gif-right h2 {
+#Sumimasenlambkudasi .gif-left h2,
+#Sumimasenlambkudasi .gif-right h2 {
   margin: 30px 0;
   border-top: 1px solid blue;
   padding-top: 30px;
@@ -1160,27 +1371,27 @@ blockquote {
   font-size: 2.5rem;
   line-height: initial; }
 
-#“Sumimasen—lambkudasi” .gif-left ul,
-#“Sumimasen—lambkudasi” .gif-right ul {
+#Sumimasenlambkudasi .gif-left ul,
+#Sumimasenlambkudasi .gif-right ul {
   color: black;
   list-style: none; }
 
-#“Sumimasen—lambkudasi” .gif-left img,
-#“Sumimasen—lambkudasi” .gif-right img {
+#Sumimasenlambkudasi .gif-left img,
+#Sumimasenlambkudasi .gif-right img {
   width: 100%; }
 
-#“Sumimasen—lambkudasi” .gif-right .col-right {
+#Sumimasenlambkudasi .gif-right .col-right {
   padding-right: 0; }
 
-#“Sumimasen—lambkudasi” .gif-left .col-left {
+#Sumimasenlambkudasi .gif-left .col-left {
   padding-left: 0; }
 
-#“Sumimasen—lambkudasi” .gif-left .col-left {
+#Sumimasenlambkudasi .gif-left .col-left {
   padding-right: 0;
   padding-left: 0;
   width: 30%; }
 
-#“Sumimasen—lambkudasi” .gif-left .col-right {
+#Sumimasenlambkudasi .gif-left .col-right {
   width: 60%;
   padding-right: 0;
   padding-left: 60px;
@@ -1188,23 +1399,27 @@ blockquote {
   padding-right: 90px;
   padding-left: 60px; }
 
-#“Sumimasen—lambkudasi” .mid-whole {
+#Sumimasenlambkudasi .mid-whole {
   max-width: 500px;
   margin: 0 auto;
   padding: 30px;
   /* border: 1px solid black; */
   color: black;
-  padding-left: 60px;
-  font-size: 0.9em; }
+  padding-left: 60px; }
 
-#“Sumimasen—lambkudasi” .col-white > h2 {
+#Sumimasenlambkudasi .col-whole .col-right.blackfont {
+  font-size: 1.35rem; }
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont .blackfont {
+    font-size: 1.35rem; }
+
+#Sumimasenlambkudasi .col-white > h2 {
   text-align: center;
   font-size: 4rem;
   max-width: 400px;
   line-height: initial;
   margin: 0 auto; }
 
-#“Sumimasen—lambkudasi” .col-white > h2 ~ hr {
+#Sumimasenlambkudasi .col-white > h2 ~ hr {
   width: 30px;
   border-color: #fbe2e8;
   margin: 0 auto;
@@ -1212,7 +1427,7 @@ blockquote {
   border-style: solid;
   margin-bottom: 60px; }
 
-#“Sumimasen—lambkudasi” .biglambbox {
+#Sumimasenlambkudasi .biglambbox {
   border: 1px solid blue;
   padding: 40px;
   margin: 30px auto;
@@ -1221,31 +1436,31 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; }
-  #“Sumimasen—lambkudasi” .biglambbox h2 {
+  #Sumimasenlambkudasi .biglambbox h2 {
     margin-right: 50% !important; }
-  #“Sumimasen—lambkudasi” .biglambbox ol {
+  #Sumimasenlambkudasi .biglambbox ol {
     width: 42%;
     flex-basis: 42%;
     list-style-type: decimal-leading-zero; }
-  #“Sumimasen—lambkudasi” .biglambbox img {
+  #Sumimasenlambkudasi .biglambbox img {
     position: absolute;
     right: 30px; }
-  #“Sumimasen—lambkudasi” .biglambbox ol:nth-child(2) {
+  #Sumimasenlambkudasi .biglambbox ol:nth-child(2) {
     padding-left: 30px;
     width: 45%; }
-  #“Sumimasen—lambkudasi” .biglambbox ol {
+  #Sumimasenlambkudasi .biglambbox ol {
     font-size: 1em;
     color: blue; }
-    #“Sumimasen—lambkudasi” .biglambbox ol li {
+    #Sumimasenlambkudasi .biglambbox ol li {
       margin-bottom: 30px; }
-  #“Sumimasen—lambkudasi” .biglambbox:after {
+  #Sumimasenlambkudasi .biglambbox:after {
     content: " ";
     display: block;
     visibility: hidden;
     height: 0;
     clear: both;
     font-size: 0; }
-  #“Sumimasen—lambkudasi” .biglambbox h2 {
+  #Sumimasenlambkudasi .biglambbox h2 {
     color: blue;
     margin: 60px 0;
     border-bottom: 1px solid blue;
@@ -1253,27 +1468,26 @@ blockquote {
     padding-bottom: 10px;
     font-size: 2.5rem; }
 
-#“Sumimasen—lambkudasi” .lambboxsmall {
+#Sumimasenlambkudasi .lambboxsmall {
   border: 1px solid blue;
   padding: 40px;
   margin: 30px 30px 0;
   position: relative; }
-  #“Sumimasen—lambkudasi” .lambboxsmall p {
+  #Sumimasenlambkudasi .lambboxsmall p {
     text-indent: -1.5em;
     padding-left: 1em;
-    margin-left: .7rem; }
-  #“Sumimasen—lambkudasi” .lambboxsmall h2 {
-    margin: 60px 0;
-    margin-top: 0;
+    margin-left: 0.7rem; }
+  #Sumimasenlambkudasi .lambboxsmall h2 {
+    margin: 0 0 60px;
     border-bottom: 1px solid blue;
     display: inline-block;
     font-size: 3rem;
     line-height: 2.5rem; }
-  #“Sumimasen—lambkudasi” .lambboxsmall img {
+  #Sumimasenlambkudasi .lambboxsmall img {
     right: 30px;
     top: 30px;
     position: absolute; }
-  #“Sumimasen—lambkudasi” .lambboxsmall small {
+  #Sumimasenlambkudasi .lambboxsmall small {
     display: block; }
 
 #ChefProfile .col-whole {
@@ -1321,8 +1535,7 @@ blockquote {
   max-width: 500px;
   margin: 0 auto;
   border: 1px solid blue;
-  padding: 40px;
-  padding-bottom: 90px;
+  padding: 40px 40px 90px;
   margin-bottom: 90px;
   color: blue; }
   #ChefProfile .chefbox > img {
@@ -1365,7 +1578,7 @@ blockquote {
   outline: blue;
   -webkit-text-stroke-color: blue;
   -webkit-text-stroke-width: 3px;
-  line-height: .9em; }
+  line-height: 0.9em; }
   #ChefProfile .bigtitle img {
     padding-top: 60px;
     width: 115px; }
@@ -1376,12 +1589,14 @@ blockquote {
   #ChefProfile .row .col-whole:last-child {
     padding-bottom: 90px; }
 
-#ChefProfile .col-half-image, #ChefProfile .col-whole-half {
+#ChefProfile .col-half-image,
+#ChefProfile .col-whole-half {
   text-align: center;
   width: 100%;
   padding: 180px 0 90px; }
 
-#ChefProfile .imageright, #ChefProfile .imageleft {
+#ChefProfile .imageleft,
+#ChefProfile .imageright {
   color: black; }
 
 #ChefProfile .imageleft {
@@ -1435,117 +1650,125 @@ blockquote {
   #ChefProfile .col-right p {
     text-indent: 1rem; }
 
-#TwounderTen * {
+#TwoUnderTen .mobile_pairing {
+  display: none; }
+
+#TwoUnderTen * {
   text-indent: 0; }
 
-#TwounderTen header {
-  background-size: contain;
+#TwoUnderTen .number-outer {
+  margin-bottom: 90px; }
+
+#TwoUnderTen header {
+  background-size: 70%;
   background-repeat: no-repeat;
-  padding: 90px;
-  padding-bottom: 0; }
-  #TwounderTen header .desktop {
+  padding: 90px 90px 0; }
+  #TwoUnderTen header .desktop {
     bottom: 70px;
     font-size: 1.5rem; }
 
-#TwounderTen .row > .col-left {
+#TwoUnderTen .row > .col-left {
   margin-top: 180px; }
 
-#TwounderTen .row .col-left:first-child p {
+#TwoUnderTen .row .col-left:first-child p {
   font-size: 1.5rem;
   line-height: initial;
   text-indent: 1em; }
 
-#TwounderTen .number {
+#TwoUnderTen .number {
   padding: 90px; }
 
-#TwounderTen .ingredients ~ .number-outer {
+#TwoUnderTen .ingredients ~ .number-outer {
   margin-top: 0; }
 
-#TwounderTen .ingredients {
+#TwoUnderTen .ingredients {
   margin-top: 0; }
-  #TwounderTen .ingredients li {
+  #TwoUnderTen .ingredients li {
     font-size: 3rem;
     line-height: initial;
     text-align: center; }
-    #TwounderTen .ingredients li small {
+    #TwoUnderTen .ingredients li small {
       font-size: 1rem; }
-  #TwounderTen .ingredients li:last-child {
+  #TwoUnderTen .ingredients li:last-child {
     margin-top: 60px; }
-  #TwounderTen .ingredients .last {
+  #TwoUnderTen .ingredients .last {
     margin-top: 60px; }
 
-#TwounderTen .rightpad .col-six-eight {
+#TwoUnderTen .rightpad .col-six-eight {
   width: 60%;
   padding-left: 0 !important; }
 
-#TwounderTen .rightpad .col-two-eight {
+#TwoUnderTen .rightpad .col-two-eight {
   padding-right: 60px; }
 
-#TwounderTen .addpadd {
-  margin-top: 0; }
-  #TwounderTen .addpadd .arrow {
+#TwoUnderTen .addpadd {
+  margin-top: 0;
+  display: flex; }
+  #TwoUnderTen .addpadd .arrow {
     margin-bottom: 30px;
     font-size: 0.9em; }
-  #TwounderTen .addpadd .col-two-eight {
+  #TwoUnderTen .addpadd .col-two-eight {
     padding-left: 90px;
     margin-top: 0; }
-    #TwounderTen .addpadd .col-two-eight span {
+    #TwoUnderTen .addpadd .col-two-eight span {
       transform: rotate(90deg);
       display: inline-block;
       transform-origin: left;
       margin-left: 0.65em;
       padding-left: 0.75em; }
-    #TwounderTen .addpadd .col-two-eight .inside {
+    #TwoUnderTen .addpadd .col-two-eight .inside {
       margin-left: 2em;
       border-left: 1px solid black;
-      padding-left: 20px; }
-  #TwounderTen .addpadd .col-six-eight {
+      padding-left: 20px;
+      border: 2px solid #f4e5d2;
+      padding: 15px; }
+  #TwoUnderTen .addpadd .col-six-eight {
     width: 60%;
-    padding-left: 85.5px; }
+    padding-left: 9%; }
 
-#TwounderTen .chef-info {
+#TwoUnderTen .chef-info {
   margin: 0; }
-  #TwounderTen .chef-info .arrow ~ p {
+  #TwoUnderTen .chef-info .arrow ~ p {
     text-indent: 1em; }
-  #TwounderTen .chef-info p {
+  #TwoUnderTen .chef-info p {
     font-size: 1.1rem; }
-  #TwounderTen .chef-info img {
+  #TwoUnderTen .chef-info img {
     max-width: 300px; }
-  #TwounderTen .chef-info .col-left {
+  #TwoUnderTen .chef-info .col-left {
     padding-right: 0;
     text-align: right;
     width: 40%; }
-  #TwounderTen .chef-info .col-right {
+  #TwoUnderTen .chef-info .col-right {
     padding-left: 0;
     width: 40%; }
 
-#TwounderTen section {
+#TwoUnderTen section {
   padding: 0; }
 
-#TwounderTen .col-left,
-#TwounderTen .col-right {
+#TwoUnderTen .col-left,
+#TwoUnderTen .col-right {
   padding: 0 90px; }
 
-#TwounderTen h2 {
+#TwoUnderTen h2 {
   text-indent: 0;
   font-size: 2.5rem;
   line-height: initial; }
-  #TwounderTen h2 u {
+  #TwoUnderTen h2 u {
     box-shadow: inset 0 0.04px white, inset 0 -1px black;
     text-decoration: none; }
 
-#TwounderTen .col-two-eight {
+#TwoUnderTen .col-two-eight {
   vertical-align: top; }
-  #TwounderTen .col-two-eight .number {
+  #TwoUnderTen .col-two-eight .number {
     font-size: 9rem; }
 
-#TwounderTen .col-six-eight h2 {
+#TwoUnderTen .col-six-eight h2 {
   margin-bottom: 60px; }
 
-#TwounderTen .col-fourth {
+#TwoUnderTen .col-fourth {
   width: 25%;
   display: inline-block; }
-  #TwounderTen .col-fourth h2 {
+  #TwoUnderTen .col-fourth h2 {
     font-size: 1.1rem;
     margin-bottom: 0; }
 
@@ -1557,7 +1780,7 @@ blockquote {
   height: auto; }
 
 #TheQuestforEatingQuality .box-shape .full {
-  width: 60%; }
+  width: 80%; }
 
 #TheQuestforEatingQuality .photogridouter {
   margin-top: 0; }
@@ -1571,6 +1794,11 @@ blockquote {
   #TheQuestforEatingQuality .whole-half-image img {
     width: 70%; }
 
+#TheQuestforEatingQuality .col-whole-image .photo_caption {
+  width: 38%;
+  padding-left: 0;
+  margin: 15px auto 0; }
+
 #TheQuestforEatingQuality .row {
   padding-top: 60px; }
 
@@ -1582,188 +1810,244 @@ blockquote {
   position: absolute;
   top: 90px;
   width: 40%;
-  line-height: .9em; }
+  line-height: 0.9em; }
   #TheQuestforEatingQuality .desktop p {
     text-indent: 0; }
 
 #TheQuestforEatingQuality .row {
   text-indent: 0; }
 
+#TheQuestforEatingQuality .box-image {
+  width: 55%;
+  margin: 45px auto 0; }
+  #TheQuestforEatingQuality .box-image img {
+    width: 100%; }
+
+#TheQuestforEatingQuality .box-shape-outer {
+  display: none; }
+
 #TheQuestforEatingQuality .box-shape {
   border: 1px solid black;
-  padding: 30px;
-  max-width: 80%;
+  padding: 15px 15px 0;
+  max-width: 50%;
   margin: 0 auto;
-  display: flex; }
+  display: flex;
+  display: none; }
   #TheQuestforEatingQuality .box-shape h2 {
-    padding: 30px 60px;
-    text-align: center; }
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5rem; }
   #TheQuestforEatingQuality .box-shape p {
     text-indent: 0; }
   #TheQuestforEatingQuality .box-shape ul {
     list-style: none;
     text-align: left;
     width: 50%;
-    float: left; }
+    float: left;
+    font-size: 0.9rem; }
+  #TheQuestforEatingQuality .box-shape .col-half-third div:nth-child(2) ul:first-child {
+    width: 45%; }
+  #TheQuestforEatingQuality .box-shape .col-half-third div:nth-child(2) ul {
+    width: 55%; }
+  #TheQuestforEatingQuality .box-shape .col-one-third div {
+    height: 165px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center; }
   #TheQuestforEatingQuality .box-shape .col-half-third {
     width: 38%;
     display: inline-block; }
     #TheQuestforEatingQuality .box-shape .col-half-third br {
       display: none; }
     #TheQuestforEatingQuality .box-shape .col-half-third div {
-      height: 200px;
-      padding: 30px 0;
+      height: 130px;
+      padding: 15px 0;
       border-top: 1px solid black;
       text-align: center; }
       #TheQuestforEatingQuality .box-shape .col-half-third div h3 {
-        width: 40%;
+        width: 52%;
         display: inline-block;
         vertical-align: top;
         text-align: left;
-        font-size: 1em; }
+        font-size: 0.9rem; }
       #TheQuestforEatingQuality .box-shape .col-half-third div img {
         height: auto;
-        width: 58%;
-        margin-bottom: 30px; }
+        width: 40%;
+        margin-bottom: 15px; }
       #TheQuestforEatingQuality .box-shape .col-half-third div img ~ img {
-        width: 22px;
-        transform: rotate(90deg); }
-  #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child, #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child {
+        width: 15px;
+        transform: rotate(90deg);
+        display: block;
+        margin: 0 auto; }
+  #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child,
+  #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child {
     height: 60px; }
   #TheQuestforEatingQuality .box-shape .col-one-third {
     width: 20%;
     display: inline-block;
     text-align: center; }
     #TheQuestforEatingQuality .box-shape .col-one-third div:first-child {
-      height: 125px; }
+      height: 92px; }
+      #TheQuestforEatingQuality .box-shape .col-one-third div:first-child img {
+        width: 22px; }
     #TheQuestforEatingQuality .box-shape .col-one-third div {
-      height: 250px;
+      height: 155px;
       display: flex;
       justify-content: center;
       flex-direction: column;
       text-align: center; }
     #TheQuestforEatingQuality .box-shape .col-one-third img {
-      width: 22px;
+      width: 15px;
       margin: 0 auto; }
 
-.chef-editor {
+#ChefEditorHandover {
   display: block;
   background-color: #fbf9f2;
   min-height: 105vh;
   height: initial !important; }
-  .chef-editor h2:first-child {
-    position: absolute;
+  #ChefEditorHandover header {
+    display: none; }
+  #ChefEditorHandover section {
+    background-color: #fbf9f2;
+    padding: 90px;
+    flex-wrap: wrap; }
+    #ChefEditorHandover section .chef-editor {
+      padding: 0; }
+    #ChefEditorHandover section .col-whole {
+      margin-top: 0; }
+  #ChefEditorHandover h2:first-child {
+    position: initial;
     top: 60px;
-    width: 20% !important;
-    text-indent: 0; }
-    .chef-editor h2:first-child img {
+    width: 50% !important;
+    text-indent: 0;
+    flex-basis: 50%;
+    font-size: 3.5rem;
+    line-height: initial; }
+    #ChefEditorHandover h2:first-child img {
       display: none !important; }
-  .chef-editor .video-hold {
+  #ChefEditorHandover .video-hold {
     margin-top: 190px; }
-  .chef-editor h2:nth-child(2) {
+  #ChefEditorHandover h2:nth-child(2) {
     position: absolute;
     top: 260px;
     left: 0;
     text-indent: 0;
     width: 20%;
     width: 20% !important; }
-  .chef-editor .side {
+  #ChefEditorHandover .side {
     width: 50%;
-    display: inline-block;
-    margin-left: 50%; }
+    display: inline-block; }
 
-#OntheMenu header {
+#OnTheMenu header {
   background-size: contain;
   padding-top: 90px;
   background-position-y: 50px;
   background-repeat: no-repeat; }
 
-#OntheMenu .row {
-  margin-bottom: 60px; }
-  #OntheMenu .row .col-left:last-child {
-    margin-bottom: 180px; }
+#OnTheMenu .special_width {
+  position: relative;
+  width: 150%; }
 
-#OntheMenu .desktop {
+#OnTheMenu .row {
+  margin-bottom: 60px; }
+  #OnTheMenu .row .col-left:last-child {
+    margin-bottom: 180px; }
+  #OnTheMenu .row .col-whole {
+    margin-bottom: 90px; }
+
+#OnTheMenu .desktop {
   left: initial;
   right: 60px;
   width: 40%;
   font-size: 1.5em; }
-  #OntheMenu .desktop p {
+  #OnTheMenu .desktop p {
     font-size: 1.5rem; }
 
-#OntheMenu .video-container {
+#OnTheMenu .video-container {
   display: none; }
 
-#OntheMenu section {
+#OnTheMenu section {
   padding: 0; }
 
-#OntheMenu p {
+#OnTheMenu p {
   text-indent: 0;
-  font-size: 1.35rem; }
+  font-size: 1.3rem; }
 
-#OntheMenu .col-left {
+#OnTheMenu .col-left {
   padding-left: 90px;
   padding-right: 0; }
 
-#OntheMenu .col-right {
+#OnTheMenu .col-right {
   padding-left: 0;
   padding-right: 90px; }
 
-#OntheMenu .col-whole {
+#OnTheMenu .col-whole {
   margin-top: 180px; }
 
-#OntheMenu .margin-top,
-#OntheMenu .top-margin {
+#OnTheMenu .margin-top,
+#OnTheMenu .top-margin {
   margin-top: 90px;
   margin-bottom: 30px; }
 
-#OntheMenu .arrow {
+#OnTheMenu .arrow {
   margin-left: 1.5em; }
 
-#OntheMenu .arrow ~ p {
+#OnTheMenu .arrow ~ p {
   margin-left: 1.5em; }
 
-#OntheMenu .col-left,
-#OntheMenu .col-right {
+#OnTheMenu .col-left,
+#OnTheMenu .col-right {
   width: calc(42% - 180px);
   flex-basis: calc(50% - 90px); }
-  #OntheMenu .col-left span,
-  #OntheMenu .col-right span {
+  #OnTheMenu .col-left span,
+  #OnTheMenu .col-right span {
     display: inline-block;
     transform: rotate(90deg);
     transform-origin: left;
     padding-left: 10px;
     margin-left: 0.5em; }
-    #OntheMenu .col-left span hr,
-    #OntheMenu .col-right span hr {
+    #OnTheMenu .col-left span hr,
+    #OnTheMenu .col-right span hr {
       border-color: black;
       margin-bottom: 10px;
       border-bottom: 0; }
-  #OntheMenu .col-left .below,
-  #OntheMenu .col-right .below {
+  #OnTheMenu .col-left .below,
+  #OnTheMenu .col-right .below {
     border-left: 1px solid black;
-    margin-left: 2em; }
-  #OntheMenu .col-left .arrow,
-  #OntheMenu .col-right .arrow {
+    margin-left: 2em;
+    border: 2px solid #f4e5d2;
+    padding: 30px 30px 30px 0; }
+  #OnTheMenu .col-left .arrow,
+  #OnTheMenu .col-right .arrow {
     position: relative;
     margin-bottom: 30px; }
-  #OntheMenu .col-left h2,
-  #OntheMenu .col-right h2 {
+  #OnTheMenu .col-left h2,
+  #OnTheMenu .col-right h2 {
     font-weight: 100;
     font-size: 3rem;
     line-height: initial;
     padding-bottom: 15px; }
-  #OntheMenu .col-left h2 ~ hr,
-  #OntheMenu .col-right h2 ~ hr {
+    #OnTheMenu .col-left h2 img,
+    #OnTheMenu .col-right h2 img {
+      width: 30px;
+      transform: rotate(-90deg);
+      display: inline-block;
+      padding-left: 15px; }
+  #OnTheMenu .col-left h2 ~ hr,
+  #OnTheMenu .col-right h2 ~ hr {
     width: 30px;
-    border-color: black;
+    border-color: transparent;
     margin-bottom: 15px; }
-  #OntheMenu .col-left h3,
-  #OntheMenu .col-right h3 {
+  #OnTheMenu .col-left h3,
+  #OnTheMenu .col-right h3 {
     font-size: 1.5rem;
     line-height: initial; }
-    #OntheMenu .col-left h3 u,
-    #OntheMenu .col-right h3 u {
+    #OnTheMenu .col-left h3 u,
+    #OnTheMenu .col-right h3 u {
       text-decoration: none;
       box-shadow: inset 0 0.04px white, inset 0 -1px black; }
 
@@ -1772,13 +2056,15 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
-  .photo-grid div {
+  .photo-grid > div {
     flex-basis: 49%;
     width: 48%;
     height: 330px;
     margin-bottom: 20px;
     overflow: hidden; }
-    .photo-grid div img {
+    .photo-grid > div > div {
+      width: 100%; }
+    .photo-grid > div img {
       width: 100%; }
 
 .col-whole-image {
@@ -1822,7 +2108,7 @@ blockquote {
     max-width: 100%;
     max-height: initial; }
 
-#“Sumimasen—lambkudasi” .arrow:before {
+#Sumimasenlambkudasi .arrow:before {
   content: "";
   background-repeat: no-repeat;
   background-image: url("//images.contentful.com/a7w606b3ho4t/7FxEk8s7cWUwiSSUuuAySI/e7648be1fa7d0aa1d3185d0fc4e27237/Arrow.svg");
@@ -1858,54 +2144,107 @@ blockquote {
 .middle-image img {
   margin: 90px; }
 
-.App nav {
-  background-color: black; }
-
-.App nav img {
-  width: 100px;
-  float: left;
-  padding-left: 60px; }
-
 #WhereTheresSmokeTheresFire .col-left ~ .whole-half-image {
   width: 100%;
   padding: 180px 0; }
 
 .video-hold {
-  height: 600px;
+  height: auto;
   width: 80%;
   margin: 0 auto; }
 
 /*# sourceMappingURL=Autumn.css.map */
+@media screen and (min-width: 2000px) {
+  .sideHeader {
+    left: 18%; }
+  .App nav {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    /* right: 0; */
+    padding: 10px;
+    background-color: #191917;
+    width: 61%;
+    height: 60px;
+    padding-left: 17%;
+    padding-right: 23%; }
+  #TheQuestforEatingQuality .desktop p {
+    font-size: 10rem; }
+  #TwoUnderTen .col-six-eight h2 {
+    font-size: 2rem !important; }
+  #OnTheMenu .col-whole-half-image img {
+    max-height: initial; }
+  #TwoUnderTen .addpadd .col-two-eight span {
+    font-size: 1.5rem; }
+  #ChefProfile .chef-profile-header h1 {
+    left: 20%; }
+  #ChefProfile .chef-profile-header h2 {
+    left: 15%; }
+  #ChefProfile .chef-profile-header img {
+    width: 40vw; }
+  #LambLeg .col-whole {
+    width: 100%; }
+  .wrapper {
+    max-width: 1600px;
+    position: relative;
+    margin: 0 auto; }
+  article {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0; }
+  .editors p {
+    font-size: 1.65rem; }
+  #Sumimasenlambkudasi .biglambbox ol {
+    font-size: 1.65rem; }
+  #Sumimasenlambkudasi .col-white ul {
+    font-size: 1.65rem;
+    line-height: initial; }
+  #ChefProfile .imageleft, #ChefProfile .imageright {
+    font-size: 1.65rem;
+    line-height: initial; }
+  #ChefProfile .chefbox h3 {
+    font-size: 1.65rem; } }
+
 @media screen and (min-width: 1800px) {
   .App-intro {
     font-size: 30px; }
+  #WhereTheresSmokeTheresFire header {
+    background-position: right;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    padding-top: 90px; }
+  #WhereTheresSmokeTheresFire .desktop {
+    width: 30%;
+    bottom: 160px; }
   article {
     padding: 0 20%; }
-  #“Sumimasen—lambkudasi” .col-whole .blackfont,
-  #“Sumimasen—lambkudasi” .col-whole .col-left.blackfont,
-  #OntheMenu p,
-  #TwounderTen .chef-info p,
-  #TwounderTen .col-fourth h2,
-  #TwounderTen .row .col-left:first-child p,
-  article p,
-  #WhereTheresSmokeTheresFire .col-left p, #WhereTheresSmokeTheresFire .col-right p,
-  #OntheMenu .desktop p {
-    font-size: 1.65rem;
+  #OnTheMenu .desktop p,
+  #OnTheMenu p,
+  #TwoUnderTen .chef-info p,
+  #TwoUnderTen .col-fourth h2,
+  #TwoUnderTen .row .col-left:first-child p,
+  #WhereTheresSmokeTheresFire .col-left p,
+  #WhereTheresSmokeTheresFire .col-right p,
+  #Sumimasenlambkudasi .col-whole .blackfont,
+  #Sumimasenlambkudasi .col-whole .col-left.blackfont,
+  article p {
+    font-size: 1.65rem !important;
     line-height: initial; }
   #FastFacts header .desktop {
     position: absolute;
     height: 100vh;
-    top: 0px;
+    top: 0;
     font-size: 4rem;
     line-height: initial;
     width: calc(100vw - 50%);
-    left: 0px;
+    left: 0;
     bottom: initial; }
   .col-white {
     background-color: transparent; }
-  #UpFront .row h2, #TwounderTen .col-six-eight h2 {
+  #AndrewGaleGrossiFlorentino .row h2,
+  #TwoUnderTen .col-six-eight h2 {
     font-size: 3.3rem; }
-  #TwounderTen .ingredients li {
+  #TwoUnderTen .ingredients li {
     font-size: 4.125rem; }
   .video-hold {
     height: auto; }
@@ -1923,10 +2262,20 @@ blockquote {
     width: calc(100% - 90px); } }
 
 @media screen and (min-width: 1400px) and (max-width: 1800px) {
+  #TheQuestforEatingQuality .box-image {
+    width: 50%; }
+  #WhereTheresSmokeTheresFire header {
+    background-position: center 80px;
+    background-size: 75%; }
+  #WhereTheresSmokeTheresFire .desktop {
+    width: 33%;
+    bottom: 100px; }
+  #FastFacts header .desktop .showlightgray img {
+    top: -5rem; }
   .col-whole {
     margin: 180px 0;
     width: 100%; }
-  #Final header {
+  #NextIssue header {
     height: 55vh; }
   .App-intro {
     font-size: 16px; }
@@ -1965,34 +2314,35 @@ blockquote {
   #EditorsLetters img {
     width: 200px;
     padding-right: 30px; }
-  #“Sumimasen—lambkudasi” .desktop {
+  #Sumimasenlambkudasi .desktop {
     bottom: 60px !important; }
-    #“Sumimasen—lambkudasi” .desktop p {
+    #Sumimasenlambkudasi .desktop p {
       text-align: center;
       text-indent: 0; }
-  #“Sumimasen—lambkudasi” .col-white > h2 {
+  #Sumimasenlambkudasi .col-white > h2 {
     text-align: center;
     font-size: 7rem;
     max-width: 800px; }
-  #“Sumimasen—lambkudasi” .col-white > h2 ~ hr {
+  #Sumimasenlambkudasi .col-white > h2 ~ hr {
     width: 60px;
     border-color: #fbe2e8;
     margin: 30px auto;
     border-width: 6px;
     border-style: solid; }
-  #“Sumimasen—lambkudasi” .col-whole .blackfont {
+  #Sumimasenlambkudasi .col-whole .blackfont {
     font-size: 1em; }
-  #“Sumimasen—lambkudasi” .lambboxsmall {
+  #Sumimasenlambkudasi .col-whole .col-left.blackfont {
+    font-size: 0.9em; }
+  #Sumimasenlambkudasi .lambboxsmall {
     border: 1px solid blue;
     padding: 40px;
-    margin: 30px;
-    margin-bottom: 90px;
+    margin: 30px 30px 90px;
     position: relative; }
-    #“Sumimasen—lambkudasi” .lambboxsmall img {
+    #Sumimasenlambkudasi .lambboxsmall img {
       top: 30px;
       width: 60px;
       margin-bottom: 30px; }
-  #“Sumimasen—lambkudasi” .mid-whole {
+  #Sumimasenlambkudasi .mid-whole {
     max-width: 50%;
     padding-left: 10rem;
     font-size: 1.35rem; }
@@ -2010,11 +2360,11 @@ blockquote {
   #ChefProfile header h1 {
     display: block;
     font-size: 8.5em;
-    line-height: .9em; }
-  #“Sumimasen—lambkudasi” header h1 {
+    line-height: 0.9em; }
+  #Sumimasenlambkudasi header h1 {
     display: block;
     font-size: 7em;
-    line-height: .9em;
+    line-height: 0.9em;
     text-indent: -.5em;
     top: 130px;
     margin-top: 0;
@@ -2028,14 +2378,15 @@ blockquote {
     font-size: 4.5rem;
     text-indent: 0;
     width: 10%; }
-  #“Sumimasen—lambkudasi” .gif-left h2, #“Sumimasen—lambkudasi” .gif-right h2 {
+  #Sumimasenlambkudasi .gif-left h2,
+  #Sumimasenlambkudasi .gif-right h2 {
     font-size: 3em; }
   .bigtitle {
     font-size: 7em !important; }
   #FastFacts .video-hold {
     margin-top: 290px; }
   #FastFacts h2:nth-child(2) {
-    top: 0px; }
+    top: 0; }
   #ChefProfile .chefbox > img {
     position: absolute;
     right: 30px;
@@ -2055,29 +2406,30 @@ blockquote {
     width: 100px;
     margin-bottom: 15px; }
   .sideHeader .back {
-    position: relative;
-    left: 160px;
-    top: 0; }
-  #UpFront header h1 {
-    display: block;
+    position: relative; }
+  #AndrewGaleGrossiFlorentino header h1 {
+    display: none;
     font-size: 6rem;
     font-weight: 100;
     width: 12.5%;
     text-align: left;
     padding-left: 90px;
-    line-height: .9em; }
-  #ChefProfile .imageright, #ChefProfile .imageleft {
+    line-height: 0.9em; }
+  #ChefProfile .imageleft,
+  #ChefProfile .imageright {
     color: black; }
-  #ChefProfile .imageright .col-left h2 img, #ChefProfile .imageleft .col-right h2 img {
+  #ChefProfile .imageleft .col-right h2 img,
+  #ChefProfile .imageright .col-left h2 img {
     width: 60px;
     max-height: inherit;
     padding-right: 1em; }
   #ChefProfile article section {
     padding: 0;
     margin-top: 160px; }
-  #ChefProfile .imageleft .col-right h2, #ChefProfile .imageright .col-left h2 {
+  #ChefProfile .imageleft .col-right h2,
+  #ChefProfile .imageright .col-left h2 {
     font-size: 3rem; }
-  #“Sumimasen—lambkudasi” .biglambbox h2 {
+  #Sumimasenlambkudasi .biglambbox h2 {
     color: blue;
     margin: 60px 0;
     border-bottom: 1px solid blue;
@@ -2087,22 +2439,24 @@ blockquote {
     /* float: left; */
     margin-right: 50%;
     width: 50%; }
-  #“Sumimasen—lambkudasi” .biglambbox {
+  #Sumimasenlambkudasi .biglambbox {
     justify-content: space-between;
     padding: 60px; }
-    #“Sumimasen—lambkudasi” .biglambbox ol {
+    #Sumimasenlambkudasi .biglambbox ol {
       flex-basis: 40%; }
-    #“Sumimasen—lambkudasi” .biglambbox img {
+    #Sumimasenlambkudasi .biglambbox img {
       position: absolute;
       right: 60px;
       width: 60px;
       top: 60px; }
-  #FastFacts h2, #FastFacts h1 {
+  #FastFacts h1,
+  #FastFacts h2 {
     font-size: 3em;
-    line-height: .9em; }
+    line-height: 0.9em; }
   #FastFacts .numbers {
     font-size: 6rem; }
-  #WhereTheresSmokeTheresFire .col-right p, #WhereTheresSmokeTheresFire .col-left p {
+  #WhereTheresSmokeTheresFire .col-left p,
+  #WhereTheresSmokeTheresFire .col-right p {
     font-size: 1.5rem; }
   #WhereTheresSmokeTheresFire blockquote {
     display: -ms-flexbox;
@@ -2117,37 +2471,37 @@ blockquote {
   #TheQuestforEatingQuality .desktop {
     font-size: 7rem; }
   #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child {
-    height: 160px; }
+    height: 60px; }
   #TheQuestforEatingQuality .box-shape .col-half-third div {
-    height: 230px;
+    height: 90px;
     padding: 30px 0;
     border-top: 1px solid black;
     text-align: center; }
   .largelamb img {
     width: auto !important;
     max-height: initial; }
-  #TwounderTen .chef-info img {
+  #TwoUnderTen .chef-info img {
     max-width: 500px; }
-  #TwounderTen .ingredients li {
+  #TwoUnderTen .ingredients li {
     font-size: 3rem;
     line-height: initial;
     text-align: center; }
-    #TwounderTen .ingredients li small {
-      font-size: .5em; }
-  #TwounderTen .desktop {
+    #TwoUnderTen .ingredients li small {
+      font-size: 0.5em; }
+  #TwoUnderTen .desktop {
     bottom: 110px;
     font-size: 1.65rem !important; }
-  #TwounderTen .row .col-left:first-child p {
+  #TwoUnderTen .row .col-left:first-child p {
     font-size: 1.65rem;
     line-height: initial;
     text-indent: 1em; }
-  #TwounderTen h2 {
+  #TwoUnderTen h2 {
     text-indent: 0;
     font-size: 2em;
     line-height: initial; }
-  #TwounderTen .chef-info p {
+  #TwoUnderTen .chef-info p {
     font-size: 1em; }
-  #TwounderTen .col-fourth h2 {
+  #TwoUnderTen .col-fourth h2 {
     font-size: 1em; }
   #LambLeg .desktop {
     width: 40%;
@@ -2157,67 +2511,110 @@ blockquote {
   #LambLeg h1 {
     font-size: 10rem; }
   .sideHeader {
-    left: 40px;
-    top: 130px;
     z-index: 1;
     font-size: 1.35rem; }
   .fixSub .sideHeader {
     position: fixed;
     font-size: 1.35rem; }
   .fixSub .sideHeader .back {
-    width: 550px; }
+    position: relative !important; }
   #TheQuestforEatingQuality .box-shape .col-one-third div {
-    height: 290px; }
+    height: 160px; }
   .whole-half-image {
     text-align: center;
     padding: 90px 0;
     width: 100%; }
   #TheQuestforEatingQuality .box-shape .col-one-third div:first-child {
-    height: 225px; }
+    height: 95px; }
     #TheQuestforEatingQuality .box-shape .col-one-third div:first-child img {
-      width: 90px;
-      width: 90px;
+      width: 60px;
       max-height: inherit; }
   #LambLeg .row img {
     float: right;
     max-width: 150px;
     clear: both;
     padding: 0; }
-  #OntheMenu .desktop {
+  #OnTheMenu .desktop {
     bottom: 90px; }
-  #OntheMenu p {
-    font-size: 1.2em; }
-  #OntheMenu .col-left h3, #OntheMenu .col-right h3 {
-    font-size: 2.5rem;
+  #OnTheMenu p {
+    font-size: 1.35rem; }
+  #OnTheMenu .col-left h3,
+  #OnTheMenu .col-right h3 {
+    font-size: 2rem;
     line-height: initial; }
-  #OntheMenu .col-left h2, #OntheMenu .col-right h2 {
+  #OnTheMenu .col-left h2,
+  #OnTheMenu .col-right h2 {
     font-weight: 100;
     font-size: 4rem;
     line-height: initial;
     padding-bottom: 15px; } }
 
+@media screen and (max-width: 1072px) {
+  .App nav .nav_left {
+    top: -9px; }
+  .App nav .nav_left a {
+    display: none; }
+  .App nav .nav_left a:first-child {
+    display: inline-block; } }
+
 @media screen and (max-width: 1024px) {
+  .row {
+    font-size: 1em; }
   .col-whole {
     margin: 120px 0;
     width: 100%; }
-  #TwounderTen .addpadd .col-two-eight {
+  .box-image {
+    max-width: 50%; }
+  #TwoUnderTen .addpadd .col-two-eight {
     padding-left: 90px;
-    margin-top: 0px; }
-  #TwounderTen .addpadd .col-six-eight {
+    margin-top: 0; }
+  #TwoUnderTen .addpadd .col-six-eight {
     width: 50%;
     padding-left: 85.5px; }
-  #TwounderTen .chef-info img {
+  #TwoUnderTen .chef-info img {
     max-width: initial;
     width: 100%; }
-  #TwounderTen .chef-info .col-right {
-    width: 30%; } }
+  #TwoUnderTen .chef-info .col-right {
+    width: 30%; }
+  #Sumimasenlambkudasi .gif-left .col-right {
+    padding-right: 60px;
+    padding-left: 60px; }
+  #Sumimasenlambkudasi .lambboxsmall {
+    margin: 0; } }
 
 @media screen and (max-width: 786px) {
+  .row {
+    font-size: 1.2rem; }
+  .desktop-pairing {
+    display: none; }
+  .mobile-pairing {
+    display: none; }
+  #TheQuestforEatingQuality .box-image {
+    max-width: 100%;
+    width: 100%; }
+  #ChefProfile .imageleft .col-left, #ChefProfile .imageleft .col-right, #ChefProfile .imageright .col-left, #ChefProfile .imageright .col-right {
+    padding-top: 45px;
+    font-size: 1rem;
+    line-height: initial; }
+    #ChefProfile .imageleft .col-left h2, #ChefProfile .imageleft .col-right h2, #ChefProfile .imageright .col-left h2, #ChefProfile .imageright .col-right h2 {
+      font-size: 2rem;
+      margin-bottom: 30px; }
+  #AndrewGaleGrossiFlorentino .desktop h1 {
+    display: block;
+    position: absolute;
+    left: -56vw;
+    font-size: 4.5rem; }
+  #OnTheMenu .special_width {
+    position: relative;
+    width: 100%; }
   body {
     font-size: 12px; }
   article section {
     padding: 90px 60px; }
-  .nofloatmob .col-left, .nofloatmob .col-right, .nofloatmobile .col-left, .nofloatmobile .col-right {
+  .nofloatmob .col-left,
+  .nofloatmob .col-right,
+  .nofloatmobile .col-left,
+  .nofloatmobile .col-right {
     float: none; }
   .col-whole {
     margin: 60px 0; }
@@ -2234,7 +2631,8 @@ blockquote {
     display: none !important; }
   .video-container {
     display: none; }
-  .col-left, .col-right {
+  .col-left,
+  .col-right {
     padding: 60px 0; }
   #LambLeg header {
     flex-direction: column;
@@ -2254,7 +2652,8 @@ blockquote {
     flex-basis: 100%;
     padding-left: 0;
     margin-bottom: 60px; }
-  #FastFacts h2, #FastFacts .side {
+  #FastFacts .side,
+  #FastFacts h2 {
     position: initial;
     width: 100%;
     float: none;
@@ -2262,15 +2661,23 @@ blockquote {
   #FastFacts h2 {
     margin-bottom: 60px;
     width: 100%; }
-  #Final .desktop h2 {
+  #FastFacts .desktop .numbers span:hover:before {
+    left: 2.5rem !important;
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg); }
+  #NextIssue .desktop h2 {
     position: initial;
     width: calc(100% - 120px);
     margin: 60px auto 30px; }
-  #Final .desktop p {
+  #NextIssue .desktop p {
     position: initial;
     width: calc(100% - 120px);
     margin: 30px auto; }
-  #Final header {
+  #NextIssue header {
     height: calc( 100vh - 300px); }
   .editors .col-right {
     -ms-flex-preferred-size: 50%;
@@ -2300,27 +2707,28 @@ blockquote {
     padding: 0 60px; }
     #WhereTheresSmokeTheresFire .col-left p {
       padding: 0;
-      font-size: 1.3rem; }
+      font-size: 1.2rem; }
   #WhereTheresSmokeTheresFire .col-right {
     padding: 0 60px;
-    font-size: 1.3rem; }
+    font-size: 1.2rem; }
     #WhereTheresSmokeTheresFire .col-right p {
       padding-right: 0;
-      font-size: 1.3rem; }
+      font-size: 1.2rem; }
   #WhereTheresSmokeTheresFire .col-left ~ .whole-half-image {
     width: 100%;
     padding: 90px 0; }
   #WhereTheresSmokeTheresFire .sideimage img {
     max-height: initial; }
   #WhereTheresSmokeTheresFire header {
-    background-image: url(//images.contentful.com/a7w606b3ho4t/5TVMjmOrIcwQs4UysWIEQc/bdc9e8b…/Screen_Shot_2017-12-19_at_11.34.42_AM.png);
+    background-image: url("//images.contentful.com/a7w606b3ho4t/5TVMjmOrIcwQs4UysWIEQc/bdc9e8b…/Screen_Shot_2017-12-19_at_11.34.42_AM.png");
     color: black;
     height: 40vh;
     background-size: contain;
     /* margin: 30px 0; */
     background-repeat: no-repeat; }
-  #WhereTheresSmokeTheresFire .col-left, #WhereTheresSmokeTheresFire .col-right {
-    padding-top: 0px;
+  #WhereTheresSmokeTheresFire .col-left,
+  #WhereTheresSmokeTheresFire .col-right {
+    padding-top: 0;
     width: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%; }
@@ -2329,17 +2737,30 @@ blockquote {
   #WhereTheresSmokeTheresFire blockquote {
     height: 50vh; }
     #WhereTheresSmokeTheresFire blockquote p {
-      max-width: 100%; }
+      max-width: 100%;
+      margin-top: 260px; }
   #TheQuestforEatingQuality header .desktop {
     display: block !important; }
   #TheQuestforEatingQuality .row .col-left:first-child ~ .col-right ~ .whole-half-image {
-    padding: 0 0 60px 0; }
+    padding: 0 0 60px; }
     #TheQuestforEatingQuality .row .col-left:first-child ~ .col-right ~ .whole-half-image img {
       width: 100%; }
+  #TheQuestforEatingQuality .photogridouter {
+    margin-bottom: 0 !important; }
+    #TheQuestforEatingQuality .photogridouter .photo-grid {
+      display: none; }
+    #TheQuestforEatingQuality .photogridouter .mobile {
+      display: block;
+      margin-bottom: 0; }
+      #TheQuestforEatingQuality .photogridouter .mobile img {
+        width: 100%; }
   #TheQuestforEatingQuality .mobile {
     display: none; }
   #TheQuestforEatingQuality .box-shape {
-    zoom: 0.6; }
+    zoom: 0.6;
+    max-width: 100%; }
+    #TheQuestforEatingQuality .box-shape h3 {
+      top: 0; }
   #TheQuestforEatingQuality .row {
     padding-top: 0; }
   #TheQuestforEatingQuality .row .col-left:first-child {
@@ -2356,128 +2777,190 @@ blockquote {
     overflow: hidden; }
   #TheQuestforEatingQuality .photogridouter {
     margin-bottom: 0; }
-  #TwounderTen .chef-info .col-left {
-    float: none; }
-  #TwounderTen .chef-info .col-right {
+  #TwoUnderTen .chef-info img {
+    width: 100%; }
+  #TwoUnderTen .chef-info .col-left {
+    float: none;
+    width: calc(100% - 120px); }
+  #TwoUnderTen .chef-info .col-right {
     width: calc(100% - 120px);
     padding-right: 0;
     float: none;
-    margin: 0 auto; }
-  #TwounderTen .chef-info p {
-    font-size: 1.3rem; }
-  #TwounderTen .addpadd .col-two-eight {
+    margin: 45px auto; }
+  #TwoUnderTen .col-whole.chef-info {
+    margin-bottom: 0; }
+  #TwoUnderTen .video-hold {
+    margin-top: 0; }
+  #TwoUnderTen .chef-info p {
+    font-size: 1.2rem; }
+  #TwoUnderTen .addpadd {
+    display: block; }
+  #TwoUnderTen .addpadd .col-two-eight {
     padding-left: 60px;
-    margin-top: 0px; }
-  #TwounderTen .col-whole {
+    margin-top: 0; }
+  #TwoUnderTen .col-whole {
     margin: 60px 0; }
-  #TwounderTen .col-left, #TwounderTen .col-right {
+  #TwoUnderTen .col-left,
+  #TwoUnderTen .col-right {
     padding: 0 60px; }
-  #TwounderTen .row > .col-left {
+  #TwoUnderTen .row > .col-left {
     margin-top: 60px; }
-  #TwounderTen .row .col-left:first-child p {
-    font-size: 1.3rem;
+  #TwoUnderTen .row .col-left:first-child p {
+    font-size: 1.2rem;
     line-height: initial;
     text-indent: 1em; }
-  #TwounderTen header {
+  #TwoUnderTen header {
     background-size: contain;
     background-repeat: no-repeat; }
-  #TwounderTen .addpadd .col-two-eight {
-    width: calc(100% -  180px); }
-    #TwounderTen .addpadd .col-two-eight .inside {
+  #TwoUnderTen .addpadd .col-two-eight {
+    width: calc(100% - 180px); }
+    #TwoUnderTen .addpadd .col-two-eight .inside {
       width: 100%; }
-  #TwounderTen .addpadd .col-six-eight {
-    width: calc(100% -  180px);
+  #TwoUnderTen .addpadd .col-six-eight {
+    width: calc(100% - 180px);
     padding-top: 60px;
     padding-left: 60px; }
   .chef-info .col-left {
     padding: 30px; }
   .chef-info .col-right {
     padding: 0 30px; }
-  #OntheMenu header {
+  #ChefProfile .chefbox {
+    margin: 0 auto; }
+    #ChefProfile .chefbox h2 {
+      margin-top: 30px; }
+    #ChefProfile .chefbox h3 {
+      font-size: 1rem;
+      top: -15px; }
+    #ChefProfile .chefbox p {
+      font-size: 1rem; }
+  #OnTheMenu header {
     background-size: contain;
     background-repeat: no-repeat; }
-  #OntheMenu .row h3 {
+  #OnTheMenu .desktop {
+    width: 50%; }
+    #OnTheMenu .desktop p {
+      font-size: 1.35rem; }
+  #OnTheMenu .row h3 {
     top: 0; }
-  #OntheMenu .col-left {
+  #OnTheMenu .col-left {
     flex-basis: 80%;
     padding-left: 60px; }
-  #OntheMenu .col-right {
+  #OnTheMenu .col-whole ~ .col-left {
+    padding: 0 60px; }
+    #OnTheMenu .col-whole ~ .col-left ~ .col-right {
+      padding-top: 0; }
+  #OnTheMenu .row .col-left:last-child {
+    margin-bottom: 0px; }
+  #OnTheMenu .col-right {
     padding-left: 60px;
-    padding-right: 0px;
+    padding-right: 0;
     flex-basis: 80%; }
-  #OntheMenu .col-whole {
+  #OnTheMenu .col-whole {
     margin-top: 30px; }
-  #UpFront .col-whole-half {
+  #AndrewGaleGrossiFlorentino .col-whole-half {
     text-indent: 0; }
-  #“Sumimasen—lambkudasi” header h1 {
+  #Sumimasenlambkudasi header h1 {
     font-size: 4rem;
     top: 0; }
-  #“Sumimasen—lambkudasi” .col-white {
+  #Sumimasenlambkudasi header .desktop {
+    position: absolute;
+    bottom: 90px;
+    lefT: initial;
+    width: 25%;
+    text-align: right;
+    font-weight: 100;
+    right: 200px;
+    font-size: 1.5rem; }
+  #Sumimasenlambkudasi .col-white {
     padding: 30px 0 0; }
-  #“Sumimasen—lambkudasi” .col-right {
+  #Sumimasenlambkudasi .col-right {
     padding: 0;
     width: 100%; }
-  #“Sumimasen—lambkudasi” .col-whole .blackfont {
-    font-size: 1.1rem; }
-  #“Sumimasen—lambkudasi” .col-whole .col-left.blackfont {
-    font-size: 1.3rem;
+  #Sumimasenlambkudasi .col-whole .blackfont {
+    font-size: 1.2rem;
+    line-height: initial;
+    float: none; }
+  #Sumimasenlambkudasi .col-whole .col-left.blackfont {
+    font-size: 1.2rem;
     width: calc(100% - 120px);
-    padding: 0px 60px; }
-  #“Sumimasen—lambkudasi” .lambboxsmall {
+    padding: 0 60px;
+    margin-bottom: 45px; }
+  #Sumimasenlambkudasi .col-white > h2 {
+    margin: 45px auto; }
+  #Sumimasenlambkudasi .lambboxsmall {
     margin: 30px auto 60px;
     width: 60%;
     position: relative; }
-    #“Sumimasen—lambkudasi” .lambboxsmall img {
-      left: 0; }
-  #“Sumimasen—lambkudasi” .biglambbox {
+    #Sumimasenlambkudasi .lambboxsmall img {
+      right: 30px; }
+  #Sumimasenlambkudasi .biglambbox {
     width: 60%; }
-  #“Sumimasen—lambkudasi” .col-right {
+    #Sumimasenlambkudasi .biglambbox h2 {
+      margin-right: 0 !important; }
+    #Sumimasenlambkudasi .biglambbox ol {
+      font-size: 1rem; }
+    #Sumimasenlambkudasi .biglambbox ol:nth-child(4) {
+      padding-left: 1rem; }
+  #Sumimasenlambkudasi .col-right {
     width: calc(100% - 120px);
     margin: 0 auto; }
-  #“Sumimasen—lambkudasi” .gif-left, #“Sumimasen—lambkudasi” .gif-right {
+  #Sumimasenlambkudasi .gif-left,
+  #Sumimasenlambkudasi .gif-right {
     padding-top: 60px; }
-    #“Sumimasen—lambkudasi” .gif-left h2, #“Sumimasen—lambkudasi” .gif-right h2 {
+    #Sumimasenlambkudasi .gif-left h2,
+    #Sumimasenlambkudasi .gif-right h2 {
       padding-top: 30px; }
-    #“Sumimasen—lambkudasi” .gif-left .col-left, #“Sumimasen—lambkudasi” .gif-left .col-right, #“Sumimasen—lambkudasi” .gif-right .col-left, #“Sumimasen—lambkudasi” .gif-right .col-right {
+    #Sumimasenlambkudasi .gif-left .col-left,
+    #Sumimasenlambkudasi .gif-left .col-right,
+    #Sumimasenlambkudasi .gif-right .col-left,
+    #Sumimasenlambkudasi .gif-right .col-right {
       padding-top: 0; }
-  #“Sumimasen—lambkudasi” .gif-left .col-right {
+  #Sumimasenlambkudasi .gif-left .col-right {
     width: 50%;
     padding-right: 60px; }
-  #“Sumimasen—lambkudasi” .gif-right .col-left {
+  #Sumimasenlambkudasi .gif-right .col-left {
     width: 50%;
     padding-left: 60px; }
-  #“Sumimasen—lambkudasi” .gif-right .col-right {
+  #Sumimasenlambkudasi .gif-right .col-right {
     width: 30%; }
-  #UpFront header {
+  #AndrewGaleGrossiFlorentino header {
     height: 60vh; }
-  #UpFront header .desktop {
+  #AndrewGaleGrossiFlorentino header .desktop {
     font-size: 1.5rem;
-    right: 0px; }
-  #UpFront .col-left, #UpFront .col-right {
+    right: 0; }
+  #AndrewGaleGrossiFlorentino .col-left,
+  #AndrewGaleGrossiFlorentino .col-right {
     margin: 30px 0;
     padding: 0 60px 15px;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%; }
-  #UpFront .col-whole ~ .col-left.large-side-image {
+  #AndrewGaleGrossiFlorentino .col-whole ~ .col-left.large-side-image {
     margin-top: 0; }
-  #UpFront .opening {
-    font-size: 1.3rem;
+  #AndrewGaleGrossiFlorentino .opening {
+    font-size: 1.2rem;
     flex-basis: 100%; }
   #ChefProfile .imageright .col-left {
     padding-left: 60px; }
+  #ChefProfile .imageright, #ChefProfile .imageleft {
+    padding-bottom: 45px; }
+  #ChefProfile .imageright ~ .col-whole {
+    padding-bottom: 45px; }
+  #ChefProfile .col-whole-half.col-white {
+    padding-bottom: 45px; }
   #ChefProfile .chef-profile-header ~ .col-left ~ .col-right {
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 0 60px;
     width: calc(100% - 120px);
     padding-top: 200px;
     padding-bottom: 180px; }
   #ChefProfile .chefbox {
-    margin: 0 60px; }
+    margin: 0 auto;
+    padding-bottom: 45px; }
   #ChefProfile .col-right {
     width: 100%;
     margin: 0 auto;
-    font-size: 1.3rem; }
+    font-size: 1.2rem; }
   #ChefProfile .imageleft .col-right {
     margin-right: 60px; }
   #ChefProfile .bigtitle {
@@ -2486,14 +2969,15 @@ blockquote {
       width: 90px; }
   #ChefProfile .col-whole {
     padding-top: 30px; }
-  #ChefProfile .imageleft .col-right h2, #ChefProfile .imageright .col-left h2 {
+  #ChefProfile .imageleft .col-right h2,
+  #ChefProfile .imageright .col-left h2 {
     color: blue;
-    margin-bottom: 60px;
-    font-size: 2rem; }
+    margin-bottom: 30px;
+    font-size: 1.65rem; }
   .editors p {
-    font-size: 1.3rem; }
+    font-size: 1.2rem; }
   #WhereTheresSmokeTheresFire .col-left p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-indent: 1em; }
   .whole-half-image {
     padding: 30px 0; }
@@ -2547,28 +3031,159 @@ blockquote {
     font-weight: 100;
     font-size: 0.85em; } }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 768px) {
+  .articleIndex h1:hover {
+    color: #D2262D;
+    cursor: pointer; }
+  .articleIndex h1:hover ~ img {
+    position: absolute;
+    height: auto;
+    opacity: 1; }
+  .row .image-inline:hover img {
+    opacity: 0;
+    filter: hue-rotate(0deg) saturate(100%) brightness(56%); }
+  .image-inline:hover h3 {
+    opacity: 1; } }
+
+@media screen and (min-width: 450px) and (orientation: portrait) {
+  .articleIndex h1:hover {
+    color: #D2262D;
+    cursor: pointer; }
+  .articleIndex h1:hover ~ img {
+    position: absolute;
+    height: auto;
+    opacity: 1; }
+  .row .image-inline:hover img {
+    opacity: 0;
+    filter: hue-rotate(0deg) saturate(100%) brightness(56%); }
+  .image-inline:hover h3 {
+    opacity: 1; } }
+
+@media screen and (max-device-width: 450px) {
+  .photo_caption_nohover {
+    display: none; }
+  .show_caption h3 {
+    opacity: 1 !important; }
+  .show_caption img {
+    opacity: 0 !important; }
+  .video-hold {
+    width: 100%;
+    height: auto !important;
+    margin-bottom: 0 !important; }
+  .video_controls {
+    display: none !important; }
+  #TheQuestforEatingQuality .box-shape-outer ~ .col-left ~ .col-whole {
+    margin-bottom: 0px !important; } }
+
+@media screen and (max-width: 450px) {
+  .App nav .nav_left a:first-child {
+    display: none; }
+  .App-header header {
+    background-image: url(//images.contentful.com/a7w606b3ho4t/2OZSmNxoS4Wy2AE0mA8Uya/f7dbd78780e8714386edc196d738af3f/Cover_MobileCrop_V2.jpg) !important; }
+  .App-header img {
+    display: none; }
+  .sideHeader {
+    transition: 0s; }
+  #Sumimasenlambkudasi .sideHeader span::after {
+    width: 28px;
+    position: absolute;
+    top: -32px;
+    left: 120px;
+    content: "";
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition: 0.25s ease;
+    -o-transition: 0.25s ease;
+    transition: 0.25s ease;
+    display: none; }
+  .row .image-inline:hover img {
+    opacity: unset;
+    -webkit-filter: none;
+    filter: none; }
+  .image-inline:hover h3 {
+    opacity: 0; }
+  .App-header h2 {
+    bottom: initial;
+    top: 35%; }
+  .box-desktop {
+    display: none; }
+  .box-mobile {
+    display: block; }
+  .row {
+    font-size: 1rem; }
+  .articleIndex {
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 0;
+    padding: 45px; }
+  .articleIndex img {
+    max-width: 90px; }
+  .articleIndex a img {
+    transform: translateY(-50%) translateX(50%); }
+  .articleIndex a:nth-child(2n) img {
+    transform: translateY(-50%) translateX(-120%); }
+  article {
+    position: relative; }
+  #LambLeg .desktop .desktop {
+    display: none !important;
+    margin: 0; }
+  #LambLeg header {
+    padding-bottom: 0; }
+  #LambLeg .desktop .mobile {
+    margin-bottom: 15px;
+    margin-top: 0px; }
+  #LambLeg h1 {
+    margin-bottom: 30px; }
+  #LambLeg .video-hold {
+    width: 100%; }
+  #LambLeg .row {
+    text-indent: 0; }
+  .video-hold {
+    margin-bottom: 45px; }
+  .App-header img {
+    max-width: 130px;
+    width: 130px;
+    right: -90px;
+    top: calc(40vh - 250px); }
+  .photo_caption_nohover {
+    width: calc(100% - 90px);
+    padding-left: 45px;
+    font-size: .6rem;
+    margin-top: 0px;
+    margin-bottom: 5px; }
+  .fullscreen {
+    display: none; }
+  .mobileBodyText, #NextIssue .desktop p, #Sumimasenlambkudasi .mid-whole, #Sumimasenlambkudasi .biglambbox ol, #Sumimasenlambkudasi .col-whole .col-right, #TwoUnderTen .addpadd .col-two-eight .inside, #TwoUnderTen .addpadd .col-six-eight .inside {
+    font-size: 0.9rem;
+    line-height: initial; }
   .editors p {
-    font-size: 1.1rem; }
+    font-size: 0.9rem;
+    line-height: initial; }
   .video-hold {
     height: 200px;
     margin-top: 0; }
-  .chef-editor .video-hold {
-    margin-top: 0px; }
+  #ChefEditorHandover .video-hold {
+    margin-top: 0;
+    text-indent: 0; }
   .opening {
-    font-size: 1.1rem !important; }
-  .col-left, .col-right {
-    font-size: 1.1rem;
+    font-size: 0.9rem !important; }
+  .col-left,
+  .col-right {
+    font-size: 0.9rem;
+    line-height: initial;
     padding: 0 45px; }
   .image-inline img {
     width: 100% !important; }
   #EditorsLetters img {
-    width: 100%;
+    width: 40%;
     float: left;
     margin: 15px 0;
     padding-right: 15px; }
   .articleIndex {
-    padding: 60px 30px; }
+    padding: 45px; }
+    .articleIndex h3 {
+      padding: 0px 0 45px; }
     .articleIndex h1 {
       font-size: 2em; }
   .row img {
@@ -2598,30 +3213,44 @@ blockquote {
   .form-open iframe {
     width: 80%;
     height: 600px;
-    padding: 0px;
+    padding: 0;
     border: 0;
     overflow: hidden; }
-  #TwounderTen .row .col-left:first-child p {
-    font-size: 1.1rem;
+  #TwoUnderTen .row .col-left:first-child p {
+    font-size: 0.9rem;
+    line-height: initial;
     line-height: initial;
     text-indent: 1em; }
+  #LambLeg .video-hold {
+    height: auto; }
+    #LambLeg .video-hold video {
+      margin-bottom: 0px; }
   #LambLeg header {
     height: auto;
-    padding: 40px;
+    padding: 40px 40px 0;
     flex-direction: column; }
     #LambLeg header h1 {
-      font-size: 3rem; }
+      font-size: 3rem;
+      margin-bottom: 45px; }
     #LambLeg header h3 {
       position: initial;
-      padding-top: 45px; }
+      padding-top: 0;
+      margin-top: 45px; }
     #LambLeg header .desktop {
-      padding-left: 0px;
-      font-size: 1.1rem;
+      padding-left: 0;
+      font-size: 0.9rem;
+      line-height: initial;
       width: 100%;
-      padding-top: 45px; }
-  #LambLeg .col-left, #LambLeg .col-right {
+      padding-top: 0;
+      margin-bottom: 0; }
+  #LambLeg .col-left,
+  #LambLeg .col-right {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%; }
+  #LambLeg .col-whole {
+    width: 100%; }
+    #LambLeg .col-whole video {
+      margin-top: 0; }
   #LambLeg .row h2 {
     font-weight: 100;
     padding: 0 0 1rem;
@@ -2634,12 +3263,12 @@ blockquote {
     font-size: 1rem;
     line-height: initial; }
   #LambLeg .row {
-    margin-top: 60px; }
+    margin-top: 0; }
   #LambLeg .row h3 {
     position: initial;
     padding: 1em 0 0;
     text-transform: uppercase;
-    font-size: .9rem; }
+    font-size: 0.9rem; }
   #LambLeg .row img {
     float: right;
     max-width: 90px;
@@ -2651,78 +3280,84 @@ blockquote {
   .fixSub .sideHeader {
     top: 80px; }
   .sideHeader {
-    left: 15px;
+    left: 22px;
     top: 45px;
-    font-size: 1.1em; }
+    font-size: 0.9rem; }
   .sideHeader .back {
     position: relative;
     left: 250px;
     top: 0;
-    font-size: 1rem; }
-  #“Sumimasen—lambkudasi” .biglambbox img {
-    width: 30px;
-    top: 30px; }
-  #“Sumimasen—lambkudasi” .biglambbox h2 {
-    color: blue;
-    margin: 60px 0;
-    border-bottom: 1px solid blue;
-    display: inline-block;
-    padding-bottom: 10px;
-    font-size: 2.5rem;
-    line-height: initial;
-    margin-right: 50%; }
-  #“Sumimasen—lambkudasi” .biglambbox ol {
-    width: 100%;
-    float: left;
-    list-style-type: decimal-leading-zero; }
-  #“Sumimasen—lambkudasi” .col-white {
-    background-color: white;
-    margin: 0;
-    padding: 90px 0 15px; }
+    font-size: 0.9rem; }
+  #Sumimasenlambkudasi .col-white.mobile {
+    padding-left: 45px; }
+    #Sumimasenlambkudasi .col-white.mobile img {
+      width: 83%;
+      margin-top: 30px; }
   #ChefProfile .chefbox > img {
     position: absolute;
     right: 30px;
     top: 30px;
     width: 30px; }
-  #ChefProfile .imageleft .col-right h2 img, #ChefProfile .imageright .col-left h2 img {
+  #ChefProfile .imageleft .col-right h2 img,
+  #ChefProfile .imageright .col-left h2 img {
     padding-right: 1em;
     width: 30px; }
-  .fixSub .sideHeader {
-    font-size: 1.1em; }
   article section {
     padding: 0 45px; }
+  .editors .row h3 {
+    font-size: 0.9rem; }
   #EditorsLetters article section {
-    padding: 30px !important; }
-  #EditorsLetters .col-right, #EditorsLetters .col-left {
+    padding: 30px !important;
+    padding-top: 53px !important; }
+  #EditorsLetters h2 {
+    padding-bottom: 45px; }
+  #EditorsLetters .col-left,
+  #EditorsLetters .col-right {
     padding: 0 15px; }
-  #UpFront .opening {
+  #AndrewGaleGrossiFlorentino .opening {
     flex-basis: 100%;
     margin: 60px 0; }
-  #UpFront header h1 {
-    font-size: 2rem;
-    padding-left: 45px; }
-  #UpFront header .desktop {
-    right: 30px;
-    top: 30px;
-    text-align: left;
-    width: 50%;
-    left: initial;
-    font-size: 1rem; }
-  #UpFront header img {
-    width: 130px; }
-  #UpFront blockquote {
+  #AndrewGaleGrossiFlorentino article section {
+    padding-top: 130px; }
+  #AndrewGaleGrossiFlorentino .sideHeader {
+    top: 60px; }
+  #AndrewGaleGrossiFlorentino header {
+    height: 40vh;
+    margin-bottom: 0; }
+    #AndrewGaleGrossiFlorentino header h1 {
+      font-size: 2rem;
+      padding-left: 45px;
+      left: -42vw; }
+    #AndrewGaleGrossiFlorentino header .desktop {
+      right: 30px;
+      top: 63px;
+      text-align: left;
+      width: 50%;
+      left: initial;
+      font-size: 1rem; }
+      #AndrewGaleGrossiFlorentino header .desktop h1 {
+        font-size: 2.5rem;
+        padding-left: 45px;
+        left: -42vw; }
+    #AndrewGaleGrossiFlorentino header img {
+      width: 130px;
+      margin: 45px 0; }
+  #AndrewGaleGrossiFlorentino .col-whole img {
+    width: 100%; }
+  #AndrewGaleGrossiFlorentino blockquote {
     font-size: 1em !important;
     padding: 0 0 90px;
     width: 60%;
-    margin: 90px auto 90px; }
-  #UpFront .col-left, #UpFront .col-right {
+    margin: 90px auto; }
+  #AndrewGaleGrossiFlorentino .col-left,
+  #AndrewGaleGrossiFlorentino .col-right {
     width: calc(100% - 90px);
     flex-basis: calc(100% - 90px);
     padding: 0 45px;
     margin: 22.5px 0; }
-  #UpFront .large-side-image {
+  #AndrewGaleGrossiFlorentino .large-side-image {
     margin: 45px 0; }
-  #UpFront .row h2 {
+  #AndrewGaleGrossiFlorentino .row h2 {
     font-size: 2rem;
     line-height: 1.9rem;
     margin-bottom: 45px; }
@@ -2730,13 +3365,22 @@ blockquote {
     padding-top: 45px; }
   #TheQuestforEatingQuality .col-whole-image {
     padding: 45px 0; }
-  #TheQuestforEatingQuality .col-left, #TheQuestforEatingQuality .col-right {
+  #TheQuestforEatingQuality .col-left,
+  #TheQuestforEatingQuality .col-right {
     padding: 0; }
+  #TheQuestforEatingQuality .row .col-left:first-child ~ .col-right ~ .whole-half-image {
+    padding: 45px 0; }
   #TheQuestforEatingQuality .box-shape {
-    margin-top: 45px; }
+    margin-top: 45px;
+    max-width: 100%; }
+    #TheQuestforEatingQuality .box-shape .col-half-third img {
+      width: 50%; }
+    #TheQuestforEatingQuality .box-shape .full {
+      width: 100%; }
   #TheQuestforEatingQuality .video-hold {
     margin-top: 45px; }
-  #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child, #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child {
+  #TheQuestforEatingQuality .box-shape .col-half-third h2:first-child,
+  #TheQuestforEatingQuality .box-shape .col-one-third h2:first-child {
     height: 60px;
     font-size: 1em;
     line-height: initial;
@@ -2758,30 +3402,43 @@ blockquote {
     padding-bottom: 15px; }
   #TheQuestforEatingQuality .box-shape .col-half-third div img {
     height: auto;
-    width: 100%;
+    width: 50%;
     margin-bottom: 5px; }
-  #Final .desktop h2 {
+  #NextIssue header {
+    justify-content: start; }
+  #NextIssue .desktop h2 {
     position: initial;
     top: 60px;
     width: calc(100% - 90px);
     text-indent: 1em;
     padding: 0 45px;
-    padding-top: 45px; }
-  #Final .desktop p {
+    margin: 60px auto 15px; }
+  #NextIssue .desktop {
+    position: relative; }
+  #NextIssue .desktop p {
     position: initial;
     top: 60px;
     width: calc(100% - 90px);
     text-indent: 1em;
-    padding: 0 45px;
-    padding-top: 45px; }
-  #Final .row {
+    padding: 0;
+    margin: 0 45px; }
+  #NextIssue .row {
     padding-bottom: 0; }
-  #Final header {
-    height: 70vh; }
-  #Final section {
-    padding: 30px; }
+    #NextIssue .row img {
+      max-width: 300px;
+      width: 160px;
+      height: auto;
+      margin-top: 0px; }
+  #NextIssue header {
+    justify-content: start;
+    height: auto; }
+  #NextIssue section {
+    padding: 30px;
+    padding-top: 0; }
   #ChefProfile .chef-profile-header img {
     display: none; }
+  #ChefProfile .chef-profile-header ~ .col-left ~ .col-right {
+    margin: 45px 45px 0; }
   #ChefProfile h1 {
     font-size: 3rem; }
   #ChefProfile .desktop {
@@ -2793,8 +3450,9 @@ blockquote {
       font-size: 1.5rem;
       text-indent: 0;
       width: 10%; }
-  #ChefProfile .col-left, #ChefProfile .col-right {
-    padding: 45px 0px;
+  #ChefProfile .col-left,
+  #ChefProfile .col-right {
+    padding: 45px 0;
     flex-basis: 80%;
     float: none; }
   #ChefProfile .imageleft .col-right {
@@ -2803,26 +3461,62 @@ blockquote {
   #ChefProfile .imageright .col-left {
     width: 80%;
     padding-left: 45px; }
-  #“Sumimasen—lambkudasi” .gif-left .col-right {
+  #Sumimasenlambkudasi .gif-left .col-right {
+    width: 80%;
+    padding: 0; }
+  #Sumimasenlambkudasi .gif-right .col-left {
     width: 80%;
     padding: 0 30px; }
-  #“Sumimasen—lambkudasi” .gif-right .col-left {
-    width: 80%;
-    padding: 0 30px; }
-  #“Sumimasen—lambkudasi” .col-white.bigtitle {
+  #Sumimasenlambkudasi .col-white.bigtitle {
     font-size: 4rem;
     -webkit-text-stroke-width: 2px;
     padding-top: 45px; }
-    #“Sumimasen—lambkudasi” .col-white.bigtitle img {
+    #Sumimasenlambkudasi .col-white.bigtitle img {
       padding-top: 45px; }
-  #“Sumimasen—lambkudasi” header {
-    height: 50vh; }
-    #“Sumimasen—lambkudasi” header h1 {
-      font-size: 2rem;
-      font-size: 3rem;
+  #Sumimasenlambkudasi header h1 {
+    font-size: 2.5rem; }
+  #Sumimasenlambkudasi .biglambbox ol {
+    width: 100%;
+    float: left;
+    list-style-type: decimal-leading-zero; }
+    #Sumimasenlambkudasi .biglambbox ol li {
+      margin-bottom: 1.2rem; }
+  #Sumimasenlambkudasi .biglambbox img {
+    width: 30px;
+    top: 30px; }
+  #Sumimasenlambkudasi .biglambbox h2 {
+    color: blue;
+    margin: 90px 0px 45px;
+    border-bottom: 1px solid blue;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-size: 1.65rem;
+    line-height: initial;
+    margin-right: 0;
+    width: 100%; }
+  #Sumimasenlambkudasi .col-white {
+    background-color: white;
+    margin: 0;
+    padding: 90px 0 15px; }
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont .blackfont {
+    font-size: .9rem; }
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont p {
+    font-size: .9rem; }
+  #Sumimasenlambkudasi header {
+    height: calc(100vh - 80px);
+    flex-direction: unset; }
+    #Sumimasenlambkudasi header h1 {
+      font-size: 2.5rem;
       width: 75%;
-      padding-right: 45px; }
-    #“Sumimasen—lambkudasi” header .desktop {
+      padding-right: 45px;
+      font-size: 2.5rem;
+      top: 60px;
+      position: relative;
+      margin-top: 0;
+      align-self: flex-start;
+      padding-left: 45px;
+      padding-right: 30px; }
+    #Sumimasenlambkudasi header .desktop {
       display: block;
       font-size: 1.33333rem;
       width: 60%;
@@ -2834,92 +3528,145 @@ blockquote {
       align-self: flex-end;
       padding-right: 90px;
       margin-top: -3em; }
-  #“Sumimasen—lambkudasi” .col-left {
+  #Sumimasenlambkudasi .col-left {
     padding-right: 0;
     padding-left: 30px;
     width: 80%; }
-  #“Sumimasen—lambkudasi” .col-white > h2 {
+  #Sumimasenlambkudasi .col-white > h2 {
     text-align: center;
     font-size: 3rem;
-    margin-top: 45px; }
-  #“Sumimasen—lambkudasi” .col-whole .col-left {
+    margin-top: 45px;
+    padding: 0 45px;
+    margin-bottom: 22px; }
+  #Sumimasenlambkudasi .col-whole .col-left {
     float: none; }
-  #“Sumimasen—lambkudasi” .col-whole .col-right {
+  #Sumimasenlambkudasi .col-whole .col-right {
     float: none;
-    width: calc(100% - 90px); }
-    #“Sumimasen—lambkudasi” .col-whole .col-right img {
+    width: calc(100% - 90px);
+    margin: 0 45px; }
+    #Sumimasenlambkudasi .col-whole .col-right img {
       width: 100%;
       margin-top: 45px; }
-  #“Sumimasen—lambkudasi” .col-whole:after {
+  #Sumimasenlambkudasi .col-whole:after {
     display: block;
     font-size: 0;
     height: 0;
     content: "";
     clear: both;
     visibility: hidden; }
-  #“Sumimasen—lambkudasi” .col-white {
+  #Sumimasenlambkudasi .col-white {
     padding-top: 0; }
-  #“Sumimasen—lambkudasi” .col-right {
+  #Sumimasenlambkudasi .col-right {
     width: 100%;
     margin: 0 auto;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding-right: 0; }
-  #TwounderTen header {
-    height: 50vh;
+  #TwoUnderTen .ingredients {
+    margin-top: 0; }
+  #TwoUnderTen .mobile_pairing {
+    display: block; }
+  #TwoUnderTen .chef-info p {
+    font-size: 0.9rem; }
+  #TwoUnderTen .chef-info {
+    margin-bottom: 0; }
+  #TwoUnderTen header {
+    height: calc(100vh - 130px);
     background-size: contain;
-    background-repeat: no-repeat; }
-    #TwounderTen header h2 {
+    background-repeat: no-repeat;
+    background-position: 40px 60px;
+    background-size: 87%; }
+    #TwoUnderTen header h2 {
       text-indent: 0;
-      font-size: .9rem;
+      font-size: 0.9rem;
       line-height: initial; }
-    #TwounderTen header .desktop {
-      font-size: 1.1rem; }
-  #TwounderTen .col-six-eight .col-fourth {
+    #TwoUnderTen header .desktop {
+      left: 45px;
+      font-size: 0.9rem;
+      line-height: initial;
+      bottom: 90;
+      width: 70%; }
+  #TwoUnderTen .addpadd {
+    margin-top: 0;
+    margin-bottom: 0; }
+  #TwoUnderTen .number-outer {
+    margin-bottom: 0; }
+  #TwoUnderTen .col-six-eight .col-fourth {
     width: 40%; }
-    #TwounderTen .col-six-eight .col-fourth h2 {
-      font-size: 1.1rem; }
-  #TwounderTen .col-two-eight .number {
+    #TwoUnderTen .col-six-eight .col-fourth h2 {
+      font-size: 0.9rem; }
+  #TwoUnderTen .col-two-eight .number {
     font-size: 3rem;
-    padding: 30px; }
-  #TwounderTen .col-six-eight img {
+    padding: 45px; }
+  #TwoUnderTen .col-six-eight img {
     width: 100%; }
-  #TwounderTen .col-six-eight h2 {
-    font-size: 1.5rem; }
-  #TwounderTen .chef-info .col-right {
+  #TwoUnderTen .col-six-eight h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px; }
+  #TwoUnderTen .col-fourth {
+    vertical-align: top;
+    padding-top: 10px; }
+    #TwoUnderTen .col-fourth h2 u {
+      display: inline-block; }
+  #TwoUnderTen .chef-info .col-right {
     padding-left: 0;
     width: 80%; }
-  #TwounderTen .chef-info .col-left {
+  #TwoUnderTen .chef-info .col-left {
     width: calc(100% - 90px);
     margin: 22.5px auto;
     float: none;
     padding: 0; }
-    #TwounderTen .chef-info .col-left img {
+    #TwoUnderTen .chef-info .col-left img {
       width: 100%; }
-  #TwounderTen .ingredients li {
+  #TwoUnderTen .ingredients li {
     font-size: 1.5rem;
     line-height: initial;
     text-align: center; }
-  #TwounderTen .addpadd .col-two-eight {
+  #TwoUnderTen .addpadd .col-two-eight {
     width: 80%;
     font-size: 1rem;
     margin-top: 45px;
-    padding-left: 30px;
+    padding-left: 45px;
     padding-right: 0; }
-    #TwounderTen .addpadd .col-two-eight .inside {
-      width: 90%; }
-  #TwounderTen .addpadd .col-six-eight {
-    width: 80%;
-    font-size: 1rem;
-    padding-left: 30px; }
-    #TwounderTen .addpadd .col-six-eight .inside {
-      width: 90%; }
-  #TwounderTen .col-left, #TwounderTen .col-right {
+    #TwoUnderTen .addpadd .col-two-eight .inside {
+      width: calc(90% - 30px); }
+  #TwoUnderTen .addpadd .col-six-eight {
+    width: 83%;
+    padding-left: 54px; }
+    #TwoUnderTen .addpadd .col-six-eight .inside {
+      width: calc(90% - 30px); }
+  #TwoUnderTen .col-left,
+  #TwoUnderTen .col-right {
     padding: 0 45px; }
+  #WhereTheresSmokeTheresFire header {
+    height: calc(100vh - 90px);
+    padding-top: 60px;
+    background-position: 0px 50px; }
+    #WhereTheresSmokeTheresFire header .desktop {
+      bottom: 90px;
+      width: 70%; }
+  #WhereTheresSmokeTheresFire .sideimage .image-inline,
+  #WhereTheresSmokeTheresFire .whole-half-image .image-inline {
+    width: 100%; }
+  #WhereTheresSmokeTheresFire .middle-image ~ blockquote p {
+    padding-top: 0; }
+  #WhereTheresSmokeTheresFire .row .col-whole img {
+    width: 100%; }
+  #WhereTheresSmokeTheresFire blockquote p {
+    padding: 60px 0 0;
+    margin: 0;
+    font-size: 1.33333rem;
+    line-height: initial; }
+  #WhereTheresSmokeTheresFire .middle-image ~ blockquote {
+    padding-bottom: 90px; }
+  #WhereTheresSmokeTheresFire blockquote {
+    height: initial;
+    padding-bottom: 45px; }
   #WhereTheresSmokeTheresFire .desktop {
-    font-size: 1.1rem;
-    bottom: 45px;
+    font-size: 0.9rem;
+    line-height: initial;
+    bottom: 0px;
     left: 45px;
-    width: 50%; }
+    width: 60%; }
   #WhereTheresSmokeTheresFire .col-whole-image {
     margin: 0;
     padding: 45px 0; }
@@ -2927,21 +3674,25 @@ blockquote {
     width: 100%;
     padding: 45px 0; }
   #WhereTheresSmokeTheresFire .col-left.smalltext {
-    padding-top: 0px;
+    padding-top: 0;
     display: block;
     margin-bottom: 22.5px; }
   #WhereTheresSmokeTheresFire .col-right {
-    width: calc(100% - 90px); }
+    width: calc(100% - 90px);
+    padding: 0 45px; }
   #WhereTheresSmokeTheresFire .col-left {
     padding-top: 15px;
-    width: 100%; }
+    width: 100%;
+    padding: 0 45px; }
   #WhereTheresSmokeTheresFire .col-left p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    line-height: initial;
     text-indent: 1em;
     flex-basis: 100%;
-    padding-left: 0px; }
+    padding-left: 0; }
   #WhereTheresSmokeTheresFire .col-right p {
-    font-size: 1.1rem; }
+    font-size: 0.9rem;
+    line-height: initial; }
   #WhereTheresSmokeTheresFire .col-whole {
     margin: 30px 0;
     width: 100%; }
@@ -2949,43 +3700,80 @@ blockquote {
     font-size: 1em;
     padding: 0 60px; }
   #WhereTheresSmokeTheresFire .col-right p {
-    padding: 0 0px 0 0;
+    padding: 0;
     -ms-flex-preferred-size: 50%;
     flex-basis: 90%;
     text-indent: 1em; }
   #TheQuestforEatingQuality header {
-    height: 50vh; }
+    height: calc(100vh - 60px);
+    background-position: 10%; }
     #TheQuestforEatingQuality header .desktop {
-      font-size: 3rem;
+      font-size: 3.5rem;
       left: 45px;
       top: 45px; }
   #TheQuestforEatingQuality .whole-half-image {
     padding: 45px 0; }
     #TheQuestforEatingQuality .whole-half-image img {
       width: 100%; }
-  #TheQuestforEatingQuality .largelamb img, #TheQuestforEatingQuality .col-whole-image img {
+  #TheQuestforEatingQuality .col-whole-image img,
+  #TheQuestforEatingQuality .largelamb img {
     width: 100%; }
   .lambboxsmall img {
     width: 30px !important;
     margin-top: 0 !important; }
+  #ChefEditorHandover section {
+    padding: 45px; }
+  #ChefEditorHandover h2 {
+    left: 0; }
+  #FastFacts header .desktop .numbers span:hover:before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-size: cover;
+    margin: 30px;
+    position: absolute;
+    top: -5rem;
+    left: -1rem !important; }
+  #FastFacts article {
+    height: 90vh;
+    overflow: hidden; }
   #FastFacts header .desktop {
-    left: 30px; }
+    left: 30px;
+    top: -5vh; }
     #FastFacts header .desktop .numbers {
-      width: 100%; }
+      width: 100%;
+      bottom: 90px; }
+  #FastFacts header .desktop .showlightgray img {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: -3rem;
+    left: 1rem;
+    font-size: 22px;
+    width: 22px;
+    margin-left: 0;
+    position: relative;
+    display: inline;
+    -webkit-animation: blink 1s infinite;
+    animation: blink 1s infinite; }
   #FastFacts header .desktop img {
     position: absolute;
     top: 90px;
     left: 10px; }
   #FastFacts .row section {
-    height: 70vh;
-    padding: 30px;
-    width: calc(100vw - 60px); }
-  #FastFacts h2, #FastFacts h1 {
+    height: 80vh;
+    padding: 45px;
+    width: calc(100vw - 90px); }
+  #FastFacts h1,
+  #FastFacts h2 {
     width: 60%;
     position: absolute;
     left: 40px;
-    font-size: 2rem;
-    line-height: initial; }
+    font-size: 1.5rem;
+    line-height: initial;
+    top: 60px; }
+  #FastFacts h1 {
+    top: 120px; }
   #FastFacts .numbers {
     left: 3px;
     position: absolute;
@@ -2996,77 +3784,113 @@ blockquote {
     font-family: 'LibreBodoni';
     width: calc(100% - 30px);
     text-align: left; }
-  .chef-editor .side {
+  #ChefEditorHandover .side {
     width: 100%;
     display: inline-block;
-    margin-left: 0%;
+    margin-left: 0;
     margin-top: 60px;
-    font-size: 1.1rem; }
-  .chef-editor h2 {
+    font-size: 0.9rem;
+    line-height: initial; }
+  #FastFacts #ChefEditorHandover section {
+    padding: 45px;
+    display: block; }
+  #FastFacts #ChefEditorHandover h2 {
     position: relative !important;
     top: initial !important;
-    width: 100% !important; }
-  .chef-editor h2:first-child {
-    position: absolute;
+    width: 100% !important;
+    left: 0 !important;
+    margin-bottom: 0; }
+  #ChefEditorHandover section {
+    display: block; }
+    #ChefEditorHandover section .side {
+      margin-bottom: 45px; }
+  #ChefEditorHandover h2:first-child {
+    position: initial;
     top: 60px;
-    width: 50% !important;
+    width: 100% !important;
     text-indent: 0; }
-  #OntheMenu header {
-    height: 50vh; }
-  #OntheMenu p {
-    font-size: 1.1rem; }
-  #OntheMenu .margin-top, #OntheMenu .top-margin {
+  #OnTheMenu .col-whole-half-image {
+    margin-bottom: 45px; }
+  #OnTheMenu .row .col-left:last-child {
+    margin-bottom: 0; }
+    #OnTheMenu .row .col-left:last-child h2 {
+      width: 111%; }
+      #OnTheMenu .row .col-left:last-child h2 img {
+        padding-left: 0; }
+  #OnTheMenu header {
+    height: calc(100vh - 90px);
+    background-position: 40px 52px;
+    background-size: calc(100% - 80px);
+    background-image: url(//images.contentful.com/a7w606b3ho4t/5YVNYr2ppeQOaoSWaS24yC/435adfe8a8eb7c52805a395a5c200c10/Screen_Shot_2018-01-05_at_3.17.47_PM.png) !important; }
+  #OnTheMenu p {
+    font-size: 0.9rem;
+    line-height: initial; }
+  #OnTheMenu .margin-top,
+  #OnTheMenu .top-margin {
     margin-top: 45px; }
-  #OntheMenu .row img {
+  #OnTheMenu .row img {
     width: 100%; }
-  #OntheMenu .desktop {
+  #OnTheMenu .row h2 img {
+    width: 22px; }
+  #OnTheMenu .row .col-whole {
+    margin-bottom: 45px; }
+  #OnTheMenu .desktop {
     width: calc(100% - 90px);
     padding: 0 45px;
-    right: initial; }
-  #OntheMenu .desktop p {
-    font-size: 1.1rem; }
-  #OntheMenu .col-left {
+    right: initial;
+    bottom: 60px; }
+  #OnTheMenu .desktop p {
+    font-size: 0.9rem;
+    line-height: initial; }
+  #OnTheMenu .col-left {
     padding-left: 45px; }
-  #OntheMenu .col-right {
+  #OnTheMenu .col-right {
     padding-left: 45px; }
-  #OntheMenu .col-left h2, #OntheMenu .col-right h2 {
+  #OnTheMenu .col-left h2,
+  #OnTheMenu .col-right h2 {
     font-size: 2rem;
     line-height: 1.5rem; }
-  #“Sumimasen—lambkudasi” .col-whole .col-left.blackfont {
+  #Sumimasenlambkudasi .col-whole .col-left.blackfont {
     width: calc(100% - 90px);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    line-height: initial;
     padding: 0 45px; }
-  #“Sumimasen—lambkudasi” .row > .col-whole > .col-one-eight {
+  #Sumimasenlambkudasi .row > .col-whole > .col-one-eight {
     display: none; }
-  #“Sumimasen—lambkudasi” .lambboxsmall {
+  #Sumimasenlambkudasi .lambboxsmall {
     margin: 45px auto 0;
     width: calc(100% - 45px);
     padding: 22.5px;
     margin: 45px 0; }
-    #“Sumimasen—lambkudasi” .lambboxsmall h2 {
+    #Sumimasenlambkudasi .lambboxsmall h2 {
       font-size: 2rem; }
-    #“Sumimasen—lambkudasi” .lambboxsmall img {
+    #Sumimasenlambkudasi .lambboxsmall img {
       right: 22.5px;
       left: initial; }
-  #“Sumimasen—lambkudasi” .mid-whole {
+  #Sumimasenlambkudasi .mid-whole {
     padding-left: 45px;
     padding-top: 0;
     padding-bottom: 0; }
-  #“Sumimasen—lambkudasi” .biglambbox ol {
+  #Sumimasenlambkudasi .biglambbox ol {
     width: 100%;
     flex-basis: 100%; }
-  #“Sumimasen—lambkudasi” .gif-left .col-left, #“Sumimasen—lambkudasi” .gif-right .col-left {
+  #Sumimasenlambkudasi .biglambbox ol:nth-child(4) {
+    padding-left: 0; }
+  #Sumimasenlambkudasi .gif-left .col-left,
+  #Sumimasenlambkudasi .gif-right .col-left {
     width: calc(100% - 90px);
     margin: 0 auto; }
-  #“Sumimasen—lambkudasi” .gif-left h2, #“Sumimasen—lambkudasi” .gif-right h2 {
+  #Sumimasenlambkudasi .gif-left h2,
+  #Sumimasenlambkudasi .gif-right h2 {
     font-size: 2rem;
-    padding: 45px 0;
+    padding: 22px 0 11px;
     margin: 0;
     border-top: 0;
     text-decoration: underline; }
   #ChefProfile .chef-profile-header ~ .col-left ~ .col-right {
     color: black;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    line-height: initial;
     width: calc(100% - 90px);
     float: none;
     padding-left: 0;
@@ -3076,13 +3900,14 @@ blockquote {
     padding: 22.5px 0; }
   #ChefProfile .chefbox {
     width: calc(100% - 120px);
-    margin: 0 auto 22.5px;
+    margin: 0 auto 45px;
     padding: 22px; }
     #ChefProfile .chefbox h2 {
       margin: 45px 0;
       font-size: 2rem; }
     #ChefProfile .chefbox h3 {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
+      line-height: initial;
       position: initial; }
     #ChefProfile .chefbox p {
       font-size: 1rem;
@@ -3118,4 +3943,395 @@ blockquote {
       margin-top: 0;
       padding-right: 0; }
   #ChefProfile .imageright .col-right {
-    padding-top: 0; } }
+    padding-top: 0; }
+  #TheQuestforEatingQuality .video_controls {
+    position: relative;
+    top: 80px;
+    opacity: 1;
+    width: calc(100%);
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex; }
+    #TheQuestforEatingQuality .video_controls .play_pause_mobile, #TheQuestforEatingQuality .video_controls .replay_mobile {
+      opacity: 1;
+      font-size: 1.5rem;
+      width: 28%; }
+  #TheQuestforEatingQuality .box-shape-outer ~ .col-left ~ .col-whole {
+    margin-bottom: 60px; }
+  .play {
+    display: none; }
+  .play-mobile {
+    position: absolute;
+    font-size: 5rem;
+    color: #120c0c;
+    opacity: 1;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 0rem;
+    right: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    transition: 0.5s ease; }
+    .play-mobile .play_pause_mobile {
+      background-color: #ffffff99;
+      left: 0;
+      right: 0;
+      display: inline-block;
+      padding: 1.5rem 1rem;
+      font-size: 2rem;
+      text-transform: capitalize;
+      z-index: 3;
+      width: 30%;
+      -webkit-transition: 0.5s ease;
+      -o-transition: 0.5s ease;
+      transition: 0.5s ease;
+      opacity: 0.1; }
+    .play-mobile:hover {
+      color: rgba(18, 12, 12, 0.560784) !important;
+      opacity: 1; }
+    .play-mobile .video_controls {
+      position: relative;
+      top: 60px;
+      opacity: 1;
+      width: calc(100% - 45px);
+      margin: 0 auto;
+      justify-content: space-between;
+      display: flex; }
+      .play-mobile .video_controls .play_pause_mobile, .play-mobile .video_controls .replay_mobile {
+        opacity: 1;
+        width: 28%; }
+  .video-hold {
+    width: 100%;
+    height: 300px; } }
+
+@media screen and (max-width: 320px) {
+  .App-header header small {
+    top: 30px; }
+  .App-header header h1 {
+    top: 60px; }
+  .App-header header h2 {
+    bottom: 30px; }
+  .App-header img {
+    max-width: 90px;
+    width: 90px;
+    top: calc(40vh - 130px); }
+  .play-mobile .video_controls {
+    top: 65px; }
+    .play-mobile .video_controls .play_pause, .play-mobile .video_controls .replay {
+      font-size: 1.5rem; }
+  #AndrewGaleGrossiFlorentino header {
+    height: 50vh;
+    margin-bottom: 0; }
+    #AndrewGaleGrossiFlorentino header .desktop {
+      right: 20px; }
+      #AndrewGaleGrossiFlorentino header .desktop h1 {
+        font-size: 2.2rem;
+        left: -45vw; }
+  #Sumimasenlambkudasi header h1 {
+    font-size: 2.5rem;
+    top: 60px;
+    position: relative; }
+  #Sumimasenlambkudasi header .desktop {
+    bottom: 45px; }
+  #Sumimasenlambkudasi .flagimage {
+    width: 100%; }
+    #Sumimasenlambkudasi .flagimage img {
+      width: 100%; }
+  #Sumimasenlambkudasi .sideHeader span:after {
+    display: none; }
+  #Sumimasenlambkudasi .biglambbox {
+    width: 50%; }
+    #Sumimasenlambkudasi .biglambbox h2 {
+      color: blue;
+      margin: 60px 0px 45px;
+      font-size: 1.5rem; }
+  #ChefProfile .chef-profile-header h2 {
+    position: absolute;
+    top: 45vh;
+    font-size: 1.1rem;
+    lefT: 60px; }
+  #OnTheMenu .col-whole ~ .col-left {
+    padding: 0 45px; }
+  #OnTheMenu h2 {
+    font-size: 1.9rem; }
+  #OnTheMenu .col-left span, #OnTheMenu .col-right span {
+    margin-left: 0px;
+    transform: unset;
+    display: inline-block;
+    margin-bottom: 10px; }
+  #OnTheMenu .col-left .below, #OnTheMenu .col-right .below {
+    border-left: 1px solid black;
+    margin-left: 0;
+    border: 2px solid #f4e5d2;
+    padding: 30px 30px 30px 0; } }
+
+/* Landscape */
+@media screen and (min-device-width: 320px) and (max-device-width: 750px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .show_caption h3 {
+    opacity: 1 !important; }
+  .show_caption img {
+    opacity: 0 !important; }
+  #lower {
+    position: relative;
+    top: 96vh;
+    background-color: white;
+    z-index: 1; }
+  #Sumimasenlambkudasi .sideHeader span::after {
+    width: 28px;
+    position: absolute;
+    top: -32px;
+    left: 120px;
+    content: "";
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition: 0.25s ease;
+    -o-transition: 0.25s ease;
+    transition: 0.25s ease;
+    display: none; }
+  .fullscreen {
+    display: none; }
+  .articleIndex {
+    height: 150vh;
+    top: -100vh; }
+    .articleIndex h1:hover {
+      color: unset; }
+    .articleIndex h1:hover ~ img {
+      opacity: 0;
+      display: none;
+      height: 0; }
+    .articleIndex .desktop {
+      display: none; }
+    .articleIndex .mobile {
+      display: none; }
+    .articleIndex .mobile-portrait {
+      display: block; }
+  .App-header header {
+    height: 100vh; }
+    .App-header header small {
+      top: 30px; }
+    .App-header header h1 {
+      top: 60px; }
+  .App-header small {
+    top: 30px; }
+  .App-header h2 {
+    width: 100px;
+    bottom: 30px; }
+  .sideHeader {
+    transition: 0s;
+    top: 50px;
+    font-size: .9rem; }
+    .sideHeader .back {
+      left: 120px; }
+  .fixSub .sideHeader {
+    top: 30px !important; }
+    .fixSub .sideHeader .back {
+      left: 120px; }
+  .App-header {
+    margin-top: 0; }
+  .articleIndex h3 {
+    padding: 0 0 45px; }
+  .row {
+    font-size: 1rem;
+    line-height: initial; }
+  .App nav {
+    display: none; }
+  #EditorsLetters h2 {
+    margin-bottom: 0px;
+    font-size: 2.5em; }
+  #EditorsLetters .col-left {
+    padding-bottom: 0; }
+  #EditorsLetters .col-right {
+    padding-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0; }
+  #EditorsLetters .col-right:last-child {
+    padding-bottom: 0; }
+  #EditorsLetters .row {
+    margin-bottom: 0; }
+    #EditorsLetters .row p {
+      font-size: 1rem; }
+  #EditorsLetters img {
+    width: 169px;
+    float: left;
+    padding-right: 30px;
+    padding-bottom: 15px; }
+  .photo_caption_nohover {
+    float: none;
+    padding-left: 90px;
+    display: block;
+    font-size: 8px;
+    clear: both;
+    text-align: left;
+    margin-top: 15px;
+    color: black; }
+  #LambLeg header h2 {
+    font-size: 1.25rem; }
+  #TwoUnderTen .row .col-left:first-child p {
+    font-size: 1rem;
+    line-height: initial; }
+  #TwoUnderTen .chef-info p, #OnTheMenu p,
+  #Sumimasenlambkudasi .col-whole .col-left.blackfont,
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont,
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont .blackfont,
+  #Sumimasenlambkudasi .col-whole .col-right.blackfont {
+    font-size: 1rem; }
+  #WhereTheresSmokeTheresFire header {
+    height: calc(100vh - 100px);
+    background-size: 75%;
+    background-position-x: right;
+    background-position-y: 58px; }
+    #WhereTheresSmokeTheresFire header .desktop {
+      width: 50%;
+      bottom: 33px;
+      font-size: 1rem;
+      left: 60px;
+      width: 50%; }
+  #WhereTheresSmokeTheresFire .middle-image img {
+    margin: 0px auto 90px; }
+  #WhereTheresSmokeTheresFire .col-left p, #WhereTheresSmokeTheresFire .col-right p {
+    font-size: 1rem; }
+  #TheQuestforEatingQuality header .desktop {
+    top: 60px; }
+    #TheQuestforEatingQuality header .desktop p {
+      font-size: 3.5rem;
+      line-height: 3rem; }
+  #TheQuestforEatingQuality .box-image {
+    margin-top: 0; }
+  #AndrewGaleGrossiFlorentino header img {
+    max-width: 100px;
+    margin: 15px 0; }
+  #AndrewGaleGrossiFlorentino header .desktop {
+    font-size: 1.3rem;
+    right: 0; }
+    #AndrewGaleGrossiFlorentino header .desktop h1 {
+      font-size: 3rem; }
+  #TwoUnderTen header {
+    background-size: 90%; }
+    #TwoUnderTen header .desktop {
+      bottom: 65px;
+      font-size: 1rem;
+      width: 260px;
+      left: 60px; }
+  #TwoUnderTen .addpadd {
+    margin-top: 0; }
+    #TwoUnderTen .addpadd .col-six-eight {
+      padding-top: 0; }
+  #TwoUnderTen .middle-image {
+    margin: 90px auto; }
+  #TwoUnderTen .col-two-eight .number {
+    font-size: 5rem;
+    padding: 45px 60px; }
+  #TwoUnderTen .col-fourth {
+    width: 45%;
+    display: inline-block; }
+    #TwoUnderTen .col-fourth h2 {
+      font-size: inherit;
+      margin-bottom: 15px; }
+  #TwoUnderTen h2 u {
+    font-size: inherit; }
+  #TwoUnderTen .ingredients ul {
+    font-size: 2.5rem; }
+    #TwoUnderTen .ingredients ul li {
+      font-size: smaller; }
+  #OnTheMenu header {
+    background-size: 90%; }
+    #OnTheMenu header .desktop {
+      bottom: 0;
+      width: 55%; }
+      #OnTheMenu header .desktop p {
+        font-size: 1rem; }
+  #OnTheMenu .row {
+    margin-top: 45px; }
+    #OnTheMenu .row .col-whole, #OnTheMenu .row .col-whole-half-image {
+      margin-bottom: 30px; }
+  #Sumimasenlambkudasi .gif-left .col-left.desktop {
+    display: block; }
+  #Sumimasenlambkudasi .col-white.mobile {
+    display: none; }
+  #Sumimasenlambkudasi .gif-left .col-right {
+    width: 47%;
+    padding-left: 30px; }
+  #Sumimasenlambkudasi header h1 {
+    margin-top: -130px;
+    font-size: 3rem; }
+  #Sumimasenlambkudasi header .desktop {
+    position: absolute;
+    bottom: 60px;
+    lefT: initial;
+    width: 32%;
+    text-align: right;
+    font-weight: 100;
+    right: 90px;
+    font-size: 1.5rem; }
+  #FastFacts header .desktop img {
+    top: 30px; }
+  #FastFacts header .desktop .numbers {
+    bottom: 0px;
+    font-size: 2.8rem; }
+    #FastFacts header .desktop .numbers .showlightgray img {
+      position: absolute;
+      left: .5rem; }
+    #FastFacts header .desktop .numbers span:hover:before {
+      left: .5rem !important; }
+  #FastFacts h2, #FastFacts h1 {
+    left: 60px;
+    font-size: 1.65rem;
+    float: left;
+    margin-right: 30%; }
+  #FastFacts h1 {
+    top: 130px; }
+  #ChefEditorHandover section {
+    justify-content: start;
+    padding: 60px; }
+    #ChefEditorHandover section .row {
+      padding-bottom: 0; }
+      #ChefEditorHandover section .row .col-whole {
+        margin-bottom: 0; }
+    #ChefEditorHandover section h2:first-child {
+      font-size: 2.5rem;
+      flex-basis: 100%; }
+    #ChefEditorHandover section .side {
+      width: 100%;
+      margin-top: 30px; }
+    #ChefEditorHandover section .video-hold {
+      margin-top: 45px;
+      width: 100%;
+      text-indent: 0; }
+  #NextIssue header {
+    justify-content: start;
+    height: auto; }
+  #NextIssue section {
+    padding-top: 0; }
+    #NextIssue section .row {
+      padding-bottom: 0; }
+      #NextIssue section .row img {
+        max-width: 150px; }
+  #NextIssue .desktop {
+    position: relative; }
+    #NextIssue .desktop p {
+      margin-bottom: 0;
+      margin-top: 15px; }
+    #NextIssue .desktop h2 {
+      font-size: 1.5rem;
+      margin-top: 45px;
+      margin-bottom: 0; }
+  #ChefProfile .chef-profile-header ~ .col-left ~ .col-right {
+    font-size: 1rem;
+    padding-top: 60px; }
+  #ChefProfile .chef-profile-header h1 {
+    font-size: 4.5rem; }
+  #ChefProfile .chef-profile-header h2 {
+    font-size: 1.5rem;
+    left: 19%; } }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .video_controls {
+    display: none !important; }
+  .video-hold {
+    margin-bottom: 0;
+    height: auto; }
+  #TheQuestforEatingQuality .box-shape-outer ~ .col-left ~ .col-whole {
+    margin-bottom: 0px; } }

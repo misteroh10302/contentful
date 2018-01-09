@@ -24,10 +24,26 @@ p {
   margin: 0;
 }
 
+.fullscreenvideo_display {
+    #LambLeg video {
+      margin: 0 auto;
+      margin-top: 90px;
+      width: 100%;
+      margin-bottom: 40vh;
+  }
+}
+
+#ChefProfile {
+    width: 100%;
+  }
+
 
 #Sumimasenlambkudasi {
   .col-whole:last-child .photo_caption_nohover {
    padding-bottom: 60px;
+ }
+ .col-white {
+   width: 100%;
  }
 }
 
@@ -175,6 +191,12 @@ img {
 
   .video_controls {
     display: flex;
+    display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+     display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+     display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+     display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+     display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+     display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
     height: 30%;
     flex-direction: row;
     text-align: center;
@@ -372,12 +394,82 @@ h5 {
   overflow: hidden;
 }
 
+.share {
+  display: none;
+}
+
+.share-open {
+  position: fixed;
+    top: calc(50vh - 130px);
+    width: 300px;
+    z-index: 999;
+    background-color: #fff;
+    display: block;
+    left: 0;
+    right: 0;
+    height: auto;
+    margin: 0 auto 30px;
+    padding: 30px;
+    span {
+      float: right;
+      font-size: 12px;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-family: "SansMain";
+      text-transform: uppercase;
+    }
+    h3 {
+      font-family: "SansMain";
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    img {
+      width: 50%;
+    }
+
+    .share_button_wrap {
+      display: flex;
+      justify-content: space-between;
+      .share_button {
+        font-family: "SansMain";
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        font-size: 13px;
+        cursor: pointer;
+        color:white;
+        width: 35%;
+        flex-basis: 35%;
+        padding: 15px;
+        margin-top: 30px;
+        background-color: #cf3935;
+      }
+    }
+}
+
 .form-open {
   position: fixed;
   top: 70px;
   width: 100%;
+  max-width: 800px;
   z-index: 999;
-
+  margin: 0 auto;
+  left:0;
+  right:0;
+  background-color: #e10d1c;
+  span {
+    float: none;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-family: "SansMain";
+    text-transform: uppercase;
+    color:white;
+  }
   iframe {
     width: 800px;
     height: 600px;
@@ -539,6 +631,12 @@ video::-internal-media-controls-download-button {
   background-size: cover;
   background-position: center;
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+  display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+  display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+  display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+  display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+  display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   flex-direction: column;
   justify-content: center;
 }
@@ -554,6 +652,12 @@ article header {
   height: 100vh;
   background-size: cover;
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   flex-direction: column;
   justify-content: center;
   background-position: center;
@@ -561,6 +665,12 @@ article header {
 
 article section {
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   flex-direction: row;
   justify-content: center;
   padding: 90px;
@@ -579,9 +689,16 @@ article section {
   font-size: 1.35em;
   line-height: 1.15em;
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   flex-wrap: wrap;
   padding: 0;
   justify-content: space-between;
+  width: 100%;
 }
 
 .row img {
@@ -676,6 +793,12 @@ blockquote {
   height: 100vh;
   background-size: cover;
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   flex-direction: row;
   justify-content: center;
 }
@@ -700,6 +823,7 @@ blockquote {
 
 .editors p {
   text-indent: 1.25em;
+  width: 100%;
 }
 
 .videoBackground header {
@@ -866,17 +990,22 @@ blockquote {
 }
 
 #LambLeg .video-hold {
-  width: 70%;
+  width: calc(100% - 180px);
+  text-indent: 0;
 }
 #LambLeg video {
   margin: 0 auto;
   margin-top: 90px;
-  width: 90%;
+  width: 100%;
   margin-bottom: 180px;
 }
 
 #LambLeg .video_controls {
   bottom: 20%;
+}
+#LambLeg section {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #LambLeg .desktop {
@@ -1031,6 +1160,9 @@ blockquote {
     margin-top: 0;
   }
 
+  .video-hold {
+    width: calc(100% - 180px);
+  }
   .whole-half-image {
     .image-inline {
       width: 50%;
@@ -1104,6 +1236,12 @@ blockquote {
 
 #WhereTheresSmokeTheresFire blockquote {
   display: flex;
+  display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
   justify-content: center;
   flex-direction: column;
   font-size: 1.25em;
@@ -1113,6 +1251,7 @@ blockquote {
 
 #WhereTheresSmokeTheresFire blockquote p {
   max-width: 50%;
+  width: 50%;
   margin: $primary-padding*6 auto $primary-padding*12;
 }
 
@@ -1258,7 +1397,7 @@ blockquote {
 #AndrewGaleGrossiFlorentino header {
   justify-content: flex-start;
   padding-top: 90px;
-  margin-bottom: $primary-padding*6;
+  margin-bottom: $primary-padding*2;
 }
 
 #AndrewGaleGrossiFlorentino article section {
@@ -1341,7 +1480,7 @@ blockquote {
     padding-bottom: 0;
 
     section {
-      left: -50vw;
+      left: 0vw;
     }
   }
 
@@ -1448,6 +1587,12 @@ blockquote {
     bottom: 6rem;
     font-size: 4rem;
     display: flex;
+    display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+ display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+ display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+ display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+ display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+ display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
     font-family: 'LibreBodoni';
     width: calc(100% - 90px);
 
@@ -1545,8 +1690,10 @@ blockquote {
 }
 ///CHEF
 #ChefProfile {
+    width: 100%;
   p {
     margin: 0;
+    width: 100%;
   }
 
   .chef-profile-header ~ .col-left ~ .col-right {
@@ -1710,6 +1857,11 @@ blockquote {
     }
   }
 
+  .nofloatmob {
+    .col-white {
+      width: 100%;
+    }
+  }
   .col-left {
     padding-right: 0;
     padding-left: 90px;
@@ -2159,6 +2311,9 @@ blockquote {
   .mobile_pairing {
     display: none;
   }
+  .video-hold {
+    width: calc(100% - 180px);
+  }
   * {
     text-indent: 0;
   }
@@ -2347,6 +2502,9 @@ blockquote {
 #TheQuestforEatingQuality {
   .video-hold {
     height: auto;
+    position: relative;
+        width: calc(100vw - 180px);
+    text-indent: 0;
   }
 
   .box-shape .full {
@@ -2547,14 +2705,22 @@ blockquote {
   min-height: 105vh;
   height: initial !important;
 
+  .video-hold {
+    position: relative;
+    width: calc(100vw - 180px);
+    left: 0;
+    text-indent: 0;
+  }
   header {
     display: none;
+    width: 100%
   }
 
   section {
     background-color: rgb(251, 249, 242);
-    padding: 90px;
+    padding: 90px 0;
     flex-wrap: wrap;
+        width: 100%;
 
     .chef-editor {
       padding: 0;
@@ -2567,12 +2733,13 @@ blockquote {
 
   h2:first-child {
     position: initial;
-    top: 60px;
-    width: 50% !important;
-    text-indent: 0;
-    flex-basis: 50%;
-    font-size: 3.5rem;
-    line-height: initial;
+  top: 60px;
+  width: 30% !important;
+  text-indent: 0;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 42%;
+  font-size: 3.5rem;
+  line-height: initial;
 
     img {
       display: none !important;
@@ -2593,8 +2760,9 @@ blockquote {
   }
 
   .side {
-    width: 50%;
+    width: 40%;
     display: inline-block;
+    padding: 0px 0px 0 0;
   }
 }
 /// On the Menu
@@ -2874,6 +3042,17 @@ blockquote {
   .sideHeader {
     left: 18%;
   }
+  #FastFacts .row section {
+    height: 100vh;
+    padding: 60px;
+    width: calc(100vw - 180px);
+    left: 0;
+    max-width: 1410px;
+}
+
+  .video-hold {
+    width: 100% !important;
+  }
 
   .App nav {
     position: fixed;
@@ -3051,6 +3230,8 @@ blockquote {
   #TheQuestforEatingQuality .box-image {
     width: 50%;
   }
+
+
 
 
   #WhereTheresSmokeTheresFire header {
@@ -3401,6 +3582,8 @@ blockquote {
       max-width: 500px;
     }
 
+
+
     .ingredients li {
       font-size: 3rem;
       line-height: initial;
@@ -3589,9 +3772,25 @@ blockquote {
 }
 // MEDIA QUERY 786
 @media screen and (max-width: 786px) {
+  #ChefEditorHandover article > section {
 
+      width: calc(100% - 120px);
+  }
+
+  #TheQuestforEatingQuality {
+    .video-hold {
+      height: auto;
+      position: initial;
+      width: calc(100vw - 120px);
+      left: 0px;
+      text-indent: 0;
+    }
+  }
   .row {
     font-size: 1.2rem;
+  }
+  #TheQuestforEatingQuality .col-whole-image.mobile {
+      display: block;
   }
 
   .desktop-pairing {
@@ -3689,6 +3888,8 @@ blockquote {
       h3 {
         margin-top: 60px;
         left: 60px;
+        position: initial;
+        margin-bottom: 30px;
       }
     }
 
@@ -3696,7 +3897,20 @@ blockquote {
       position: initial;
       float: none;
       width: 100%;
-      margin-bottom: 60px;
+      margin-bottom: 0px;
+    }
+    section {
+      padding-left:0;
+      padding-right: 0;
+    }
+    .video-hold {
+      margin-top: 0;
+      width: 100%;
+      text-indent:0;
+      video {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
 
     .desktop {
@@ -3706,6 +3920,12 @@ blockquote {
       flex-basis: 100%;
       padding-left: 0;
       margin-bottom: 60px;
+      ~ h3 {
+        display: none;
+      }
+      .desktop {
+        display: none !important;
+      }
     }
   }
   /// FAST
@@ -3867,6 +4087,7 @@ blockquote {
       height: 50vh;
 
       p {
+        width: 100%;
         max-width: 100%;
         margin-top: 260px;
       }
@@ -4474,11 +4695,39 @@ blockquote {
 
 //MOBILE STYLES
 @media screen and (max-width: 450px) {
+  #ChefEditorHandover article > section {
+
+      width: calc(100% - 90px);
+  }
+  .share-open {
+    position: fixed;
+    top: calc(50vh - 130px);
+    max-width: 279px;
+    padding: 15px;
+    z-index: 999;
+    background-color: #fff;
+    display: block;
+    left: 0;
+    right: 0;
+    height: auto;
+    margin: 0 auto 30px;
+    padding: 15px;
+}
+  #ChefEditorHandover section {
+        width: calc( 100% - 90px);
+        .video-hold {
+          position: initial;
+        }
+    }
+    #ChefEditorHandover .chef-editor {
+          width:100%;
+      }
 
   #TheQuestforEatingQuality .desktop p {
     text-indent: 0;
     text-transform: capitalize;
   }
+
     .App nav img {
       width: 120px;
     float: left;
@@ -5685,7 +5934,7 @@ blockquote {
   }
 
   #ChefEditorHandover .side {
-    width: 100%;
+    width: calc(100%);
     display: inline-block;
     margin-left: 0;
     margin-top: 60px;
@@ -5719,9 +5968,15 @@ blockquote {
   #ChefEditorHandover h2:first-child {
     position: initial;
     top: 60px;
-    width: 100% !important;
+    width: calc(100% - 90px) !important;
     text-indent: 0;
   }
+
+  #ChefEditorHandover .video-hold {
+    position: relative;
+    width: 100%;
+    text-indent: 0;
+}
 
   #OnTheMenu {
     .col-whole-half-image {
@@ -6037,7 +6292,7 @@ blockquote {
   }
 
   .video-hold {
-    width: 100%;
+    width: 100% !important;
     height: 300px;
   }
 }
@@ -6147,8 +6402,32 @@ blockquote {
 
   $headerHeight:  calc(100vh - 100px);
 
+      .share-open {
+        position: fixed;
+        top: calc(50vh - 90px);
+        max-width: 279px;
+        padding: 15px;
+        z-index: 999;
+        background-color: #fff;
+        display: block;
+        left: 0;
+        right: 0;
+        height: auto;
+        margin: 0 auto 30px;
+        padding: 15px;
+    }
+  #ChefEditorHandover section {
+
+        .video-hold {
+          position: initial;
+        }
+    }
   .play {
     display: none;
+  }
+
+  #AndrewGaleGrossiFlorentino .row  {
+      margin-top: 60px;
   }
   #LambLeg .desktop {
       position: initial;
@@ -6379,6 +6658,7 @@ blockquote {
     //The Quest
     #TheQuestforEatingQuality {
       header {
+        height: 107vh;
         .desktop {
           top: 60px;
           p {
@@ -6444,6 +6724,7 @@ blockquote {
         }
         width: 45%;
         display: inline-block;
+            vertical-align: top;
       }
       h2 u {
             font-size: inherit;
@@ -6610,6 +6891,41 @@ blockquote {
       }
     }
 
+}
+
+     /* iphone 7, 8 */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+  #NextIssue .row img {
+      max-width: 300px;
+      width: 200px !important;
+      height: auto;
+      margin-top: 0;
+  }
+}
+
+
+
+     /* iphone X */
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) {
+
+  #NextIssue .row img {
+      max-width: 300px;
+      width:305px;
+      height: auto;
+      margin-top: 0;
+  }
+ }
+
+ /* iphone 6+, 6s+, 7+, 8+ */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px)  {
+
+  #NextIssue .row img {
+    max-width: 300px;
+    width: 260px;
+    height: auto;
+    margin-top: 0;
+  }
 }
 
 @media only screen

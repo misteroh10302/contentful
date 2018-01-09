@@ -13,12 +13,14 @@
     "react-canvas-component": "^0.1.5",
     "react-dom": "^15.6.1",
     "react-facebook": "^4.2.1",
+    "react-ga": "^2.4.0",
     "react-on-images-loaded": "^2.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "react-scrollable-anchor": "^0.5.0",
-    "react-scrollchor": "^4.0.0"
+    "react-scrollchor": "^4.0.0",
+    "uglify-js": "^3.3.5"
   },
   "scripts": {
     "start": "react-scripts-with-sass start",

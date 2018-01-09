@@ -3,6 +3,7 @@ import './App.css';
 import Marked from 'marked';
 import Scrollchor from 'react-scrollchor';
 import $ from 'jquery'
+var OnImagesLoaded = require('react-on-images-loaded');
 
 
 class Posts extends Component {
@@ -57,7 +58,7 @@ class Posts extends Component {
          }, 1000);
        },9000);
 
-      
+
   }
 
   componentDidUpdate(){

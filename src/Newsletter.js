@@ -17,8 +17,8 @@ class Newsletter extends Component {
   render() {
     return (
       <div className={this.props.isOpen}>
-      <iframe src="http://raremedium.monkeylabs.com.au/iframe-signup-form/" frameborder="0"></iframe>
-
+        <span onClick={this.props.closeForm}><smaller>close </smaller></span>
+      <iframe src="https://raremedium.com.au/iframe-signup-form/" frameborder="0"></iframe>
       </div>
     );
   }

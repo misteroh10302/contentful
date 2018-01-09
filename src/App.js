@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Posts from "./Posts";
 import Newsletter from "./Newsletter";
+import Share from "./Share";
 import Scrollchor from 'react-scrollchor';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
+import ReactGA from 'react-ga';
 // import FacebookProvider, { Share } from 'react-facebook';
 // import Canvas from 'react-canvas-component'
 
@@ -22,10 +24,16 @@ class App extends Component {
       stateName: props.theName,
       height: 'auto',
       openForm: "form",
+      openShare: "share",
       fullscreen:'false'
     }
     this.clickImage = this.clickImage.bind(this);
 
+    ReactGA.initialize('UA-112061815-1');
+    // This just needs to be called once since we have no routes in this case.
+    ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview('/');
+    ReactGA.pageview('/AutumnLamb');
   }
 
   componentWillMount(){
@@ -70,29 +78,10 @@ class App extends Component {
     var scrollPosition;
       var savedScrollPosition;
 
-      window.addEventListener('scroll', function() {
-          scrollPosition = window.scrollY;
-      });
 
       var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-      window.addEventListener('orientationchange', function(event) {
-          if (Math.abs(window.orientation) === 90) {
-              savedScrollPosition = scrollPosition;
-          } else {
-              if (isIOS) {
-                  var retryScroll = setInterval(function () {
-                      if (window.scrollX === 0 && window.scrollY == savedScrollPosition) {
-                          clearInterval(retryScroll);
-                      } else {
-                          window.scrollTo(0, savedScrollPosition);
-                      }
-                  }, 1 );
-              } else {
-                  window.scrollTo(0, savedScrollPosition);
-              }
-          }
-      });
+
     window.addEventListener("resize", this.updateDimensions);
 
     var that = this;
@@ -215,8 +204,8 @@ class App extends Component {
       function exitHandler() {
           if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
               ///fire your event
-                $('.fullscreen_open').removeClass('fullscreen_open');
-                  $('.fullscreenvideo').css('display','block');
+                $('body').removeClass('fullscreenvideo_display');
+                $('.fullscreenvideo').css('display','block');
           }
       }
 
@@ -594,9 +583,10 @@ class App extends Component {
           // Using jQuery's animate() method to add smooth page scroll
           // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
           $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 0, function(){
+            scrollTop: $(hash).offset().top + 1
 
+          }, 0, function(){
+            $(hash).addClass('fixsub');
             // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
           });
@@ -605,15 +595,7 @@ class App extends Component {
     });
 
 
-      const FB = window.FB;
-        document.getElementById('shareBtn').onclick = function(e) {
-          e.preventDefault;
-          FB.ui({
-            method: 'share',
-            display: 'popup',
-            href: 'www.raremedium.com.au',
-          }, function(response){});
-        }
+
 
 
   }
@@ -635,10 +617,27 @@ class App extends Component {
     }
 
   }
+  openShare(){
+    if (this.state.openShare === 'share-open') {
+      this.setState({
+        openShare: 'share'
+      });
+    }  else{
+      this.setState({
+        openShare: 'share-open'
+      });
+    }
+
+  }
 
   closeNews(){
     this.setState({
       openForm: 'hidden'
+    });
+  }
+  closeShare(){
+    this.setState({
+      openShare: 'hidden'
     });
   }
 
@@ -797,14 +796,14 @@ class App extends Component {
               </a>
             </div>
             <div className="nav_left">
-              <a id="shareBtn" >Share</a>
+              <a onClick={this.openShare.bind(this)}>Share</a>
               <a target="_blank" href="http://raremedium.com.au/">Raremedium.com.au</a>
-              <a target="_blank" href="http://raremedium.com.au/emag/">
+
                 <div className="newsButton" onClick={this.openNews.bind(this)}>
                   <h3>EMAG</h3>
                   <h3>Sign up </h3>
                 </div>
-              </a>
+          
 
             </div>
           </nav>
@@ -836,6 +835,7 @@ class App extends Component {
           </div>
         </section>
         <Newsletter isOpen={this.state.openForm} closeForm={this.closeNews.bind(this)}/>
+        <Share isOpen={this.state.openShare} closeForm={this.closeShare.bind(this)}/>
 
       </div>
     );

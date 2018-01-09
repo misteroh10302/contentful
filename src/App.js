@@ -68,6 +68,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+
     // Set the sticky height of the articles
         const height = this.articleEl.clientHeight - 220;
         this.setState({ height });
@@ -75,6 +76,7 @@ class App extends Component {
 
 
   componentDidUpdate(){
+
     var scrollPosition;
       var savedScrollPosition;
 
@@ -182,8 +184,8 @@ class App extends Component {
         $(showlightgray).find('img').css('opacity','1');
     });
 
-      // Add controls to all videos
-      allVideos.forEach(function(e){
+
+      $(allVideos).each(function(index,e){
         if ($(e).find('.play-mobile').length !== 0) {
           return;
         } else {
@@ -343,7 +345,7 @@ class App extends Component {
 
       // Create a hover effect for images with inline image
       if ($(image_inline).length < allImagesLength + paddockHover.length + photo_cap_image.length) {
-        allImages.forEach(function(e){
+        $(allImages).each(function(index,e){
            // Check to see if the element already has a title element added
           // If it does not add one
             var newDiv = document.createElement('h3');
@@ -358,7 +360,7 @@ class App extends Component {
             $(e).after(newDiv);
         })
         // Create a hover effect for the images in the paddock story
-        paddockHover.forEach(function(e){
+        $(paddockHover).each(function(index,e){
            // Check to see if the element already has a title element added
           // If it does not add one
             var newDiv = document.createElement('h3');
@@ -458,7 +460,7 @@ class App extends Component {
       // If the scroll top is greater than the scroll top of the element add a class activeArticle
       // Else if the scroll top is greater than the height of the element remove class astiveArticle
       // else if the scroll top is less than the top of the element + the height remove class activeArticle
-      addsideHeader.forEach((e) => {
+      $(addsideHeader).each((index,e) => {
         var docViewTop = $(window).scrollTop();
         var docViewBottom = docViewTop + $(window).height();
 
@@ -803,7 +805,7 @@ class App extends Component {
                   <h3>EMAG</h3>
                   <h3>Sign up </h3>
                 </div>
-          
+
 
             </div>
           </nav>

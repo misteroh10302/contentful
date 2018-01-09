@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-  
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -25,7 +25,19 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
 
   </head>
+
   <body>
+    <script>
+    Array.prototype.forEach = function(callback, thisArg) {
+      if(typeof(callback) !== "function") {
+        throw new TypeError(callback + " is not a function!");
+      }
+      var len = this.length;
+      for(var i = 0; i < len; i++) {
+        callback.call(thisArg, this[i], i, this)
+      }
+      }
+    </script>
     <div id="fb-root"></div>
       <script>
       window.fbAsyncInit = function() {

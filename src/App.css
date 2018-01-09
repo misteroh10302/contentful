@@ -10,6 +10,63 @@ html {
 p {
   margin: 0; }
 
+@supports (-ms-ime-align: auto) {
+  .play {
+    display: none !important; }
+  #WhereTheresSmokeTheresFire .sideimage img {
+    max-width: 100% !important; }
+  #FastFacts .row section {
+    max-width: calc(100vw - 137px); }
+  .fixSub .sideHeader {
+    position: absolute !important; }
+  .App-header header {
+    position: relative !important;
+    z-index: auto; }
+  .App-intro > article, .articleIndex {
+    position: relative !important;
+    top: 100vh !important; }
+  .App-header img {
+    position: relative !important;
+    top: 10px !important;
+    left: 12px !important; } }
+
+_:-ms-lang(x) .play, .ie10up .play {
+  display: none !important; }
+
+_:-ms-lang(x) #FastFacts .row section, .ie10up #FastFacts .row section {
+  max-width: calc(100vw - 137px); }
+
+_:-ms-lang(x) .fixSub .sideHeader, .ie10up .fixSub .sideHeader {
+  position: absolute !important; }
+
+_:-ms-lang(x) #WhereTheresSmokeTheresFire .sideimage img, .ie10up #WhereTheresSmokeTheresFire .sideimage img {
+  max-width: 85% !important; }
+
+_:-ms-fullscreen .play, :root .CLASS_NAME .play {
+  display: none !important; }
+
+_:-ms-fullscreen #FastFacts .row section, :root .CLASS_NAME #FastFacts .row section {
+  max-width: calc(100vw - 137px); }
+
+_:-ms-fullscreen .fixSub .sideHeader, :root .CLASS_NAME .fixSub .sideHeader {
+  position: absolute !important; }
+
+_:-ms-fullscreen #WhereTheresSmokeTheresFire .sideimage img, :root .CLASS_NAME #WhereTheresSmokeTheresFire .sideimage img {
+  max-width: 85% !important; }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .play {
+    display: none !important; }
+  #FastFacts .row section {
+    max-width: calc(100vw - 137px); }
+  #lower {
+    overflow: hidden; }
+  .fixSub .sideHeader {
+    position: absolute !important; }
+  #WhereTheresSmokeTheresFire .sideimage img {
+    max-width: 100% !important; } }
+
 .fullscreenvideo_display #LambLeg video {
   margin: 0 auto;
   margin-top: 90px;
@@ -1231,7 +1288,7 @@ blockquote {
     top: 0;
     font-size: 4rem;
     line-height: initial;
-    width: calc(100vw - 60px);
+    width: calc(100vw - 90px);
     left: 60px;
     bottom: initial; }
     #FastFacts header .desktop .numbers {

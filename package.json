@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "contentful": "^5.0.5",
+    "es6-shim": "^0.35.3",
     "jquery": "^3.2.1",
     "marked": "^0.3.6",
     "react": "^15.6.1",
@@ -20,6 +21,7 @@
     "react-scripts": "1.0.13",
     "react-scrollable-anchor": "^0.5.0",
     "react-scrollchor": "^4.0.0",
+    "stickyfilljs": "^2.0.3",
     "uglify-js": "^3.3.5"
   },
   "scripts": {
@@ -33,6 +35,7 @@
     "create-react-app-sass": "^1.1.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "stickybits": "^2.0.13",
     "uglify-js-brunch": "^2.10.0"
   }
 }

@@ -4,11 +4,6 @@ import './App.css';
 
 class Share extends Component {
 
-  constructor(props) {
-    super(props);
-
-  }
-
 
   componentWillMount(){
 
@@ -18,11 +13,13 @@ class Share extends Component {
     const FB = window.FB;
       document.getElementById('shareBtnFace').onclick = function(e) {
         e.preventDefault;
-        FB.ui({
+          FB.ui({
           method: 'share',
           display: 'popup',
           href: 'http://raremedium.com.au/',
-        }, function(response){});
+        }, function(response){
+          
+        });
       }
 
   }

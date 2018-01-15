@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import App from "./App";
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 // import Canvas from 'react-canvas-component'
 
 var contentful = require('contentful')
@@ -47,7 +47,7 @@ class AppRoute extends Component {
     index = this.state.homepage.map(function(index,i) {
       if (index.fields.currentIssue){
         return(
-          <div>
+          <div  key={`${i}-${index.sys.id}`} >
             <Route key={`${i}-${index.sys.id}`} exact path="/" children={({match}) => {
                   if (match) return  <App key={index} theName={index.fields.issueNumberMain} >
               </App>
@@ -63,7 +63,6 @@ class AppRoute extends Component {
     });
     return (
       <BrowserRouter >
-
             <nav>
                 {this.state.homepage.map((nav, i) =>
                      <Route key={`${i}-${nav.sys.id}`} path={"/" + nav.fields.magazineTitle.replace(/ /g,'').replace(/'/g,'').replace(/$/g,'')} tag={nav.title} children={({match}) => {

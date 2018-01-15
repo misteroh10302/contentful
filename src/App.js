@@ -77,12 +77,6 @@ class App extends Component {
 
   componentDidUpdate(){
 
-    var scrollPosition;
-      var savedScrollPosition;
-
-
-      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
 
     window.addEventListener("resize", this.updateDimensions);
 
@@ -93,7 +87,6 @@ class App extends Component {
     // Wrap each image in a div called image-inline to create a backgroundColor
     // Make an on click event for mobile
     var allImagesLength = allImages.length;
-    var allVideosLength = allVideos.length;
 
 
 
@@ -213,7 +206,7 @@ class App extends Component {
 
 
       $(document).on('keydown',function(evt) {
-            if (evt.keyCode == 27) {
+            if (evt.keyCode === 27) {
 
               $('.fullscreen_open').removeClass('fullscreen_open');
               $('body').addClass('fullscreenvideo_display');
@@ -233,11 +226,15 @@ class App extends Component {
       $(fullscreen_video).on('click',function(e){
           var element = e.target.parentElement.parentElement.parentElement;
           if(fullscreenT === false) {
+
             element.classList.add('fullscreen_open');
             if (element.requestFullscreen) {
               element.requestFullscreen();
             } else if (element.msRequestFullscreen) {
-              element.msRequestFullscreen();
+              if (element === document.documentElement) { //check element
+                  element = document.body; //overwrite the element (for IE)
+              }
+              $('.App').msRequestFullscreen();
             } else if (element.mozRequestFullScreen) {
               element.mozRequestFullScreen();
             } else if (element.webkitRequestFullscreen) {
@@ -502,7 +499,7 @@ class App extends Component {
         var stopBottom = elemBottom / 2;
         var video_controls = $(this).parent();
         var currentText  = $(video_controls).find('.play_pause')[0].innerHTML;
-          if ( docViewBottom > elemTop  && docViewBottom < elementBottom ){
+          if ( docViewBottom > elemTop  && docViewBottom < elementBottom - 100 ){
             var playPromise =  $(this)[0].play();
             if (playPromise !== undefined) {
                playPromise.then(_ => {
@@ -520,10 +517,12 @@ class App extends Component {
 
              $(video_controls).find('.play_pause')[0].innerHTML = 'pause';
 
-          }  else if ( docViewBottom > stopBottom) {
+          }  else if ( docViewBottom > stopBottom + 100) {
+            console.log('stopbottom')
               $(this)[0].pause();
             $(video_controls).find('.play_pause')[0].innerHTML = 'play';
-          } else if ( docViewBottom < elemTop ) {
+          } else if ( docViewBottom < elemTop) {
+
               $(this)[0].pause();
               $(video_controls).find('.play_pause')[0].innerHTML = 'play';
           }
@@ -792,14 +791,15 @@ class App extends Component {
       <div className={`App ${this.props.theName}`}>
         <div className="wrapper">
           <nav>
+          <div className="inner">
             <div className="main_logo">
-              <a target="_blank" href="http://raremedium.com.au/">
+              <a target="_blank" rel="noopener noreferrer" href="http://raremedium.com.au/">
               <img src="//images.contentful.com/a7w606b3ho4t/2YMbFSH8HuAiA80cKI8kug/ff588cf9b15a6d541996a86d1ff41af3/logo-mobile_2x.png" alt="Rare Medium Logo" />
               </a>
             </div>
             <div className="nav_left">
               <a onClick={this.openShare.bind(this)}>Share</a>
-              <a target="_blank" href="http://raremedium.com.au/">Raremedium.com.au</a>
+              <a target="_blank" rel="noopener noreferrer" href="http://raremedium.com.au/">Raremedium.com.au</a>
 
                 <div className="newsButton" onClick={this.openNews.bind(this)}>
                   <h3>EMAG</h3>
@@ -807,6 +807,7 @@ class App extends Component {
                 </div>
 
 
+            </div>
             </div>
           </nav>
 

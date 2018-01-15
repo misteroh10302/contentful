@@ -27,37 +27,26 @@
   </head>
 
   <body>
-    <script>
-    Array.prototype.forEach = function(callback, thisArg) {
-      if(typeof(callback) !== "function") {
-        throw new TypeError(callback + " is not a function!");
-      }
-      var len = this.length;
-      for(var i = 0; i < len; i++) {
-        callback.call(thisArg, this[i], i, this)
-      }
-      }
-    </script>
+
     <div id="fb-root"></div>
-      <script>
-      window.fbAsyncInit = function() {
-       FB.init({
-         appId      : '1995800384033448',
-         xfbml      : true,
-         version    : 'v2.11'
-       });
-       FB.AppEvents.logPageView();
-     };
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1995800384033448',
+      xfbml      : true,
+      version    : 'v2.11'
+    });
+    FB.AppEvents.logPageView();
+  };
 
-     (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-    </script>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
